@@ -1,0 +1,24 @@
+@use 'design-system/src/utils/mixins';
+
+.buttonLink {
+  @include mixins.flex($justify: center, $align: center);
+  @include mixins.font(var(--c_white), 1.6rem, var(--f-weight_600));
+  @include mixins.shape(
+    $bg: var(--c_primary),
+    $br: var(--b-radius_cta-button),
+    $w-border: 0
+  );
+  padding: 1.8rem 5rem;
+  height: var(--h-cta-button);
+  transition: background-color 300ms;
+  text-align: center;
+  &:hover {
+    background-color: var(--c_primary-100);
+  }
+}
+
+.disabled {
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.6;
+}

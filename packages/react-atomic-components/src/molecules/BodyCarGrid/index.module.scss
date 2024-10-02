@@ -1,0 +1,55 @@
+.bodyCarGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  grid-auto-rows: minmax(8rem, auto);
+  grid-gap: 1rem 1rem;
+}
+
+.bodyCarItemBtn {
+  transition: all 0.3s ease-in-out;
+  background-color: var(--c_white);
+  color: var(--c_black);
+  max-width: 8rem;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1;
+  cursor: pointer;
+  border: .2rem solid var(--c_grey-300);
+  border-radius: .4rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  svg {
+    fill: var(--c_secondary);
+    width: 80%;
+  }
+  span {
+    font-size: 1.4rem;
+    display: block;
+  }
+  span:last-child {
+    left: 0;
+    width: 100%;
+    color: var(--c_grey-450);
+    margin: 0;
+  }
+}
+
+.btnInactive {
+  svg {
+    opacity: 0.3;
+  }
+}
+
+.labelInactive {
+  opacity: 0.3;
+}
+
+.bodyCarItemActive {
+  border: .2rem solid var(--c_secondary);
+  span {
+    font-weight: bold;
+  }
+}

@@ -1,0 +1,88 @@
+@use 'design-system/src/utils/mixins';
+@use 'design-system/src/utils/screen';
+
+.container {
+  opacity: 0.96;
+  background-color: var(--c_primary);
+  border-top-right-radius: var(--b-radius_normal);
+  border-bottom-right-radius: var(--b-radius_normal);
+  color: var(--c_white);
+  line-height: var(--space-2);
+  position: fixed;
+  z-index: 20;
+  left: 0;
+  width: fit-content;
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(-100%);
+  max-width: 100%;
+  @include mixins.flex(center, center, row);
+}
+
+.title {
+  font-size: var(--f-size_18);
+  font-weight: var(--f-weight_700);
+  @include screen.forSize(tablet) {
+    font-size: var(--f-size_20);
+  }
+}
+
+.subContainer {
+  position: relative;
+  display: flex;
+  width: fit-content;
+  padding: var(--space-4) var(--space-8) var(--space-4) var(--space-4);
+  @include screen.forSize(tablet) {
+    padding: 0 var(--space-8);
+  }
+}
+
+.contentContainer {
+  gap: var(--space-3);
+  @include mixins.flex(center, flex-start, column);
+  @include screen.forSize(tablet) {
+    padding: var(--space-4) var(--space-2);
+  }
+}
+
+.openButton,
+.closeButton {
+  color: inherit;
+  border: none;
+  border-radius: unset;
+  position: absolute;
+}
+
+.openButton {
+  height: 100%;
+  right: 0;
+  top: 0;
+  font-size: var(--f-size_14);
+  font-weight: var(--f-weight_600);
+  writing-mode: vertical-rl;
+  transform: scale(-1, -1);
+  width: 3rem;
+  @include screen.forSize(tablet) {
+    width: 4rem;
+  }
+  @include mixins.flex(center, center, row);
+  @include screen.forSize(tablet) {
+    font-size: var(--f-size_16);
+  }
+}
+
+.closeButton {
+  height: 1.7rem;
+  width: 1.7rem;
+  top: var(--space-2);
+  right: var(--space-2);
+  @include screen.forSize(tablet) {
+    top: var(--space-3);
+    right: var(--space-3);
+  }
+}
+
+.closeIcon {
+  fill: currentColor;
+  height: 100%;
+  width: 100%;
+}

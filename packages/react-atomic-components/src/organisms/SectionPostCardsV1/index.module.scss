@@ -1,0 +1,29 @@
+@use 'design-system/src/utils/screen';
+
+.posts {
+   display: flex;
+   flex-wrap: wrap;
+   margin: calc(var(--space-2) * -1);
+}
+
+.postCard_outer {
+   display: flex;
+   padding: var(--space-2);
+   width: 100%;
+
+   @include screen.forSize(tablet) {
+      width: calc(100% / 2);
+   }
+
+   @include screen.min(1024) {
+      width: calc(100% / 3);
+   }
+
+   @include screen.forSize(desktop-sm) {
+      width: calc(100% / 4);
+   }
+}
+
+.postCard {
+   width: 100%;
+}

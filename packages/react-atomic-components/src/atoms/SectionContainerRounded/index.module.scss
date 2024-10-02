@@ -1,0 +1,43 @@
+@use 'design-system/src/utils/screen';
+
+.sectionContainerRounded {
+  width: 100%;
+  padding: var(--p_section-container);
+  border-radius: var(--b-radius_normal);
+  background-color: var(--c_white);
+}
+
+.hasBoxShadow {
+  box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.1);
+}
+
+.default,
+.error,
+.success,
+.info {
+  border-style: solid;
+  border-width: 0.1rem;
+  .sectionContainerRounded {
+    box-shadow: none;
+  }
+}
+
+.default {
+  border-color: var(--c_grey-300);
+  color: var(--c_grey-900);
+}
+
+.error {
+  border-color: var(--c_error);
+  color: var(--c_error);
+}
+
+.info {
+  border-color: var(--c_primary);
+  color: var(--c_primary);
+}
+
+.success {
+  border-color: var(--c_success-400);
+  color: var(--c_success-400);
+}

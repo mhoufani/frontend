@@ -1,0 +1,71 @@
+.carousel {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+}
+
+.trackOuter {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.trackInner {
+  height: 100%;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.itemContainer {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  vertical-align: bottom;
+}
+
+.dots {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dot {
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
+  border-radius: 50%;
+  height: 2.6rem;
+  width: 2.6rem;
+  border: 1px solid transparent;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: border-color 0.2s linear 0s;
+  margin: 3px;
+  button {
+    cursor: pointer;
+    border-radius: 50%;
+    height: 1.6rem;
+    width: 1.6rem;
+    border: none;
+    background-color: rgb(17, 88, 154);
+    font-size: 0px;
+    opacity: 0.2;
+    transition: opacity 0.2s linear 0s;
+  }
+}
+
+.dot_active {
+  border-color: rgb(17, 88, 154);
+  button {
+    opacity: 1;
+  }
+}
+
+.navStepper {
+  margin: 0.5rem;
+}

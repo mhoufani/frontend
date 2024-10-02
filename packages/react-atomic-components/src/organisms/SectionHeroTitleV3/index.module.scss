@@ -1,0 +1,72 @@
+@use 'design-system/src/utils/screen';
+
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+
+  @include screen.forSize(desktop) {
+    justify-content: center;
+  }
+}
+
+.container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 0rem;
+  margin-top: 0rem;
+  padding-bottom: var(--space-8);
+  padding-top: var(--space-8);
+  order: 1;
+  position: relative;
+  z-index: 1;
+  
+  @include screen.forSize(desktop) {
+    padding-bottom: var(--space-5);
+    padding-top: var(--space-5);
+  }
+}
+
+.ytEmbed_outer {
+  max-height: 63rem;
+  order: 0;
+  max-width: 100%;
+}
+
+.title {
+  color: var(--c_primary);
+  font-size: var(--f-size_26);
+  line-height: 1.1;
+  margin-bottom: var(--space-3);
+  text-align: center;
+
+  @include screen.forSize(tablet) {
+    font-size: var(--f-size_34);
+    margin-bottom: var(--space-4);
+  }
+  @include screen.forSize(desktop) {
+    font-size: var(--f-size_48);
+    margin-bottom: var(--space-5);
+  }
+}
+.title:last-child {
+  margin-bottom: 0rem;
+}
+
+.subTitle {
+  color: var(--c_secondary);
+  font-size: var(--f-size_16);
+  margin-bottom: 0rem;
+
+  @include screen.forSize(tablet) {
+    margin-bottom: 0rem;
+  }
+  @include screen.forSize(desktop) {
+    color: var(--c_primary);
+    font-size: var(--f-size_18);
+    margin-bottom: 0rem;
+  }
+}

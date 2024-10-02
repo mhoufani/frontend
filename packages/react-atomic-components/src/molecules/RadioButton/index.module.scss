@@ -1,0 +1,27 @@
+@use 'design-system/src/utils/mixins';
+@use 'design-system/src/utils/screen';
+
+.radio {
+  color: var(--c_primary);
+  height: 5rem;
+  @include mixins.shape(
+    $bg: var(--c_white),
+    $c-border: var(--c_primary),
+    $br: var(--b-radius_normal)
+  );
+  font-size: var(--f-size_M);
+  @include mixins.flex(center, center);
+  width: fit-content;
+  padding: var(--space-3);
+
+  &.checked {
+    background-color: var(--c_primary);
+    border-color: var(--c_primary);
+    color: var(--c_white);
+    font-weight: var(--f-weight_700);
+  }
+}
+
+.mark {
+  display: none;
+}

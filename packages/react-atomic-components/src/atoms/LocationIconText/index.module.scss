@@ -1,0 +1,15 @@
+@use 'design-system/src/utils/mixins';
+
+.locationIconTextContainer {
+  @include mixins.flex($justify: space-between, $align: center);
+  width: 100%;
+}
+
+.locationIconTextSubContainer {
+  color: var(--c_secondary);
+  @include mixins.flex($align: center);
+  gap: 0.8rem;
+  path {
+    fill: currentColor;
+  }
+}

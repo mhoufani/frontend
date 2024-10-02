@@ -1,0 +1,29 @@
+@use 'design-system/src/utils/screen';
+@use 'design-system/src/utils/mixins';
+
+.listItemTitle {
+  color: var(--c_black);
+  font-weight: var(--f-weight_normal);
+}
+
+.listContainer {
+  margin-bottom: 1rem;
+}
+
+.buttonContainer {
+  @include mixins.flex($justify: flex-end);
+  width: 100%;
+  padding: var(--space-2) 0;
+}
+
+.refundText {
+  color: var(--c_primary);
+  font-size: var(--f-size_L);
+}
+
+.button {
+  max-width: none;
+  @include screen.forSize(tablet) {
+    max-width: 20rem;
+  }
+}

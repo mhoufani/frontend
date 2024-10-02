@@ -1,0 +1,145 @@
+@use 'design-system/src/utils/mixins';
+
+.colors {
+  &.black {
+    background-color: #313131;
+  }
+  &.grey {
+    background-color: #c4c4c4;
+  }
+  &.white {
+    border: 1px solid #dcdcdc;
+    background-color: #ffffff;
+  }
+  &.red {
+    background-color: #e60023;
+  }
+  &.orange {
+    background-color: #f27400;
+  }
+  &.yellow {
+    background-color: #f1d024;
+  }
+  &.green {
+    background-color: #39c336;
+  }
+  &.blue {
+    background-color: #235aa3;
+  }
+  &.burgundy {
+    background-color: #b61964;
+  }
+  &.brown {
+    background-color: #653926;
+  }
+  &.silver {
+    background: linear-gradient(220.71deg, #c4c4c4 22.39%, #eaeaea 72.39%);
+  }
+  &.purple {
+    background-color: #ad3da9;
+  }
+  &.beige {
+    background-color: #ead7ba;
+  }
+  &.gold {
+    background: linear-gradient(
+      131.19deg,
+      #bb9955 5.89%,
+      #e6dc81 50.82%,
+      #b38728 100.06%
+    );
+  }
+  &.bronze {
+    background: linear-gradient(
+      137.94deg,
+      rgba(128, 74, 0, 0.87) 21.67%,
+      rgba(156, 122, 60, 0.87) 56.88%,
+      rgba(176, 141, 87, 0.87) 98.2%
+    );
+  }
+}
+
+.colorGrid {
+  width: 100%;
+}
+
+.colorGridContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(56px, 1fr));
+  grid-auto-rows: minmax(92px, auto);
+  grid-gap: 2.4rem 2.4rem;
+}
+
+.button {
+  background-color: transparent;
+  padding: 0;
+  position: relative;
+  width: 100%;
+}
+
+.colorItem {
+  @include mixins.absolute;
+  margin: 0 auto;
+  overflow: hidden;
+  height: 5.6rem;
+  width: 5.6rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transform: rotate(135deg);
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    .layer {
+      opacity: 0;
+    }
+  }
+  &.colorItemActive {
+    border: 2px solid var(--c_grey-900);
+  }
+}
+
+.layer {
+  @include mixins.absolute;
+  height: 50%;
+  width: 100%;
+  background-color: var(--c_white);
+  opacity: 0.1;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.other {
+  border: 1px solid var(--c_grey-300);
+  :last-child {
+    border-bottom: 1px solid var(--c_grey-300);
+    opacity: 1;
+  }
+}
+
+.colorItemText {
+  @include mixins.font(var(--c_black), var(--f-size_S), var(--f-weight_400));
+  @include mixins.flex(center, center, column);
+  @include mixins.absolute(auto, 0, 0, 0);
+  width: 100%;
+}
+
+.amount {
+  color: var(--c_grey-450);
+}
+
+.innerActive {
+  border: 2px solid var(--c_white);
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  &.active {
+    opacity: 1;
+  }
+}
+
+.colorTextActive {
+  font-weight: var(--f-weight_700);
+}
+
+.inactive {
+  @include mixins.disabled;
+}

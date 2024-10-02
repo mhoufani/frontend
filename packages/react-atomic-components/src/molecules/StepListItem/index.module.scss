@@ -1,0 +1,64 @@
+.listItem {
+  list-style-type: none;
+  position: relative;
+
+  &::before {
+    position: absolute;
+    left: calc(-3rem - var(--step-icon-size));
+    top: 0.4rem;
+    border-radius: 0.7rem;
+    background-color: var(--c_stepListDots);
+    content: '';
+    width: var(--step-icon-size);
+    height: var(--step-icon-size);
+    display: block;
+    z-index: 2;
+  }
+
+  &::after {
+    content: '';
+    background: var(--c_stepListDotsBackground);
+    position: absolute;
+    left: calc(-3rem - var(--step-icon-size));
+    width: var(--step-icon-size);
+    height: calc(100% + var(--list-gap));
+    top: 1.1rem;
+    display: block;
+    z-index: 1;
+  }
+
+  &:last-child {
+    padding-bottom: 0;
+    .listContent {
+      border-bottom: none;
+    }
+    &::after {
+      content: none;
+    }
+  }
+}
+.listItemTitle {
+  display: block;
+  color: var(--c_primary);
+  font-size: var(--f-size_L);
+  font-weight: var(--f-weight_700);
+  margin-bottom: var(--space-2);
+}
+
+.tag {
+  &::before {
+    background-color: #fff;
+    border: .1rem solid var(--c_stepListDots);
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+
+  .listItemTitle {
+    display: inline;
+    margin-right: 1.2rem;
+    margin-bottom: var(--space-2);
+  }
+  .listContent {
+    margin-top: var(--space-2);
+  }
+}

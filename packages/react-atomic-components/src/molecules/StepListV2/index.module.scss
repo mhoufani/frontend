@@ -1,0 +1,10 @@
+@use 'design-system/src/utils/mixins';
+@use 'design-system/src/utils/screen';
+
+.stepListContainer {
+  @include mixins.flex(space-between, '', column);
+  gap: 6rem;
+  @include screen.forSize(desktop) {
+    gap: 7rem;
+  }
+}

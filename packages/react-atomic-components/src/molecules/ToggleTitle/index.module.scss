@@ -1,0 +1,45 @@
+.toggleTitle {
+  border-bottom: 1px solid var(--c_grey-300);
+  padding-right: .8rem;
+}
+
+.arrow {
+  fill: var(--c_grey-450);
+  height: 1.2rem;
+  width: 2rem;
+  transition: transform 0.3s ease-in-out;
+  transform: rotate(180deg);
+}
+
+.arrowDown {
+  transform: rotate(0deg);
+}
+
+.toggle {
+  display: flex;
+  color: var(--c_grey-900);
+  cursor: pointer;
+  justify-content: space-between;
+}
+
+.toggleDisabled {
+  color: var(--c_grey-500);
+  cursor: not-allowed;
+}
+
+.toggleContent {
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out;
+}
+
+.toggleContentClose {
+  max-height: 0;
+}
+
+.toggleContentOpen {
+  max-height: 100rem;
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

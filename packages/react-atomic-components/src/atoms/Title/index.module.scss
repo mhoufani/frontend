@@ -1,0 +1,37 @@
+@use 'design-system/src/utils/screen';
+@use 'design-system/src/utils/mixins';
+
+.titleH1 {
+  @include mixins.fontStyle(var(--f-size_26), var(--f-weight_700));
+  @include screen.forSize(tablet) {
+    font-size: var(--f-size_36);
+  }
+}
+.titleH2 {
+  @include mixins.fontStyle(var(--f-size_24), var(--f-weight_700));
+  @include screen.forSize(tablet) {
+    font-size: var(--f-size_34);
+  }
+}
+.titleH3 {
+  @include mixins.fontStyle(var(--f-size_18), var(--f-weight_700));
+  @include screen.forSize(tablet) {
+    font-size: var(--f-size_28);
+  }
+}
+.titleH4 {
+  @include mixins.fontStyle(var(--f-size_16), var(--f-weight_700));
+  @include screen.forSize(tablet) {
+    font-size: var(--f-size_24);
+  }
+}
+.titleH5 {
+  @include mixins.fontStyle(var(--f-size_H5), var(--f-weight_700));
+}
+
+.titlePrimary {
+  @include mixins.colors(var(--c_title-primary));
+}
+.titleSecondary {
+  @include mixins.colors(var(--c_title-secondary));
+}

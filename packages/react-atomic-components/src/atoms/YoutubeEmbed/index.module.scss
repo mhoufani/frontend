@@ -1,0 +1,62 @@
+@use 'design-system/src/utils/mixins';
+
+.outer {
+   aspect-ratio: 16/9;
+   display: inline-flex;
+   position: relative;
+   overflow: hidden;
+   max-width: 62rem;
+   width: 100%;
+}
+
+.outer.w100 {
+   max-width: 100%;
+}
+
+.outer.ratio43 {
+   aspect-ratio: 4/3;
+}
+
+.outer.rounded {
+   border-radius: var(--b-radius_normal);
+}
+
+.iframe {
+   border: 0rem;
+   height: 100%;
+   width: 100%;
+}
+
+.buttonCover {
+   align-items: center;
+   display: flex;
+   background-color: transparent;
+   background-position: center;
+   background-repeat: repeat;
+   background-size: cover;
+   bottom: 0rem;
+   height: auto;
+   justify-content: center;
+   left: 0rem;
+   max-width: 100%;
+   position: absolute;
+   top: 0rem;
+   right: 0rem;
+   z-index: 1;
+}
+
+.playButton {
+   height: 8.2rem;
+   position: relative;
+   width: 8.2rem;
+   z-index: 2;
+}
+
+.imageCover {
+   @include mixins.absolute(0, 0, 0, 0);
+   object-fit: cover;
+   object-position: center;
+   height: 100%;
+   width: 100%;
+   z-index: 1;
+}

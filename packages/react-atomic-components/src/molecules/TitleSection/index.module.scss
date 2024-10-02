@@ -1,0 +1,23 @@
+@use "design-system/src/utils/screen";
+@use "design-system/src/utils/mixins";
+
+
+.titleSection {
+  text-align: center;
+}
+
+.title {
+  font-size: 2.4rem;
+  margin-bottom: 20px;
+  @include screen.forSize(desktop) {
+    font-size: 3.6rem;
+  }
+}
+
+.subTitle {
+  font-weight: 700;
+  font-size: 1.4rem;
+  @include screen.forSize(desktop) {
+    font-size: 1.8rem;
+  }
+}

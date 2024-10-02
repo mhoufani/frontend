@@ -1,0 +1,51 @@
+@use 'design-system/src/utils/screen';
+
+.graph {
+  width: 100%;
+  max-width: 13.5rem;
+  padding: 1.6rem 0 0 0;
+  @include screen.forSize(desktop) {
+    max-width: 19.5rem;
+    grid-row-start: span 9000;
+    padding: 1.6rem 0 0 6rem;
+    &:nth-child(3n + 1) {
+      padding: 1.6rem 0 0 0;
+      max-width: 13.5rem;
+    }
+  }
+}
+.energyClass {
+  color: var(--c_white);
+  font-size: 1rem;
+  font-weight: 700;
+  height: 1.6rem;
+  line-height: 16px;
+  margin-bottom: .3rem;
+  padding-left: .6rem;
+  position: relative;
+  span {
+    color: var(--c_white);
+  }
+  &.current {
+    font-size: 1.4rem;
+    height: 2.8rem;
+    line-height: 28px;
+    .cone {
+      border-width: 1.4rem 0 1.4rem 1.4rem;
+      right: -10px;
+    }
+  }
+  .cone {
+    display: block;
+    border-top: .8rem solid transparent;
+    border-bottom: .8rem solid transparent;
+    height: 0px;
+    position: absolute;
+    top: 0px;
+    right: -10px;
+    width: 0px;
+  }
+  .label {
+    margin-right: .5rem;
+  }
+}

@@ -1,0 +1,43 @@
+@use 'design-system/src/utils/screen';
+
+.section {
+  display: flex;
+  height: 9rem;
+  position: relative;
+
+  @include screen.forSize(mobile-375) {
+    height: 12rem;
+  }
+  @include screen.forSize(tablet) {
+    height: 20rem;
+  }
+  @include screen.forSize(desktop) {
+    height: 28.5rem;
+  }
+}
+
+.container {
+  align-items: center;
+  display: flex;
+  margin-bottom: 0rem;
+  margin-top: 0rem;
+  position: relative;
+  z-index: 1;
+}
+
+.background {
+  bottom: 0rem;
+  height: 100%;
+  left: 0rem;
+  object-fit: cover;
+  object-position: center;
+  position: absolute;
+  right: 0rem;
+  top: 0rem;
+  width: 100%;
+  z-index: 0;
+}
+
+.title {
+  color: var(--c_white);
+}

@@ -1,0 +1,140 @@
+@use 'design-system/src/utils/screen';
+@use 'design-system/src/utils/mixins';
+.sectionList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: var(--space-6);
+}
+.sectionTitleNumberContainer {
+  justify-content: flex-start;
+  order: 0;
+  margin-bottom: var(--space-5);
+  width: 100%;
+}
+.imageWrapper {
+  display: none;
+  border-radius: var(--b-radius_normal);
+  height: 19rem;
+  margin-bottom: var(--space-5);
+  max-width: 50rem;
+  overflow: hidden;
+  width: 100%;
+
+  @include screen.forSize(tablet) {
+    height: 26rem;
+    margin-bottom: var(--space-8);
+  }
+
+  @include screen.forSize(desktop) {
+    display: block;
+    height: 27rem;
+    margin-bottom: 0rem;
+    max-width: 40rem;
+    width: 100%;
+  }
+}
+.imageWrapperMobile {
+  display: block;
+
+  @include screen.forSize(desktop) {
+    display: none;
+  }
+}
+.image {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.sectionListContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  order: 2;
+  margin-bottom: var(--space-3);
+}
+.reverseOrder {
+  flex-direction: column-reverse;
+  .sectionTitleNumberContainer {
+   flex-direction: row-reverse;
+  }
+}
+.sectionNumberedContentContainer {
+  order: 2;
+}
+
+.infoBox {
+  margin-top: var(--space-8);
+}
+.btnContainer {
+  @include mixins.flex($direction: column, $justify: center, $align: center);
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+  width: 100%;
+}
+.buttonPrimary, .buttonSecondary {
+  width: 26rem;
+  height: 5rem;
+  font-size: var(--f-size_M);
+  padding: 0;
+}
+.buttonSecondary {
+  background-color: var(--c_secondary);
+  &:hover {
+    background-color: var(--c_secondary-100);
+  }
+}
+
+@include screen.forSize(tablet) {
+  .sectionList {
+    margin-bottom: var(--space-12);
+  }
+  .sectionTitleNumberContainer {
+    margin-bottom: var(--space-7);
+  }
+  .sectionListContent {
+    margin-bottom: var(--space-8);
+  }
+  .btnContainer {
+    flex-direction: row;
+    gap: var(--space-4);
+  }
+  .buttonPrimary, .buttonSecondary {
+    width: 27rem;
+  }
+}
+@include screen.forSize(desktop) {
+  .sectionList {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--space-12);
+  }
+  .sectionTitleNumberContainer {
+    margin-bottom: var(--space-6);
+  }
+  .sectionListContent {
+    padding: 0;
+  }
+  .reverseOrder {
+    flex-direction: row-reverse;
+    .sectionTitleNumberContainer {
+      flex-direction: row;
+    }
+  }
+  .sectionNumberedContentContainer {
+    width: 100%;
+    @include mixins.flex($direction: column);
+    order: 1;
+  }
+  .btnContainer {
+    justify-content: flex-start;
+  }
+  .buttonPrimary, .buttonSecondary {
+    height: 5.5rem;
+    padding: 0;
+  }
+}

@@ -1,0 +1,63 @@
+@use 'design-system/src/utils/screen';
+
+.carousel_carousel {
+   position: relative;
+}
+
+.carousel_dots {
+   margin-top: var(--space-4);
+}
+
+.carousel_navStepper {
+   height: 50%;
+   opacity: .8;
+   margin: -2.6rem 0 0;
+   position: absolute;
+   top: 50%;
+   transform: translateY(-50%);
+   transition: transform 300ms ease;
+   width: 3rem;
+
+   &:hover {
+      opacity: 1;
+   }
+
+   & > svg {
+      fill: var(--c_white);
+      height: 4.5rem;
+      width: 2.5rem;
+   }
+
+   @include screen.forSize(tablet) {
+      width: 5rem;
+   }
+}
+
+.carousel_navStepperPrev {
+   left: 0;
+   padding-left: var(--space-1);
+
+   &:hover {
+      transform: translate(calc(var(--space-1) * -1), -50%);
+   }
+
+   @include screen.forSize(tablet) {
+      padding-left: var(--space-3);
+   }
+}
+.carousel_navStepperNext {
+   right: 0;
+   padding-right: var(--space-1);
+
+   &:hover {
+      transform: translate(var(--space-1), -50%);
+   }
+
+   @include screen.forSize(tablet) {
+      padding-right: var(--space-3);
+   }
+}
+
+.banner {
+   flex: 1;
+}

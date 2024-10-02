@@ -1,0 +1,91 @@
+@use 'design-system/src/utils/screen';
+
+.container {
+  padding: 3rem 1.8rem;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  border-radius: .4rem;
+  box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.15);
+  @include screen.forSize(tablet) {
+      padding: 3rem 7rem;
+  }
+  @include screen.forSize(desktop) {
+    padding: 3rem;
+  }
+}
+
+.contentPaper {
+  @include screen.forSize(desktop) {
+    box-shadow: none;
+  }
+}
+
+.titleDesc {
+  @include screen.forSize(tablet) {
+    margin-top: 1.7rem;
+    margin-bottom: 0;
+  }
+  @include screen.forSize(desktop) {
+    height: 6.7rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+.secundVisitImg {
+  display: none;
+  @include screen.forSize(desktop) {
+    display: block;
+    width: 48%;
+  }
+}
+
+.secundVisitImg2 {
+  display: block;
+  @include screen.forSize(desktop) {
+    display: none;
+  }
+}
+
+.imgContainer {
+  margin-top: 1.6rem;
+  width: 100%;
+  @include screen.forSize(tablet) {
+    margin-top: 2.4rem;
+  }
+}
+
+.desc {
+  font-size: 1.4rem;
+  margin-bottom: 0;
+  margin-top: 2.1rem;
+  text-align: center;
+  @include screen.forSize(tablet) {
+    margin-top: 3.3rem;
+    font-size: 2rem;
+  }
+  @include screen.forSize(desktop) {
+    height: 5rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+.buttonLinkWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  @include screen.forSize(tablet) {
+    margin-top: 1rem;
+  }
+}
+
+.buttonLink {
+  height: auto;
+}

@@ -1,0 +1,98 @@
+@use 'design-system/src/utils/screen';
+@use 'design-system/src/utils/mixins';
+
+.list {
+  @include mixins.flex(center, center);
+  margin-bottom: 20px;
+}
+
+.item {
+  @include mixins.flex(center, center);
+  height: 40px;
+  width: 40px;
+  @include screen.forSize(tablet) {
+    margin: 0 20px;
+    justify-content: center;
+  }
+  @include screen.forSize(desktop) {
+    margin: 0 10px;
+  }
+}
+
+.link {
+  @include mixins.font(
+    var(--c_black),
+    var(--f-size_L),
+    var(--f-weight_400)
+  );
+  @include mixins.flex(center, center);
+  height: 40px;
+  width: 40px;
+}
+
+.hover {
+  &:hover {
+    font-weight: var(--f-weight_600);
+  }
+}
+
+.activePage {
+  @include mixins.shape(
+    var(--c_primary),
+    var(--c_primary),
+    var(--b-radius_button-default)
+  );
+  color: var(--c_white);
+  &:hover {
+    background-color: var(--c_paging-hover);
+  }
+}
+
+.chevronLeft {
+  transform: rotate(180deg);
+  transition: transform 100ms;
+  path {
+    fill: var(--c_paging-arrow);
+    stroke: var(--c_paging-arrow);
+  }
+  &:hover {
+    transform: rotate(180deg) scale(1.1);
+    path {
+      fill: var(--c_paging-arrow-hover);
+      stroke: var(--c_paging-arrow-hover);
+    }
+  }
+}
+
+.chevronRight {
+  transition: transform 100ms;
+  path {
+    fill: var(--c_paging-arrow);
+    stroke: var(--c_paging-arrow);
+  }
+  &:hover {
+    transform: scale(1.1);
+    path {
+      fill: var(--c_paging-arrow-hover);
+      stroke: var(--c_paging-arrow-hover);
+    }
+  }
+}
+
+.adSeen {
+  @include mixins.flex(center, center);
+  padding: 50px 0 30px 0;
+  span {
+    font-size: var(--f-size_M);
+    @include screen.forSize(tablet) {
+      font-size: var(--f-size_L);
+    }
+    @include screen.forSize(desktop) {
+      font-size: var(--f-size_L);
+    }
+  }
+}
+
+.hidden {
+  display: none;
+}

@@ -1,0 +1,24 @@
+.crumbs {
+  display: flex;
+  align-content: center;
+  justify-content: flex-start;
+  
+  a, em {
+    display: block;
+    flex-shrink: 0;
+    margin-right: var(--space-2);
+    font-size: var(--f-size_16);
+    &:first-letter {
+      text-transform: capitalize;
+    }
+    &:last-child {
+      font-weight: var(--f-weight_700);
+    }
+  }
+}
+.arrow {
+  flex-shrink: 0;
+  height: 2rem;
+  margin-right: var(--space-2);
+  width: .5rem;
+}

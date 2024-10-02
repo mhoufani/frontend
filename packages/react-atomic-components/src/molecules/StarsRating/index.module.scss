@@ -1,0 +1,14 @@
+.stars {
+   display: flex;
+}
+
+.star {
+   margin-left: .4rem;
+   margin-right: .4rem;
+}
+.star:last-child {
+   margin-right: 0rem;
+}
+.star:first-child {
+   margin-left: 0rem;
+}

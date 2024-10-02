@@ -1,0 +1,78 @@
+@use 'design-system/src/utils/mixins';
+@use 'design-system/src/utils/screen';
+
+.outer {
+  margin-bottom: var(--space-5);
+  position: sticky;
+  top: var(--h_header-full-dynamic);
+  transition: top 200ms ease 300ms;
+  z-index: 1;
+  
+  @include screen.forSize(tablet) {
+    margin-bottom: var(--space-8);
+  }
+  @include screen.forSize(desktop) {
+    margin-bottom: var(--space-12);
+  }
+}
+
+.sticky0 {
+  top: 0rem;
+}
+
+.scollXOuter {
+  margin-left: calc(var(--space-4) * -1);
+  margin-right: calc(var(--space-4) * -1);
+  padding-bottom: .25rem;
+  width: calc(100% + var(--space-8));
+}
+.scollXInner {
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+}
+
+.stickyMenu {
+  background-color: var(--c_white);
+  border-bottom: .1rem solid var(--c_grey-300);
+  display: flex;
+  flex-shrink: 0;
+  list-style: none;
+  margin: 0rem;
+  min-width: 100%;
+  padding: 0rem;
+}
+
+.item {
+  flex-shrink: 0;
+}
+
+.itemLink {
+  align-items: center;
+  background-color: transparent;
+  color: var(--c_primary);
+  display: flex;
+  flex-direction: column;
+  font-size: var(--f-size_18);
+  font-weight: var(--f-weight_400);
+  height: var(--h_stickyMenu);
+  justify-content: center;
+  line-height: 1;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  position: relative;
+}
+.itemLink:after {
+  bottom: -0.25rem;
+  content: '';
+  height: .5rem;
+  left: 0rem;
+  position: absolute;
+  width: 100%;
+}
+.itemLink:hover, .currentLink {
+  @include mixins.textEffect(bold, var(--c_primary));
+}
+.currentLink:after {
+  background-color: var(--c_secondary);
+  border-radius: .25rem;
+}

@@ -1,0 +1,54 @@
+.container {
+  position: relative;
+}
+
+.isErrored {
+  .input {
+    border: 1px solid var(--c_error);
+  }
+  .suggestions {
+    border: 1px solid var(--c_error);
+  }
+}
+
+.input {
+  border: 1px solid var(--c_grey-550);
+  border-radius: var(--b-radius_normal);
+  font-size: var(--f-size_16);
+  height: 5rem;
+  padding-left: var(--space-3);
+  padding-right: var(--space-3);
+  width: 100%;
+
+  &.inputOpen {
+    border-radius: var(--b-radius_normal) var(--b-radius_normal) 0rem
+      0rem;
+  }
+
+  &:disabled {
+    color: var(--c_grey-600);
+  }
+
+  &::placeholder {
+    color: var(--c_grey-500);
+    font-style: italic;
+  }
+}
+
+.suggestions {
+  border: 1px solid var(--c_grey-550);
+  border-top: 0px;
+  border-radius: 0rem 0rem var(--b-radius_normal)
+    var(--b-radius_normal);
+  padding-bottom: var(--space-1);
+  padding-top: var(--space-1);
+}
+
+.suggestionInner {
+  line-height: 1.8rem;
+  min-height: 4rem;
+  padding-bottom: var(--space-2);
+  padding-left: var(--space-3);
+  padding-right: var(--space-3);
+  padding-top: var(--space-2);
+}

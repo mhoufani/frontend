@@ -1,0 +1,130 @@
+@use 'design-system/src/utils/screen';
+@use 'design-system/src/utils/mixins';
+
+.blockContactContainer {
+  padding: var(--space-4);
+  border-color: var(--c_blue-500);
+  @include mixins.flex(
+    $justify: center,
+    $align: center,
+    $direction: column
+  );
+  gap: var(--space-4);
+  text-align: center;
+  @include screen.forSize(tablet) {
+    padding: var(--space-6);
+    @include mixins.flex(
+      $justify: unset,
+      $align: center,
+      $direction: row
+    );
+    text-align: left;
+    gap: var(--space-8);
+  }
+  @include screen.forSize(desktop) {
+    @include mixins.flex(
+      $justify: center,
+      $align: center,
+      $direction: column
+    );
+    text-align: center;
+    padding: var(--space-8);
+    gap: var(--space-10);
+  }
+}
+
+.title {
+  font-size: var(--f-size_26);
+  margin: 0 0 var(--space-3) 0;
+  @include screen.forSize(desktop) {
+    margin: 0 0 var(--space-6) 0;
+    font-size: var(--f-size_28);
+  }
+  @include screen.forSize(desktop-sm) {
+    font-size: var(--f-size_24);
+  }
+}
+
+.text {
+  font-size: var(--f-size_14);
+  color: var(--c_black);
+  &.first {
+    margin-bottom: var(--space-3);
+  }
+  strong {
+    @include mixins.fontStyle($fw: var(--f-weight_700));
+  }
+}
+
+.image {
+  width: 13rem;
+
+  @include screen.forSize(desktop) {
+    width: auto;
+    height: auto;
+    flex-shrink: 0;
+  }
+  @include screen.forSize(desktop-sm) {
+    max-width: 12.8rem;
+    max-height: 15.6rem;
+  }
+  img {
+    height: auto;
+  }
+}
+
+.imgOnError {
+  width: 100%;
+}
+
+.buttonsContainer {
+  width: 100%;
+  margin-top: var(--space-6);
+  gap: var(--space-3);
+  @include mixins.flex($justify: center);
+  @include screen.forSize(tablet) {
+    justify-content: flex-start;
+    gap: var(--space-4);
+  }
+  @include screen.forSize(desktop) {
+    justify-content: center;
+    gap: var(--space-8);
+  }
+
+  a {
+    @include mixins.fontStyle(var(--f-size_14));
+    padding: 0;
+    width: 100%;
+    max-width: 14rem;
+
+    @include screen.forSize(tablet) {
+      max-width: 18rem;
+    }
+    @include screen.forSize(desktop-sm) {
+      max-width: 23rem;
+    }
+    &.secondary {
+      color: var(--c_primary);
+      @include mixins.shape(
+        $bg: var(--c_white),
+        $c-border: var(--c_primary),
+        $br: var(--b-radius_cta-button)
+      );
+    }
+    &.primary {
+      display: flex;
+      flex-direction: column;
+      color: var(--c_white);
+      span {
+        color: var(--c_white);
+      }
+      @include screen.forSize(tablet) {
+        @include mixins.flex(
+          $justify: center,
+          $align: center,
+          $direction: column
+        );
+      }
+    }
+  }
+}

@@ -1,0 +1,75 @@
+@use 'design-system/src/utils/mixins';
+
+$formats: h1, h2, h3, h4, h5, h6, h6-m, h6-s;
+$sizes: 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36;
+$sizes_alias_p: xxs, xs, s, m, l, xl;
+$sizes_alias_heading: h1, h2, h3, h4, h5, h6, h6-m, h6-s;
+$weights: extraLight, light, normal, semiBold, bold, extraBold, black, 100, 200,
+  300, 400, 500, 600, 700, 800, 900;
+
+// Sizes
+
+@each $size in $sizes {
+  .size_#{$size} {
+    font-size: var(--f-size_#{$size});
+  }
+}
+
+@each $size in $sizes_alias_p {
+  .size_#{$size} {
+    font-size: var(--f-size_p-#{$size});
+  }
+}
+
+@each $size in $sizes_alias_heading {
+  .size_#{$size} {
+    font-size: var(--f-size_#{$size});
+  }
+}
+
+// Weights
+
+@each $weight in $weights {
+  .weight_#{$weight} {
+    font-weight: var(--f-weight_#{$weight});
+  }
+}
+
+// Formats
+
+@each $format in $formats {
+  .format_#{$format} {
+    font-size: var(--f-size_#{$format});
+    font-weight: var(--f-weight_bold);
+  }
+}
+
+// Style
+
+.style_normal {
+  font-style: normal;
+}
+.style_italic {
+  font-style: italic;
+}
+
+// format
+
+.decoration_underline {
+  text-decoration: underline;
+}
+.decoration_lineThrough {
+  text-decoration: line-through;
+}
+.decoration_overline {
+  text-decoration: overline;
+}
+
+// Align
+
+.align_center {
+  text-align: center;
+}
+.align_right {
+  text-align: right;
+}

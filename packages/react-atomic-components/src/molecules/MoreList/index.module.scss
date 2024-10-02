@@ -1,0 +1,49 @@
+.moreListItem {
+  display: flex;
+  align-items: center;
+  min-height: 3.8rem;
+  font-weight: 400;
+  &.hide {
+    display: none;
+  }
+}
+
+.moreButton {
+  font-size: 1.6rem;
+  font-weight: 400;
+  text-decoration: underline;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  color: var(--c_secondary);
+  min-width: 14rem;
+  text-align: left;
+}
+
+.linkMore {
+  font-size: 1.6rem;
+  text-align: center;
+  border: 1px solid black;
+  line-height: 36px;
+  max-width: 20.3rem;
+  width: 100%;
+  color: black;
+  border-radius: 1rem;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.linkMoreOnly {
+  margin-right: auto;
+}
+.linkActive {
+  color: var(--c_secondary);
+  font-weight: 700;
+}
+
+.listEnd {
+  display: flex;
+  width: 100%;
+  margin-top: .5rem;
+}

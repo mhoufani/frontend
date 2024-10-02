@@ -1,0 +1,22 @@
+@use 'design-system/src/utils/screen';
+
+.carousel__trackOuter {
+   margin-left: -1rem;
+   margin-right: -1rem;
+   width: calc(100% + 2rem);
+}
+
+.carousel__trackInner {
+   padding-bottom: var(--space-8);
+}
+
+.carousel__itemContainer {
+   padding-left: var(--space-2);
+   padding-right: var(--space-2);
+}
+
+.testimonialCard {
+   height: 300px;
+   width: 100%;
+   white-space: pre-wrap; // todo remove from carousel inner
+ }

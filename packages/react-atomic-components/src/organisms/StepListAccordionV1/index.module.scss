@@ -1,0 +1,36 @@
+@use 'design-system/src/utils/screen';
+@use 'design-system/src/utils/mixins';
+
+.accordionItemtitle {
+   color: var(--c_grey-950);
+   font-weight: var(--f-weight_bold);
+}
+.accordionCollapseIcon {
+   fill: var(--c_secondary);
+}
+.accordionContainer {
+   div:last-child {
+     border-bottom: none;
+   }
+}
+.accordionContent {
+   p {
+      margin-bottom: var(--space-2);
+   }
+   p:last-child {
+      margin-bottom: 0rem;
+   }
+}
+
+.stepList {
+//    margin-top: var(--space-4);
+   gap: 0;
+}
+
+.buttonPrimary {
+   height: 5rem;
+   font-size: var(--f-size_M);
+   margin-top: var(--space-4);
+   padding: 0;
+   width: 26rem;
+}

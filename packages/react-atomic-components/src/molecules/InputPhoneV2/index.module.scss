@@ -1,0 +1,36 @@
+.container {
+  align-items: center;
+  background-color: var(--c_white);
+  border: 1px solid var(--c_grey-550);
+  border-radius: var(--b-radius_normal);
+  display: flex;
+  height: 5rem;
+  padding-left: var(--space-1);
+  position: relative;
+}
+
+.isOpened {
+  border-bottom-left-radius: 0rem;
+  border-bottom-right-radius: 0rem;
+}
+
+.isErrored {
+  border: 1px solid var(--c_error);
+}
+
+.input {
+  font-size: var(--f-size_16);
+  flex: 1;
+  height: 100%;
+}
+
+div.phonePrefixSelect_menu {
+  border-bottom: 1px solid var(--c_grey-550);
+  border-left: 1px solid var(--c_grey-550);
+  border-right: 1px solid var(--c_grey-550);
+  border-bottom-left-radius: var(--b-radius_normal);
+  border-bottom-right-radius: var(--b-radius_normal);
+  left: -1px;
+  overflow: hidden;
+  width: calc(100% + 2px);
+}

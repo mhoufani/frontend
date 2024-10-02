@@ -1,0 +1,24 @@
+@use 'design-system/src/utils/screen';
+
+.iframeOuter {
+  margin-bottom: var(--space-5);
+  max-width: 100%;
+}
+
+.iframeOuterFloat {
+  margin-bottom: var(--space-5);
+
+  @include screen.forSize(desktop) {
+    max-width: 62rem;
+  }
+}
+
+.iframeOuterFloatLeft {
+  float: left;
+  margin-right: var(--space-8);
+}
+
+.iframeOuterFloatRight {
+  float: right;
+  margin-left: var(--space-8);
+}

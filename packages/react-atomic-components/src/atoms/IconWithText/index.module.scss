@@ -1,0 +1,25 @@
+@use 'design-system/src/utils/mixins';
+
+.iconWithTextContainer {
+  width: 100%;
+  @include mixins.flex(flex-end, center, column);
+  gap: 1rem;
+}
+
+.icon {
+  fill: var(--c_title-primary);
+}
+
+.text {
+  font-size: 1.2rem;
+  word-wrap: normal;
+  color: var(--c_secondary);
+}
+
+.iconGreen {
+  fill: var(--c_green_dark);
+  stroke: var(--c_green_dark);
+}
+.textGreen {
+  color: var(--c_green_dark);
+}

@@ -1,0 +1,28 @@
+.table {
+   border-color: var(--c_primary);
+
+   th,
+   td {
+      border-color: var(--c_primary);
+   }
+   th,
+   td {
+      min-height: 8rem;
+      padding: var(--space-3) var(--space-4);
+   }
+   th {
+      color: var(--c_primary);
+      font-weight: var(--f-weight_700);
+   }
+   th,
+   tr td:first-child {
+      color: var(--c_primary);
+      font-weight: var(--f-weight_600);
+   }
+   tr:nth-child(odd) td {
+      background-color: rgba(17, 88, 154, .15);
+   }
+   td {
+      border-bottom: 0rem;
+   }
+}

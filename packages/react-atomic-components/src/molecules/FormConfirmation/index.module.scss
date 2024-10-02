@@ -1,0 +1,35 @@
+@use 'design-system/src/utils/screen';
+@use 'design-system/src/utils/mixins';
+
+.container {
+  height: 100%;
+  width: 100%;
+  @include mixins.flex(
+    $justify: center,
+    $align: center,
+    $direction: column
+  );
+  gap: var(--space-6);
+}
+
+.textContainer {
+  gap: var(--space-6);
+  text-align: center;
+  max-width: 60rem;
+  @include mixins.flex(
+    $justify: center,
+    $align: center,
+    $direction: column
+  );
+}
+
+.icon {
+  height: 11rem;
+  width: 11rem;
+}
+
+.title {
+  font-size: var(--f-size_26);
+  color: var(--c_black);
+  margin: 0;
+}

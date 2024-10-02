@@ -1,0 +1,28 @@
+@use 'design-system/src/utils/mixins';
+
+.index {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 100%;
+  color: var(--c_white);
+  font-size: var(--f-size_20);
+  font-weight: var(--f-weight_bold);
+  @include mixins.flex($justify: center, $align: center);
+
+  &.active {
+    background-color: var(--c_secondary);
+  }
+
+  &.inactive {
+    background-color: var(--c_grey-300);
+  }
+}
+
+.text {
+  color: var(--c_primary);
+  font-weight: var(--f-weight_bold);
+
+  &.inactive {
+    color: var(--c_grey-300);
+  }
+}

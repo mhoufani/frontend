@@ -1,0 +1,132 @@
+@use 'design-system/src/utils/screen';
+
+.title {
+  margin-bottom: var(--space-6);
+}
+
+.box {
+  background-color: var(--c_white);
+  border-radius: var(--b-radius_normal);
+  box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.15);
+  padding: var(--space-4);
+
+  @include screen.forSize(desktop) {
+    padding: var(--space-8);
+  }
+}
+
+.fields {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.field {
+  margin-bottom: var(--space-4);
+  width: 100%;
+
+  &:last-child {
+    margin-bottom: 0rem;
+  }
+
+  @include screen.forSize(tablet) {
+    margin-bottom: var(--space-6);
+    width: calc(50% - var(--space-2));
+  }
+}
+
+.field_fullWidth {
+  width: 100%;
+}
+
+.validateButton {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-top: var(--space-6);
+  max-width: 100%;
+  width: 100%;
+
+  .arrowIcon {
+    fill: var(--c_white);
+    margin-left: var(--space-2);
+    width: 1.5rem;
+  }
+
+  @include screen.forSize(tablet) {
+    padding-left: var(--space-10);
+    padding-right: var(--space-10);
+    width: auto;
+  }
+}
+
+.reInsurances {
+  align-items: center;
+  border: 1px solid var(--c_secondary);
+  border-radius: var(--b-radius_normal);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: var(--space-6);
+  padding: var(--space-2) var(--space-4);
+
+  @include screen.forSize(tablet) {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+}
+
+.entry {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--space-2);
+  margin-top: var(--space-2);
+  text-align: center;
+  width: 100%;
+
+  @include screen.forSize(mobile-375) {
+    width: 50%;
+  }
+
+  @include screen.forSize(desktop) {
+    flex: 1;
+    width: auto;
+  }
+
+  .icon {
+    height: 3.5rem;
+    width: 100%;
+
+    &.satisfaction {
+      height: 3rem;
+    }
+    &.delivery {
+      height: 2.8rem;
+    }
+    &.reconditionnement {
+      height: 2.5rem;
+    }
+
+    [class='primary'] {
+      fill: var(--c_primary);
+    }
+    [class='secondary'] {
+      fill: var(--c_secondary);
+    }
+  }
+
+  .text {
+    color: var(--c_secondary);
+    display: block;
+    font-size: var(--f-size_12);
+    font-weight: var(--f-weight_700);
+    margin-top: var(--space-2);
+    max-width: 15rem;
+
+    @include screen.forSize(desktop-sm) {
+      font-size: var(--f-size_14);
+    }
+  }
+}

@@ -1,0 +1,81 @@
+@use 'design-system/src/utils/screen';
+
+.container {
+  background-color: var(--c_grey-100);
+  border-radius: var(--b-radius_normal);
+  display: flex;
+  padding: 3.5rem 3rem;
+  
+  @include screen.forSize(tablet) {
+    padding: 3.5rem 5rem;
+  }
+}
+
+.inner {
+  margin-left: auto;
+  margin-right: auto;
+  @include screen.forSize(tablet) {
+    margin-left: 0;
+    margin-right: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+  }
+  > div {
+    margin-bottom: 3rem;
+    @include screen.forSize(tablet) {
+      margin-bottom: 0;
+    }
+  }
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.root {
+  composes: root from 'ui-core/molecules/SocialRatingItem/index.module.scss';
+  margin: 0;
+}
+
+.ratingNote {
+  composes: ratingNote from 'ui-core/molecules/SocialRatingItem/index.module.scss';
+  color: var(--c_secondary);
+  font-size: 2.8rem;
+}
+
+.ratingContainer {
+  composes: ratingContainer from 'ui-core/molecules/SocialRatingItem/index.module.scss';
+  flex-direction: row;
+  @include screen.forSize(tablet) {
+    flex-direction: column;
+  }
+}
+
+.clients {
+  font-size: 1.6rem;
+}
+
+.nbClients {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-right: 1rem;
+  @include screen.forSize(tablet) {
+    font-size: 2.8rem;
+  }
+  @include screen.forSize(desktop) {
+    font-size: 3.5rem;
+  }
+}
+.logo {
+  width: 27rem;
+  @include screen.forSize(tablet) {
+    width: 20rem;
+  }
+}
+
+.ratingCountText {
+  @include screen.forSize(tablet) {
+    margin-left: 0;
+  }
+}

@@ -1,0 +1,71 @@
+@use 'design-system/src/utils/mixins';
+@use 'design-system/src/utils/screen';
+
+.stepItemContainer {
+  color: var(--c_grey-900);
+  height: var(--s_radio);
+  padding: var(--p_step-item);
+  position: relative;
+  @include mixins.flex('', '', column);
+  &.active {
+    .textSubtitle {
+      font-weight: 600;
+    }
+  }
+  &:last-of-type {
+    height: fit-content;
+    .textDescription {
+      @include mixins.font(var(--c_primary), 1.6rem, 600);
+      strong {
+        font-weight: 700;
+      }
+    }
+    .stepItemStatusContainer:after {
+      display: none;
+    }
+  }
+}
+
+.stepItemStatusContainer {
+  background-color: var(--c_white);
+  border: 0.2rem solid var(--c_grey-300);
+  border-radius: 50%;
+  height: var(--s_radio);
+  width: var(--s_radio);
+  @include mixins.flex(center, center);
+  @include mixins.absolute(0, 0);
+  &::after {
+    content: '';
+    height: 6rem;
+    width: 0.2rem;
+    background-image: linear-gradient(
+      to bottom,
+      var(--c_grey-300) 55%,
+      var(--c_white) 30%
+    );
+    background-repeat: repeat-y;
+    background-size: 100% 15%;
+    position: absolute;
+    top: 2.2rem;
+    @include screen.forSize(desktop) {
+      height: 7rem;
+    }
+  }
+
+  &.active {
+    border-color: var(--c_success-400);
+    &::after {
+      border-color: var(--c_success-400);
+      background-image: linear-gradient(
+        to bottom,
+        var(--c_success-400) 55%,
+        var(--c_white) 30%
+      );
+    }
+  }
+}
+
+.stepItemCheckIcon {
+  height: 1.3rem;
+  width: 1.3rem;
+}

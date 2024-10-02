@@ -1,0 +1,96 @@
+@use 'design-system/src/utils/mixins';
+@use 'design-system/src/utils/screen';
+
+.container {
+  width: 100%;
+  min-height: auto;
+  max-height: fit-content;
+  color: inherit;
+}
+
+.button {
+  background: none;
+  height: unset;
+  @include mixins.flex($justify: space-between, $align: center);
+  width: 100%;
+  max-width: unset;
+  text-align: unset;
+  color: inherit;
+}
+
+.buttonSubContainer {
+  @include mixins.flex($align: center);
+  gap: 1rem;
+  @include screen.forSize(desktop) {
+    gap: 3rem;
+  }
+}
+
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.icon {
+  width: 2.2rem;
+  height: 2rem;
+  @include screen.forSize(desktop) {
+    width: initial;
+    height: initial;
+  }
+}
+
+.title {
+  font-size: var(--f-size_L);
+  font-weight: var(--f-weight_600);
+  @include screen.forSize(desktop) {
+    font-size: 2.2rem;
+  }
+}
+
+.subTitle {
+  font-size: var(--f-size_M);
+  @include screen.forSize(desktop) {
+    font-size: var(--f-size_L);
+  }
+}
+
+.title,
+.subTitle {
+  color: inherit;
+}
+
+.collapsableContainer {
+  overflow-y: hidden;
+  opacity: 0;
+  max-height: 0;
+  transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding-top 0.3s ease-out;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+.collapsableContainer.isOpen {
+  overflow-y: auto;
+  opacity: 1;
+}
+
+.collapseBody {
+  padding-top: var(--space-4);
+}
+
+.collapseIcon {
+  height: 1rem;
+  width: 2rem;
+  fill: currentColor;
+  transition: transform 0.3s ease-out;
+}
+
+.collapseIcon.isOpen {
+  transform: rotate(180deg);
+}
+
+.text {
+  color: inherit;
+}

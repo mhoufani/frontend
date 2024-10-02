@@ -1,0 +1,39 @@
+@use 'design-system/src/utils/screen';
+@use 'design-system/src/utils/mixins';
+
+.sticker {
+  font-size: var(--f-size_S);
+  font-weight: var(--f-weight_400);
+  border-radius: 2rem;
+  border-width: 0.1rem;
+  border-style: solid;
+  padding: 0 1.8rem;
+  min-height: 2rem;
+  @include mixins.flex($justify: center, $align: center);
+  width: fit-content;
+  @include screen.forSize(tablet) {
+    padding: 0.3rem 1.8rem;
+  }
+}
+
+.default {
+  color: var(--c_secondary);
+  border-color: var(--c_secondary);
+}
+
+.primary,
+.secondary {
+  color: var(--c_white);
+  font-weight: var(--f-weight_600);
+  padding: 0 var(--space-3);
+  height: 2.5rem;
+}
+
+.primary {
+  background-color: var(--c_primary);
+  border-color: var(--c_primary);
+}
+.secondary {
+  background-color: var(--c_secondary);
+  border-color: var(--c_secondary);
+}

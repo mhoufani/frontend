@@ -1,0 +1,41 @@
+@use 'design-system/src/utils/mixins';
+@use 'design-system/src/utils/screen';
+.list {
+  @include mixins.flex(flex-start, center, row);
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+  @include screen.forSize(desktop) {
+    flex-wrap: nowrap;
+    gap: 11rem;
+  }
+}
+.icon {
+  width: 3.5rem;
+  height: 3.5rem;
+}
+.title {
+  margin-bottom: var(--space-6);
+  font-size: var(--f-size_20);
+  color: var(--c_grey-950);
+}
+.text {
+  font-size: var(--f-size_14);
+  color: var(--c_grey-950);
+  @include screen.forSize(tablet) {
+    font-size: var(--f-size_16);
+  }
+}
+.item {
+  @include mixins.flex(center, center, column);
+  text-align: center;
+  max-width: 7.7rem;
+  flex-wrap: wrap;
+  flex-basis: calc(33.33%);
+  color: var(--c_secondary);
+  @include screen.breakpoints(tablet, desktop) {
+    max-width: 11.8rem;
+  }
+}

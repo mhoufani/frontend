@@ -1,0 +1,102 @@
+@use 'design-system/src/utils/screen';
+
+.overlay {
+  background-color: var(--c_black);
+  display: block;
+  height: 100%;
+  position: fixed;
+  opacity: 0.9;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  width: 100%;
+  zoom: 1;
+  z-index: 1005;
+}
+
+.gallery {
+  display: block;
+  height: 100%;
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1006;
+}
+.inner {
+  position: absolute;
+  inset: 0 0 125px;
+  transition: bottom 200ms;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .pictureContainer {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.image {
+  composes: image from 'ui-core/atoms/Picture/index.module.scss';
+  max-height: 100%;
+  max-width: 100%;
+  margin: auto;
+  opacity: 1;
+}
+
+.img {
+  object-fit: contain;
+}
+
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 20rem;
+  width: 10rem;
+  @include screen.forSize(mobile-375) {
+    height: 10rem;
+    width: 5rem;
+  }
+  &Prev {
+    left: 0;
+  }
+  &Next {
+    right: 0;
+  }
+
+  .LeftIcon {
+    height: 6rem;
+    @include screen.forSize(mobile-375) {
+      height: 3rem;
+    }
+    fill: var(--c_white);
+  }
+}
+.crossNav {
+  height: 10rem;
+  opacity: 0.5;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 10rem;
+  color: var(--c_white);
+  z-index: 3;
+  @include screen.forSize(mobile-375) {
+    height: 5rem;
+    width: 5rem;
+  }
+  &_hover {
+    opacity: 1;
+  }
+  .icon {
+    fill: var(--c_white);
+    height: 4rem;
+    width: 4rem;
+    @include screen.forSize(mobile-375) {
+      height: 3rem;
+      width: 3rem;
+    }
+  }
+}

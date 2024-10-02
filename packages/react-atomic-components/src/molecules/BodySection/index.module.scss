@@ -1,0 +1,30 @@
+@use 'design-system/src/utils/screen';
+
+.containerColumn {
+   column-gap: var(--space-12);
+   
+   @include screen.forSize(desktop) {
+     column-count: 2;
+   }
+}
+
+.containerCenter {
+   text-align: center;
+}
+
+.containerCenter {
+   text-align: center;
+}
+
+.h1,
+.h2,
+.h3 {
+   line-height: 1;
+   margin-bottom: 3rem;
+}
+
+.h3 {
+   color: var(--c_grey-950);
+   font-size: var(--f-size_20);
+   font-weight: var(--f-weight_600);
+}

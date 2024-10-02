@@ -1,0 +1,34 @@
+{
+  "name": "@mp/react-atomic-components",
+  "version": "0.1.0",
+  "exports": {
+    ".": "./src/index.js",
+    "./atoms": "./src/atoms/index.js",
+    "./atoms/*": "./src/atoms/*",
+    "./molecules": "./src/molecules/index.js",
+    "./molecules/*": "./src/molecules/*",
+    "./organisms": "./src/organisms/index.js",
+    "./organisms/*": "./src/organisms/*",
+    "./constants": "./src/constants/index.js"
+  },
+  "license": "MIT",
+  "scripts": {
+    "lint": "TIMING=1 eslint \"**/*.js*\""
+  },
+  "dependencies": {
+    "classnames": "^2.3.2",
+    "design-system": "*",
+    "escape-string-regexp": "^5.0.0",
+    "hooks": "*",
+    "prop-types": "^15.8.1",
+    "proptypes": "*",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-markdown": "^8.0.7",
+    "react-transition-group": "^4.4.5",
+    "rehype-raw": "^6.1.1",
+    "remark-gfm": "^4.0.0",
+    "svgs": "*",
+    "util-common": "*"
+  }
+}

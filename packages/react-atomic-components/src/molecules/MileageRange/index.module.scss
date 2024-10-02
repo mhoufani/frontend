@@ -1,0 +1,46 @@
+.mileageRange {
+  display: flex;
+  margin-top: 1.5rem;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  div > label {
+    display: block;
+    padding: 0 0 .4rem 0;
+    font-weight: 400;
+    font-size: 1.6rem;
+  }
+}
+
+.mileageWrapper {
+  position: relative;
+  &:after {
+    content: 'Km';
+    position: absolute;
+    display: flex;
+    align-items: center;
+    right: 6px;
+    top: 0;
+    bottom: 1px;
+    box-sizing: border-box;
+    font-weight: 400;
+  }
+}
+
+.mileageInput {
+  padding-left: .8rem;
+  height: 4.7rem;
+  width: 12rem;
+  font-size: 1.6rem;
+  border-radius: 4px;
+  border: 1px solid var(--c_grey-570);
+  font-family: var(--f-family);
+  &::placeholder {
+    font-size: 1.4rem;
+  }
+}
+
+.error {
+  border: 1px solid var(--c_primary);
+}

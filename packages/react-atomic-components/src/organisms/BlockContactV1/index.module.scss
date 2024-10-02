@@ -1,0 +1,129 @@
+@use 'design-system/src/utils/screen';
+@use 'design-system/src/utils/mixins';
+
+.blockContactContainer {
+  padding: 2rem;
+  border-color: var(--c_blue-500);
+  @include mixins.flex(
+    $justify: center,
+    $align: center,
+    $direction: column
+  );
+  gap: 2rem;
+  text-align: center;
+  @include screen.forSize(tablet) {
+    padding: 3rem;
+    @include mixins.flex(
+      $justify: unset,
+      $align: center,
+      $direction: row
+    );
+    text-align: left;
+    gap: 4rem;
+  }
+  @include screen.forSize(desktop) {
+    padding: 4rem;
+    gap: 5rem;
+  }
+}
+
+.title {
+  font-size: var(--f-size_26);
+  margin: 0 0 1.5rem 0;
+  @include screen.forSize(desktop) {
+    margin: 0 0 3rem 0;
+    font-size: var(--f-size_28);
+  }
+}
+
+.text {
+  font-size: var(--f-size_14);
+  @include screen.forSize(tablet) {
+    font-size: var(--f-size_16);
+  }
+  @include screen.forSize(desktop) {
+    font-size: var(--f-size_18);
+  }
+  color: var(--c_black);
+  &.first {
+    margin-bottom: 1.5rem;
+  }
+
+  strong {
+    @include mixins.fontStyle($fw: var(--f-weight_700));
+  }
+}
+
+.image {
+  width: 13rem;
+  flex-shrink: 0;
+  @include screen.forSize(desktop) {
+    width: 18rem;
+  }
+  @include screen.forSize(desktop-sm) {
+    width: 20rem;
+  }
+}
+
+.imgOnError {
+  width: 100%;
+}
+
+.buttonsContainer {
+  width: 100%;
+  margin-top: 3rem;
+  gap: 1.5rem;
+  @include mixins.flex($justify: center);
+  @include screen.forSize(tablet) {
+    justify-content: flex-start;
+    gap: 2rem;
+  }
+  @include screen.forSize(desktop) {
+    gap: 4rem;
+  }
+
+  a {
+    padding: 0;
+    width: 100%;
+    max-width: 14rem;
+
+    @include screen.forSize(tablet) {
+      max-width: 18rem;
+    }
+    @include screen.forSize(desktop-sm) {
+      max-width: 23rem;
+    }
+    &.secondary {
+      color: var(--c_primary);
+      @include mixins.shape(
+        $bg: var(--c_white),
+        $c-border: var(--c_primary),
+        $br: var(--b-radius_cta-button)
+      );
+    }
+    &.primary {
+      color: var(--c_white);
+      span {
+        color: var(--c_white);
+      }
+      @include screen.forSize(tablet) {
+        @include mixins.flex(
+          $justify: center,
+          $align: center,
+          $direction: column
+        );
+      }
+      .primaryBtnText {
+        display: none;
+        @include screen.forSize(desktop-sm) {
+          display: inline;
+        }
+      }
+      .primaryBtnTextMobile {
+        @include screen.forSize(desktop-sm) {
+          display: none;
+        }
+      }
+    }
+  }
+}

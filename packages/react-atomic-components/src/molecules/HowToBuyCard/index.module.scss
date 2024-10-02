@@ -1,0 +1,142 @@
+@use 'design-system/src/utils/screen';
+
+.howToBuyBanner {
+   background-color: var(--c_primary);
+   border-radius: var(--b-radius_normal);
+   display: flex;
+   flex-direction: column;
+   max-width: 50rem;
+   padding-bottom: var(--space-4);
+   padding-left: var(--space-4);
+   padding-right: var(--space-4);
+   padding-top: var(--space-4);
+   position: relative;
+
+   @include screen.forSize(mobile-375) {
+      padding-left: var(--space-6);
+      padding-right: var(--space-6);
+      padding-top: var(--space-6);
+   }
+   @include screen.forSize(mobile-480) {
+      padding-bottom: var(--space-6);
+      padding-left: var(--space-9);
+      padding-right: var(--space-9);
+      padding-top: var(--space-8);
+   }
+
+   &.isBanner {
+      max-width: 100%;
+
+      @include screen.forSize(mobile-375) {
+         padding-top: var(--space-4);
+      }
+      @include screen.forSize(mobile-480) {
+         padding-top: var(--space-4);
+      }
+      
+      @include screen.forSize(desktop) {
+         align-items: flex-end;
+         flex-direction: row;
+      }
+   }
+}
+
+a.howToBuyBanner {
+   cursor: pointer
+}
+
+.carHowToBuyModelSVG {
+   height: auto;
+   margin-top: var(--space-6);
+   width: 100%;
+
+   @include screen.forSize(mobile-375) {
+      max-width: 80%;
+   }
+   @include screen.forSize(tablet) {
+      margin-top: var(--space-12);
+   }
+}
+
+.isBanner .carHowToBuyModelSVG {
+   @include screen.forSize(tablet) {
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: var(--space-6);
+      max-width: 33rem;
+   }
+   @include screen.forSize(desktop) {
+      margin-right: var(--space-7);
+      margin-top: 0rem;
+      order: 1;
+   }
+}
+
+
+.textContainer {
+   display: flex;
+   color: var(--c_white);
+   flex-direction: column;
+}
+
+.isBanner .textContainer {
+   @include screen.forSize(desktop) {
+      flex: 1;
+      padding-bottom: 6rem;
+      order: 2;
+   }
+}
+
+.title {
+   font-size: var(--f-size_20);
+   margin-bottom: var(--space-2);
+
+   @include screen.forSize(mobile-375) {
+      font-size: var(--f-size_24);
+   }
+   @include screen.forSize(tablet) {
+      font-size: var(--f-size_34);
+   }
+}
+.subTitle {
+   font-size: var(--f-size_14);
+
+   @include screen.forSize(tablet) {
+      font-size: var(--f-size_18);
+   }
+   @include screen.forSize(desktop) {
+      font-size: var(--f-size_20);
+   }
+}
+
+.button {
+   background-color: var(--c_white);
+   color: var(--c_primary);
+   font-size: var(--f-size_14);
+   margin-top: var(--space-4);
+   
+   @include screen.forSize(tablet) {
+      font-size: var(--f-size_16);
+      margin-top: var(--space-6);
+   }
+}
+.button:hover:enabled {
+   background-color: var(--c_white);
+}
+
+.roadBackground {
+   @if variable-exists("SASS_IMAGES_BASE_URL") {
+      background-image: url($SASS_IMAGES_BASE_URL + '/how-to-buy-banner/road-how-to-buy.svg');
+      background-size: auto 100%;
+      background-repeat: repeat-x;
+      bottom: -1rem;
+      height: 5.5rem;
+      left: 0rem;
+      position: absolute;
+      width: 100%;
+   
+      @include screen.forSize(tablet) {
+         height: 6.5rem;
+      }
+   }
+}

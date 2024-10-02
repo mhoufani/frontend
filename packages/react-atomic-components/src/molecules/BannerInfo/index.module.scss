@@ -1,0 +1,15 @@
+.bannerInfo {
+  padding: var(--space-4) var(--space-6);
+  text-align: center;
+  font-weight: var(--f-weight_600);
+  border-top: 0.1rem solid var(--c_grey-350);
+  border-bottom: 0.1rem solid var(--c_grey-350);
+  color: var(--c_title-primary);
+  & + .bannerInfo {
+    border-top: none;
+  }
+}
+
+.is-grey {
+  background-color: var(--c_grey-350);
+}

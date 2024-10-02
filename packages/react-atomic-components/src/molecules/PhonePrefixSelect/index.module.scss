@@ -1,0 +1,121 @@
+@use 'design-system/src/utils/screen';
+
+.prefixSelectContainer {
+  align-items: flex-end;
+  display: flex;
+  margin-right: 0.2rem;
+}
+
+.prefixSelectContainerStorie {
+  position: relative;
+}
+
+.prefixSelect {
+  height: 4.6rem;
+  @include screen.forSize(tablet) {
+    height: 3.3rem;
+  }
+}
+
+.countries {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 0.5rem;
+}
+
+.current {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  margin-right: 0.5rem;
+  background: transparent;
+  &:hover > svg {
+    fill: var(--c_grey-900);
+  }
+}
+
+.disabled {
+  cursor: default;
+
+  &:hover > svg {
+    fill: var(--c_grey-370);
+  }
+
+  .flag {
+    margin-right: var(--space-1);
+  }
+  
+  .arrowBottom {
+    display: none;
+  }
+}
+
+.currentFlag {
+  margin-right: 0;
+}
+
+.flag {
+  background-repeat: no-repeat;
+  margin-right: 1rem;
+  height: 1.8rem;
+  width: 2.4rem;
+}
+
+.arrowBottom {
+  fill: var(--c_grey-370);
+  height: 0.7rem;
+  margin-bottom: -0.4rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  width: 1.2rem;
+}
+
+.menu {
+  bottom: 0;
+  left: 0;
+  min-width: 100%;
+  position: absolute;
+  transform: translateY(100%);
+  z-index: 10;
+}
+
+.menuInner {
+  background-color: var(--c_white);
+  border: 1px solid var(--c_grey-370);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+}
+
+.option {
+  cursor: pointer;
+  display: flex;
+  padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+  &:hover {
+    background-color: var(--c_grey-200);
+  }
+}
+
+.prefix {
+  height: 100%;
+  line-height: 46px;
+  @include screen.forSize(tablet) {
+    line-height: 33px;
+  }
+}
+
+.button {
+  display: flex;
+  text-align: left;
+  background: transparent;
+  height: inherit;
+  font-weight: 400;
+}
+
+.label {
+  flex-shrink: 0;
+}

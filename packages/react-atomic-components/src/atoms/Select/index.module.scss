@@ -1,0 +1,63 @@
+@use 'design-system/src/utils/mixins';
+@use 'design-system/src/utils/screen';
+
+.container {
+  @include mixins.shape(
+    $c-border: var(--c_grey-550),
+    $br: var(--b-radius_normal)
+  );
+  position: relative;
+  width: 100%;
+  max-width: 30rem;
+  height: 4.5rem;
+  @include screen.forSize(tablet) {
+    height: 5rem;
+  }
+  @include screen.forSize(desktop) {
+    max-width: 35rem;
+  }
+}
+
+.select {
+  appearance: none;
+  background-color: unset;
+  border: none;
+  color: var(--c_grey-950);
+  cursor: pointer;
+  font-size: var(--f-size_16);
+  padding-left: var(--space-3);
+  position: relative;
+  height: calc(100% + 0.2rem);
+  width: calc(100% + 0.2rem);
+  z-index: 1;
+  &:nth-child(n) > option {
+    color: var(--c_grey-900);
+  }
+  &:disabled {
+    cursor: default;
+  }
+  &::-ms-expand {
+    display: none;
+  }
+  option {
+    color: var(--c_grey-950);
+  }
+}
+
+.placeholder {
+  opacity: 0.4;
+}
+
+.arrowIcon {
+  position: absolute;
+  right: var(--space-2);
+  top: 50%;
+  transform: translateY(-50%);
+  height: var(--space-2);
+  width: 1.8rem;
+}
+
+.disabled {
+  cursor: default;
+  opacity: 0.4;
+}

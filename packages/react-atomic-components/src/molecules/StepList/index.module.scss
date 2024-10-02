@@ -1,0 +1,63 @@
+@use 'design-system/src/utils/screen';
+@use 'design-system/src/utils/mixins';
+
+.listContainer {
+  margin: 0;
+  padding-left: var(--space-6) + var(--step-icon-size);
+  display: flex;
+  flex-direction: column;
+  gap: var(--list-gap);
+
+  li {
+    list-style-type: none;
+    position: relative;
+
+    > strong {
+      @include mixins.fontStyle(var(--f-size_L), var(--f-weight_700));
+      color: var(--c_title-primary);
+    }
+
+    p {
+      padding-top: 5px;
+      @include mixins.fontStyle(
+        var(--f-size_14),
+        var(--f-weight_400)
+      );
+      line-height: 18px;
+      color: #747374;
+    }
+
+    &::before {
+      position: absolute;
+      left: calc(-30px - var(--step-icon-size));
+      top: 4px;
+      border-radius: 7px;
+      background-color: var(--c_stepListDots);
+      content: '';
+      width: var(--step-icon-size);
+      height: var(--step-icon-size);
+      display: block;
+      z-index: 2;
+    }
+
+    &::after {
+      content: '';
+      background: var(--c_stepListDotsBackground);
+      position: absolute;
+      left: calc(-30px - var(--step-icon-size));
+      width: var(--step-icon-size);
+      height: calc(100% + var(--list-gap));
+      top: 11px;
+      display: block;
+      z-index: 1;
+    }
+
+    &:last-child {
+      padding-bottom: 0;
+
+      &::after {
+        content: none;
+      }
+    }
+  }
+}

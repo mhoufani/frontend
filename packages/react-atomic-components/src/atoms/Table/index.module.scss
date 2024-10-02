@@ -1,0 +1,21 @@
+.table {
+   border: .1rem solid var(--c_grey-550);
+   border-radius: var(--b-radius_normal);
+   border-spacing: 0rem;
+   overflow: hidden;
+
+   th,
+   td {
+      border-bottom: .1rem solid var(--c_grey-550);
+      border-right: .1rem solid var(--c_grey-550);
+   }
+
+   tr:last-child td {
+      border-bottom: 0rem;
+   }
+
+   th:last-child,
+   td:last-child {
+      border-right: 0rem;
+   }
+}

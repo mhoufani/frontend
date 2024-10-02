@@ -1,0 +1,64 @@
+@use 'design-system/src/utils/screen';
+@use 'design-system/src/utils/mixins';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: var(--space-6);
+  @include screen.forSize(desktop) {
+    flex-direction: row;
+  }
+}
+
+.subContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  flex-grow: 1;
+}
+
+.buttonsContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.button {
+  @include mixins.flex(center, center);
+  gap: var(--space-2);
+  max-width: 21rem;
+  &.isMobile {
+    color: var(--c_grey-950);
+    max-width: unset;
+    width: fit-content;
+    @include screen.forSize(tablet) {
+      display: none;
+    }
+  }
+  &.isPrevious {
+    @include screen.max(430) {
+      display: none;
+    }
+  }
+  &:last-child {
+    margin: 0 0 0 auto;
+  }
+}
+
+.arrowIcon {
+  width: 1.6rem;
+  height: 1rem;
+  path {
+    fill: currentColor;
+  }
+  &.isPrevious {
+    transform: rotate(180deg);
+  }
+}
+
+.listContainer {
+  @include screen.forSize(desktop) {
+    width: 18rem;
+  }
+}

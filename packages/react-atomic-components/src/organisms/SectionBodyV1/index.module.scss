@@ -1,0 +1,41 @@
+@use 'design-system/src/utils/screen';
+
+.container {
+  margin-bottom: 0rem;
+  margin-top: 0rem;
+}
+
+.title,
+.subTitle {
+  line-height: 1;
+  margin-bottom: var(--space-4);
+
+  @include screen.forSize(tablet) {
+    margin-bottom: var(--space-6);
+  }
+}
+
+.subTitle {
+  color: var(--c_grey-950);
+  font-size: var(--f-size_20);
+  font-weight: var(--f-weight_600);
+}
+
+.p {
+  line-height: 1.2;
+  margin-bottom: var(--space-3);
+
+  @include screen.forSize(tablet) {
+    margin-bottom: var(--space-4);
+  }
+}
+
+.bodyContainer:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.body {
+  color: var(--c_grey-950);
+}

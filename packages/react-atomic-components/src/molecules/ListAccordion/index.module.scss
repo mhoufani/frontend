@@ -1,0 +1,62 @@
+@use 'design-system/src/utils/mixins';
+@use 'design-system/src/utils/screen';
+
+.secondaryTitle {
+  color: var(--c_secondary);
+}
+.title {
+  margin-bottom: var(--space-4);
+  color: var(--c_grey-950);
+  font-size: var(--f-size_20);
+}
+.accordionContainer {
+  border-radius: var(--b-radius_normal);
+  margin-bottom: var(--space-2);
+}
+.container {
+  padding: var(--space-5);
+  border: 0.1rem solid var(--c_grey-300);
+  border-radius: var(--b-radius_normal);
+  & + .container {
+    margin-top: var(--space-4);
+  }
+}
+.listAccordion {
+  @include mixins.flex($direction: column);
+  gap: 1.2rem;
+}
+.titleContainer {
+  display: block;
+}
+.titleCategory {
+  font-size: var(--f-size_16);
+  font-weight: var(--f-weight_700);
+  color: var(--c_grey-950);
+}
+.collapseIcon {
+  fill: var(--c_secondary);
+  width: 1.9rem;
+  height: 0.8rem;
+}
+.listItem {
+  @include mixins.flex(space-between, center);
+  padding-block: var(--space-4);
+  border-bottom: 0.1rem solid var(--c_grey-300);
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+}
+.itemCount {
+  font-weight: var(--f-weight_400);
+}
+.accordionTitleContainer {
+  margin-bottom: 0;
+  font-weight: var(--f-weight_700);
+  @include screen.forSize(desktop) {
+    font-size: var(--f-size_16);
+  }
+}
+.accordionItemtitle {
+  color: var(--c_grey-950);
+}

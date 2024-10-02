@@ -1,0 +1,47 @@
+@use 'design-system/src/utils/screen';
+@use 'design-system/src/utils/mixins';
+
+.bodyContainerFlex {
+  @include mixins.flex(
+    $direction: column-reverse,
+    $justify: center,
+    $align: center
+  );
+  gap: 3rem;
+  @include screen.forSize(tablet) {
+    gap: 2rem;
+  }
+  @include screen.forSize(desktop) {
+    @include mixins.flex(
+      $direction: row-reverse,
+      $justify: space-between,
+      $align: center
+    );
+    gap: 4rem;
+  }
+}
+
+.iframeOuter__flex {
+  @include screen.forSize(desktop) {
+    flex: 0 0 50%;
+  }
+}
+
+.body {
+  text-align: center;
+  @include screen.forSize(desktop) {
+    text-align: left;
+  }
+}
+
+.p {
+  font-size: var(--f-size_p-m);
+  
+  @include screen.forSize(tablet) {
+    font-size: var(--f-size_p-l);
+  }
+  @include screen.forSize(desktop) {
+    display: block;
+    margin-bottom: 2rem;
+  }
+}

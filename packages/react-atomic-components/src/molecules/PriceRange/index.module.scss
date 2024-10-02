@@ -1,0 +1,46 @@
+.priceRange {
+  display: flex;
+  margin-top: 1.5rem;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  div > label {
+    display: block;
+    padding: 0;
+    font-weight: 400;
+    font-size: 1.6rem;
+  }
+}
+
+.priceWrapper {
+  position: relative;
+  margin-top: .4rem;
+  display: flex;
+  flex-direction: column;
+  &:after {
+    content: '€';
+    position: absolute;
+    right: 0;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 1.2rem;
+    font-weight: 400;
+    font-size: 1.8rem;
+  }
+}
+
+.priceInput {
+  padding: 1.2rem .8rem;
+  width: 12rem;
+  font-size: 1.8rem;
+  border-radius: .4rem;
+  border: 1px solid var(--c_grey-570);
+  font-family: var(--f-family);
+  &.error {
+    border: 1px solid var(--c_error-200);
+  }
+  &::placeholder {
+    font-size: 1.4rem;
+  }
+}

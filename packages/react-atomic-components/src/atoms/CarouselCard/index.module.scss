@@ -1,0 +1,107 @@
+@use 'design-system/src/utils/screen';
+
+.carouselCard {
+  position: relative;
+}
+
+.sliderButton {
+  align-items: center;
+  background-color: #fff;
+  border-radius: 50%;
+  border: #fff;
+  cursor: pointer;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+  display: flex;
+  height: 6rem;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  top: calc(50% - 30px);
+  width: 6rem;
+  z-index: 5;
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+
+.sliderButtonNext {
+  left: auto;
+  right: 0;
+}
+
+.arrow {
+  width: 1.3rem;
+  height: 2.3rem;
+}
+
+.trackOuter {
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+.trackInner {
+  display: flex;
+  max-width: 100%;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  overflow-y: hidden;
+  &::-webkit-scrollbar {
+    appearance: none;
+    display: none;
+  }
+}
+.trackInnerMobile {
+  overflow-x: scroll;
+}
+
+.fadeOutLeft {
+  position: absolute;
+  left: -1px;
+  top: 0;
+  bottom: 0;
+  width: 5%;
+  z-index: 3;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+  opacity: 0;
+  transition: opacity 500ms ease;
+}
+
+.fadeOutRight {
+  position: absolute;
+  right: -1px;
+  top: 0;
+  bottom: 0;
+  width: 5%;
+  z-index: 3;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.2) 10%,
+    rgba(255, 255, 255, 0.4) 20%,
+    rgba(255, 255, 255, 0.6) 30%,
+    rgba(255, 255, 255, 0.8) 40%,
+    rgba(255, 255, 255, 0.9) 50%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  opacity: 0;
+  transition: opacity 500ms ease;
+}
+
+.exited {
+  opacity: 0;
+
+  @include screen.forSize(tablet) {
+    display: none;
+  }
+}
+
+.exiting {
+  opacity: 0;
+}
+
+.entering {
+  opacity: 0;
+}
+
+.entered {
+  opacity: 1;
+}

@@ -1,0 +1,54 @@
+@use 'design-system/src/utils/screen';
+
+.container {
+  composes: container from '../SocialRatingTextImgV1/index.module.scss';
+}
+
+.inner {
+  composes: inner from '../SocialRatingTextImgV1/index.module.scss';
+}
+
+.root {
+  composes: root from '../SocialRatingTextImgV1/index.module.scss';
+}
+
+.ratingContainer {
+  composes: ratingContainer from '../SocialRatingTextImgV1/index.module.scss';
+}
+
+.ratingNote {
+  composes: ratingNote from '../SocialRatingTextImgV1/index.module.scss';
+}
+
+.ratingCountText {
+  composes: ratingCountText from '../SocialRatingTextImgV1/index.module.scss';
+}
+
+.logo {
+  composes: logo from '../SocialRatingTextImgV1/index.module.scss';
+}
+
+.imgContainer {
+  composes: imgContainer from '../SocialRatingTextImgV1/index.module.scss';
+}
+
+.autoPlus {
+  align-items: center;
+  display: flex;
+
+}
+.autoPlusContent {
+  font-size: 1.6rem;
+  margin-left: 1.5rem;
+  width: 14.7rem;
+
+  @include screen.forSize(tablet) {
+    font-size: 1.4rem;
+  }
+}
+
+.autoPlusImage {
+  height: 9rem;
+  object-fit: contain;
+  width: 3.4rem;
+}

@@ -1,0 +1,16 @@
+.card {
+   border-radius: var(--b-radius_normal);
+   height: 100%;
+   left: 0;
+   position: absolute;
+   overflow: hidden;
+   top: 0;
+   width: 100%;
+}
+
+.image {
+   height: 100%;
+   object-fit: cover;
+   object-position: center;
+   width: 100%;
+}

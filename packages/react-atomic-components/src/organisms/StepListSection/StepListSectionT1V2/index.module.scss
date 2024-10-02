@@ -1,0 +1,28 @@
+@use 'design-system/src/utils/screen';
+@use 'design-system/src/utils/mixins';
+
+.stepListContainer {
+  border: solid 1px var(--c_grey-300);
+  border-radius: var(--b-radius_normal);
+}
+
+.listContainer {
+  padding: var(--space-6) var(--space-6) var(--space-6)
+    var(--space-15);
+  @include screen.forSize(desktop-md) {
+    padding: var(--space-6) var(--space-6) var(--space-6) 7.5rem;
+  }
+}
+.titlePrimary {
+  @include mixins.fontStyle(var(--f-size_16), var(--f-weight_700));
+  margin-bottom: var(--space-6);
+  @include screen.forSize(mobile-375) {
+    @include mixins.fontStyle(var(--f-size_22), var(--f-weight_700));
+  }
+  @include screen.forSize(tablet) {
+    @include mixins.fontStyle(var(--f-size_20), var(--f-weight_700));
+  }
+  @include screen.forSize(desktop-md) {
+    @include mixins.fontStyle(var(--f-size_24), var(--f-weight_700));
+  }
+}

@@ -1,0 +1,74 @@
+@use 'design-system/src/utils/mixins';
+
+$duration: 200ms;
+
+.inputSearch {
+  flex: 1;
+  position: relative;
+}
+
+.input {
+  position: relative;
+  appearance: none;
+  border: 0.1rem solid var(--c_grey-300);
+  background-color: var(--c_white);
+  border-radius: var(--b-radius_S);
+  height: 4.5rem;
+  padding: 0 var(--space-9) 0 var(--space-4);
+  transition:
+    background-color $duration ease,
+    box-shadow $duration ease;
+  width: 100%;
+  font-size: var(--f-size_16);
+  z-index: 2;
+  &::placeholder {
+    color: var(--c_inputSearch-placeholder);
+  }
+  &::-ms-clear {
+    display: none;
+  }
+}
+
+.inputWithReset {
+  padding: 0 9.5rem 0 var(--space-4);
+}
+
+.btnSubmit {
+  position: absolute;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  height: 100%;
+  right: 0;
+  padding: 0 var(--space-4);
+  z-index: 3;
+}
+
+.btnReset {
+  @include mixins.flex($align: center);
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  z-index: 3;
+  position: absolute;
+  right: 64px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  top: 0;
+}
+
+.crossIcon {
+  fill: var(--c_grey-550);
+  height: 1.6rem;
+  width: 1.6rem;
+}
+
+.glassIcon {
+  height: 2.2rem;
+  width: 2.4rem;
+  transition: fill $duration ease;
+  path {
+    fill: var(--c_inputSearch);
+  }
+}

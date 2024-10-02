@@ -1,0 +1,14 @@
+{
+  "name": "@mp/next-env-runtime",
+  "private": true,
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mhoufani/frontend.git"
+  }
+}

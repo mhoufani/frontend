@@ -1,0 +1,96 @@
+@use 'design-system/src/utils/screen';
+
+.a {
+   text-decoration: underline;
+}
+
+.i {
+   font-style: italic;
+}
+
+.img {
+   display: block;
+   margin-bottom: var(--space-4);
+   max-width: 100%;
+
+   &:last-child {
+      margin-bottom: 0rem;
+   }
+}
+
+.float {
+   margin-bottom: var(--space-4);
+
+   &:last-child {
+      margin-bottom: 0rem;
+   }
+}
+
+p .float {
+   margin-top: var(--space-4);
+
+   &:first-child {
+      margin-top: 0rem;
+   }
+}
+
+.figureLeft {
+   margin-right: var(--space-4);
+}
+.figureRight {
+   margin-left: var(--space-4);
+}
+
+p .img {
+   margin-top: var(--space-4);
+
+   &:first-child {
+      margin-top: 0rem;
+   }
+}
+
+.a:has(.img) {
+   margin-bottom: var(--space-4);
+
+   &:last-child {
+      margin-bottom: 0rem;
+   }
+}
+
+.a:has(.img) {
+   margin-bottom: var(--space-4);
+
+   &:last-child {
+      margin-bottom: 0rem;
+   }
+}
+
+.list {
+   padding-left: var(--space-4);
+
+   & > li {
+      padding-left: var(--space-1);
+
+      &::marker {
+         font-size: var(--f-size_18);
+      }
+   }
+
+   @include screen.forSize(tablet) {
+      padding-left: var(--space-8);
+   }
+}
+
+ul.list {
+   list-style: disc;
+}
+
+.table {
+   border-spacing: 0rem;
+   overflow: hidden;
+}
+
+.clearBoth { 
+   clear: both;
+   display: block;
+}

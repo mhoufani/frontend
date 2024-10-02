@@ -1,0 +1,46 @@
+@use 'design-system/src/utils/screen';
+@use 'design-system/src/utils/mixins';
+
+.containerAccordionContact {
+  @include mixins.flex(
+    $justify: center,
+    $align: center,
+    $direction: column
+  );
+  @include screen.forSize(desktop) {
+    @include mixins.flex(
+      $justify: space-between,
+      $align: flex-start,
+      $direction: row
+    );
+    gap: var(--space-12);
+  }
+}
+
+.accordionButtonContainer {
+  margin-bottom: var(--space-12);
+  @include screen.forSize(desktop) {
+    max-width: 68rem;
+  }
+}
+.accordionContainer {
+  margin-bottom: var(--space-8);
+  @include screen.forSize(tablet) {
+    margin-bottom: var(--space-6);
+  }
+}
+.buttonAccordion {
+  margin: 0 auto;
+  width: 23.3rem;
+  height: 5rem;
+
+  @include screen.forSize(desktop) {
+    width: 31.2rem;
+    height: 5.5rem;
+  }
+}
+.accordionTitle {
+  @include screen.forSize(desktop) {
+    font-size: var(--f-size_20);
+  }
+}

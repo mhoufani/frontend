@@ -1,0 +1,76 @@
+@use 'design-system/src/utils/mixins';
+@use 'design-system/src/utils/screen';
+
+.secondaryTitle {
+  color: var(--c_secondary);
+}
+
+.subTitle {
+  color: var(--c_primary);
+  font-size: var(--f-size_14);
+}
+
+.buttonContainer {
+  @include mixins.flex(center, center);
+  margin-inline: auto;
+  margin-top: var(--space-4);
+  @include screen.forSize(tablet) {
+    margin-top: var(--space-5);
+  }
+  @include screen.forSize(desktop) {
+    display: none;
+  }
+}
+
+.list {
+  @include mixins.flex($direction: column);
+  gap: 1.2rem;
+  margin-top: var(--space-4);
+
+  .item {
+    @include mixins.flex(space-between, center);
+    width: 100%;
+    padding-bottom: var(--space-2);
+    border-bottom: 0.1rem solid var(--c_grey-300);
+    row-gap: 1.2rem;
+    font-size: var(--f-size_16);
+    color: var(--c_grey-950);
+    .label {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      max-width: 25rem;
+      @include screen.forSize(desktop) {
+        max-width: 38rem;
+        -webkit-line-clamp: 2;
+      }
+      @include screen.forSize(desktop-sm) {
+        max-width: 32rem;
+      }
+    }
+  }
+  @include screen.forSize(desktop) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+
+    .item {
+      width: calc(50% - 2rem);
+      box-sizing: border-box;
+      padding-bottom: var(--space-4);
+      .item:nth-child(even) {
+        margin-right: var(--space-4);
+      }
+      .item:nth-child(2n) {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.title {
+  margin-bottom: var(--space-4);
+  color: var(--c_grey-950);
+  font-size: var(--f-size_20);
+}

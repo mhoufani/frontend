@@ -1,0 +1,29 @@
+@use 'design-system/src/utils/screen';
+@use 'design-system/src/utils/mixins';
+
+.card {
+  @include mixins.shape(var(--c_white), var(--c_white), 4px);
+  text-align: center;
+  box-shadow: var(--b-sdw_card);
+  margin: 0 2rem 0;
+  position: relative;
+  max-width: var(--w_card);
+  width: 100%;
+  height: var(--h_card);
+  @include screen.forSize(desktop) {
+    height: 33rem;
+    width: 39rem;
+  }
+}
+
+.car {
+  max-width: var(--w_card-car);
+  height: var(--h_card-car);
+  padding: var(--p_card-car);
+}
+
+.info {
+  max-width: var(--w_card-info);
+  height: var(--h_card-info);
+  padding: var(--p_card-info);
+}

@@ -1,0 +1,34 @@
+@use 'design-system/src/utils/screen';
+
+.container {
+   border: .1rem solid var(--c_grey-300); 
+   border-top: 1rem solid var(--c_primary); 
+   border-radius: var(--b-radius_normal);
+   padding: var(--space-4);
+}
+
+.title {
+   color: var(--c_primary);
+   font-size: var(--f-size_18);
+   font-weight: var(--f-weight_bold);
+
+   @include screen.forSize(tablet) {
+      font-size: var(--f-size_20);
+   }
+}
+
+.collapseIcon {
+   fill: var(--c_primary);
+}
+
+.stepListT1V3_listContainer {
+   margin-bottom: 0rem;
+}
+
+.stepListT1V3_listItem:before {
+   --c_stepListDots: var(--c_primary);
+}
+
+.stepListT1V3_listItemTitle {
+   color: var(--c_grey-900);
+}

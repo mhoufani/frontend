@@ -1,0 +1,74 @@
+@use 'design-system/src/utils/screen';
+@use 'design-system/src/utils/mixins';
+
+.containerContact {
+  @include mixins.flex(
+    $justify: center,
+    $align: center,
+    $direction: column
+  );
+  padding: var(--space-4) var(--space-2) var(--space-8);
+  border: 1px solid var(--c_primary);
+  border-radius: 1rem;
+  text-align: center;
+
+  p {
+    font-size: var(--f-size_p-m);
+    max-width: 29.5rem;
+  @include screen.forSize(tablet) {
+    max-width: 100%;
+    }
+  }
+  @include screen.forSize(tablet) {
+    padding: var(--space-5) var(--space-7);
+    gap: var(--space-8);
+    @include mixins.flex(
+      $justify: space-between,
+      $align: center,
+      $direction: row
+    );
+    text-align: left;
+  }
+  @include screen.forSize(desktop) {
+    @include mixins.flex(
+      $justify: center,
+      $align: center,
+      $direction: column
+    );
+    gap: 0;
+    padding: var(--space-5) var(--space-6) var(--space-8);
+    text-align: center;
+    max-width: 44.4rem;
+  }
+}
+.title {
+  font-size: var(--f-size_h4);
+  margin-bottom: var(--space-3);
+}
+.image {
+  width: 15.1rem;
+  flex-shrink: 0;
+  @include screen.forSize(desktop) {
+    width: 20.6rem;
+  }
+  @include screen.forSize(desktop-sm) {
+    width: 16.4rem;
+  }
+}
+.imgOnError {
+  width: 100%;
+}
+.buttonLink {
+  width: 23.3rem;
+  height: 5rem;
+  margin: var(--space-4) auto 0;
+ @include screen.forSize(tablet) {
+  margin: var(--space-4) 0 0;
+  width: 26.4rem;
+  }
+  @include screen.forSize(desktop) {
+    margin: var(--space-7) auto 0;
+    width: 29.5rem;
+    height: 5.5rem;
+  }
+}

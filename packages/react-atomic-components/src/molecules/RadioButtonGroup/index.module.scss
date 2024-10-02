@@ -1,0 +1,11 @@
+@use 'design-system/src/utils/screen';
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  @include screen.forSize(desktop) {
+    gap: var(--space-4);
+  }
+  width: 100%;
+}

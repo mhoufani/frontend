@@ -1,0 +1,24 @@
+.container {
+   background-color: #03a9f51a;
+   border-radius: var(--b-radius_normal);
+   display: flex;
+   font-weight: var(--f-weight_600);
+   line-height: 1.5;
+   margin: 0rem;
+   padding: var(--space-9) var(--space-6);
+}
+
+.container:before {
+   content: "";
+   display: block;
+   background-color: var(--c_secondary);
+   border-radius: .4rem;
+   flex-shrink: 0;
+   margin-right: var(--space-6);
+   width: .8rem;
+}
+
+.richText__p:last-child,
+.inner p:last-child {
+   margin-bottom: 0rem;
+}

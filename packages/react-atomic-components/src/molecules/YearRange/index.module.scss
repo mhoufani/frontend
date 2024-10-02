@@ -1,0 +1,45 @@
+.yearRange {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.container {
+  width: calc(50% - 1.9rem);
+}
+
+.label {
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin: 0;
+}
+
+.dropdown {
+  composes: dropdown from 'ui-core/molecules/Dropdown/index.module.scss';
+  margin-top: .3rem;
+}
+
+.dropdownContentItem {
+  height: 3.5rem;
+  cursor: pointer;
+  color: var(--c_black);
+  background-color: transparent;
+  border: none;
+  text-align: left;
+  padding-left: 1rem;
+  width: 100%;
+  font-size: 1.6rem;
+  &:hover {
+    background-color: var(--c_grey-50);
+  }
+}
+
+.placeholderList {
+  color: var(--c_grey-450);
+  font-size: 1.4rem;
+}
+
+.itemSelected {
+  font-weight: var(--f-weight_700);
+}

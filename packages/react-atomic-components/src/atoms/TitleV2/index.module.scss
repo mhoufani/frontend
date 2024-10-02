@@ -1,0 +1,47 @@
+@use 'design-system/src/utils/mixins';
+
+.titleH1 {
+  @include mixins.fontStyle(var(--f-size_h1), var(--f-weight_700));
+}
+
+.titleH2 {
+  @include mixins.fontStyle(var(--f-size_h2), var(--f-weight_700));
+}
+
+.titleH3 {
+  @include mixins.fontStyle(var(--f-size_h3), var(--f-weight_700));
+}
+
+.titleH4 {
+  @include mixins.fontStyle(var(--f-size_h4), var(--f-weight_700));
+}
+
+.titleH5 {
+  @include mixins.fontStyle(var(--f-size_h5), var(--f-weight_700));
+}
+
+.titleH6 {
+  @include mixins.fontStyle(var(--f-size_h6), var(--f-weight_700));
+}
+
+.titleH6-s {
+  @include mixins.fontStyle(var(--f-size_h6-s), var(--f-weight_700));
+}
+
+.titleH6-m {
+  @include mixins.fontStyle(var(--f-size_h6-m), var(--f-weight_700));
+}
+
+.title {
+  @include mixins.colors(var(--c_title-primary));
+  line-height: normal;
+  margin-bottom: 2rem;
+}
+
+.secondary {
+  @include mixins.colors(var(--c_title-secondary));
+}
+
+.center {
+  text-align: center;
+}

@@ -1,0 +1,28 @@
+@mixin cardRow() {
+   flex-direction: row;
+
+   .media  {
+      border-radius: var(--b-radius_normal) 0rem 0rem var(--b-radius_normal);
+      height: auto;
+      width: 12rem;
+   }
+   
+   .readMore {
+      display: none;
+   }
+
+   .title {
+      font-size: var(--f-size_14);
+      line-height: 1.75rem;
+      max-height: 3.5rem;
+      overflow: hidden;
+   }
+
+   .description {
+      font-size: var(--f-size_10);
+      line-height: 1.25rem;
+      height: 3.75rem;
+      overflow: hidden;
+      -webkit-line-clamp: 3;
+   }
+}

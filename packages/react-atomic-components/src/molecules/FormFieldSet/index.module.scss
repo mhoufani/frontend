@@ -1,0 +1,17 @@
+@use 'design-system/src/utils/screen';
+
+.fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+  max-width: 85rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--space-6);
+  &.noWrap {
+    @include screen.forSize(desktop) {
+      flex-wrap: nowrap;
+    }
+  }
+}

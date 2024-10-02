@@ -1,0 +1,129 @@
+@use 'design-system/src/utils/screen';
+@use 'design-system/src/utils/mixins';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  width: 100%;
+  &.halfWidth {
+    @include screen.forSize(tablet) {
+      width: calc(50% - var(--space-3));
+      max-width: 30rem;
+    }
+  }
+  &.selectWidth {
+    @include screen.forSize(tablet) {
+      max-width: 45%;
+    }
+    @include screen.forSize(desktop) {
+      max-width: 35rem;
+    }
+  }
+}
+
+.subContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  width: 100%;
+}
+
+.subtitle {
+  color: var(--c_grey-950);
+  font-size: var(--f-size_18);
+  @include screen.forSize(desktop) {
+    font-size: var(--f-size_20);
+  }
+  padding: 0;
+  margin: 0;
+}
+
+.secondary {
+  font-style: italic;
+  font-weight: var(--f-weight_400);
+  color: var(--c_primary);
+  line-height: 2.5rem;
+}
+
+.inputContainer {
+  height: 4.5rem;
+  @include screen.forSize(tablet) {
+    height: 5rem;
+  }
+  @include screen.min(1025) {
+    max-width: 30rem;
+  }
+
+  &:before,
+  &:after {
+    content: none;
+  }
+}
+
+.input,
+.textarea {
+  font-size: var(--f-size_16);
+  padding: var(--space-3);
+  width: 100%;
+  @include screen.forSize(tablet) {
+    padding: var(--space-4);
+  }
+  &::placeholder {
+    font-style: italic;
+    color: var(--c_grey-550);
+    font-family: var(--f-family);
+  }
+  color: var(--c_black);
+}
+
+.input {
+  &[type='tel'] {
+    padding-left: var(--space-1);
+  }
+}
+
+.textarea,
+.inputContainer {
+  @include mixins.shape(
+    $c-border: var(--c_grey-550),
+    $br: var(--b-radius_normal)
+  );
+}
+.errorInputContainer {
+  @include mixins.shape(
+    $c-border: var(--c_error),
+    $br: var(--b-radius_normal)
+  );
+}
+
+.fieldError {
+  position: absolute;
+}
+
+.field {
+  margin: 0;
+}
+
+.textarea {
+  width: 100%;
+  resize: none;
+  height: fit-content;
+  min-height: 15rem;
+}
+
+.prefixSelectContainer {
+  align-items: center;
+  font-size: var(--f-size_16);
+}
+
+.prefixSelect {
+  height: 100%;
+}
+
+.prefix {
+  height: fit-content;
+}
+.prefixButton {
+  padding-left: var(--space-2);
+}

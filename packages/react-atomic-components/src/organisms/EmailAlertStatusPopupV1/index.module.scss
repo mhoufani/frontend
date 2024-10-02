@@ -1,0 +1,35 @@
+@use 'design-system/src/utils/mixins';
+@use 'design-system/src/utils/screen';
+
+.title {
+  margin-bottom: var(--space-6);
+  margin-top: var(--space-8);
+  padding: 0 var(--space-3);
+  font-size: var(--f-size_30);
+  line-height: var(--f-size_32);
+  @include screen.forSize(tablet) {
+    margin-top: var(--space-6);
+    font-size: var(--f-size_32);
+  }
+}
+
+.content {
+  margin-bottom: var(--space-8);
+  font-size: var(--f-size_14);
+  @include screen.forSize(tablet) {
+    font-size: var(--f-size_16);
+  }
+  @include screen.forSize(desktop) {
+    max-width: 51rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.button {
+  width: 100%;
+  max-width: 29.5rem;
+  @include screen.forSize(tablet) {
+    max-width: 32.5rem;
+  }
+}

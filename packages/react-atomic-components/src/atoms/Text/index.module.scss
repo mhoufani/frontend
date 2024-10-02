@@ -1,0 +1,57 @@
+@use 'design-system/src/utils/screen';
+@use 'design-system/src/utils/mixins';
+
+.text {
+  @include mixins.fontStyle(var(--f-size_M), var(--f-weight_400));
+}
+
+.textNormal {
+  @include mixins.fontStyle(var(--f-size_M), var(--f-weight_400));
+}
+
+.textBig {
+  @include mixins.fontStyle(var(--f-size_L), var(--f-weight_400));
+}
+
+.textSmall {
+  @include mixins.fontStyle(var(--f-size_S), var(--f-weight_400));
+}
+
+.textRegular {
+  @include mixins.fontWeight(var(--f-weight_400));
+}
+
+.textItalic {
+  @include mixins.fontStyle(var(--f-size_I), var(--f-weight_400));
+  font-style: italic;
+}
+
+.textBold {
+  @include mixins.fontWeight(var(--f-weight_700));
+}
+
+.textSemiBold {
+  @include mixins.fontWeight(var(--f-weight_600));
+}
+
+.textColor {
+  @include mixins.colors(var(--c_text));
+}
+
+.textH3 {
+  * {
+    @include mixins.fontStyle(var(--f-size_H3), 700, normal);
+  }
+}
+
+.textSubtitle {
+  @include mixins.fontStyle(1.8rem, var(--f-weight_400), 2.4rem);
+}
+
+.textDescription {
+  @include mixins.fontStyle(var(--f-size_14), normal, 2.4rem);
+}
+
+.textParagraphLarge {
+  @include mixins.fontStyle(var(--f-size_L), normal, 2.4rem);
+}

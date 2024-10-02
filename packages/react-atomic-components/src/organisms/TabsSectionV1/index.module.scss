@@ -1,0 +1,132 @@
+@use 'design-system/src/utils/screen';
+@use 'design-system/src/utils/mixins';
+
+.tabsSection {
+  .tabs {
+    align-items: start;
+    padding: 0 var(--space-4);
+    @include screen.forSize(desktop) {
+      justify-content: center;
+      gap: var(--space-12);
+    }
+  }
+}
+.tabButton {
+  margin-bottom: 2.2rem;
+  padding: 3.5rem 1.5rem;
+  height: inherit;
+  max-width: inherit;
+  @include mixins.shape(
+    var(--c_white),
+    var(--c_primary),
+    var(--b-radius_button-default),
+    0.1rem
+  );
+  @include mixins.font(
+    var(--c_primary),
+    var(--f-size_M),
+    var(--f-weight_700)
+  );
+  @include screen.forSize(tablet) {
+    padding: var(--space-6) var(--space-5);
+  }
+
+  @include screen.forSize(desktop) {
+    padding: var(--space-5) var(--space-4);
+    max-width: 40rem;
+    height: 12rem;
+    gap: var(--space-3);
+    @include mixins.flex(
+      $direction: row,
+      $justify: center,
+      $align: center
+    );
+  }
+
+  &.active {
+    background-color: var(--c_primary);
+    color: var(--c_white);
+    position: relative;
+
+    .icon {
+      path {
+        fill: var(--c_white);
+      }
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      display: inline-block;
+      height: 0;
+      width: 0;
+      border-top: 2.2rem solid var(--c_primary);
+      border-right: 2.1rem solid transparent;
+      border-left: 2.2rem solid transparent;
+      bottom: -2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      @include screen.forSize(desktop) {
+        display: none;
+      }
+    }
+  }
+}
+.tabContentTitle {
+  display: none;
+  color: var(--c_primary);
+  font-size: var(--f-size_18);
+  font-weight: var(--f-weight_700);
+  margin-top: var(--space-2);
+
+  @include screen.forSize(tablet) {
+    @include mixins.flex($justify: center, $align: center);
+  }
+  @include screen.forSize(desktop) {
+    font-size: var(--f-size_20);
+  }
+}
+.tabContentTitleMobile {
+  @include mixins.flex($justify: center, $align: center);
+
+  @include screen.forSize(tablet) {
+    display: none;
+  }
+}
+
+.titleTab,
+.subTitleTab {
+  font-size: var(--f-size_p-m);
+  @include screen.forSize(tablet) {
+    font-size: var(--f-size_p-xl);
+  }
+  @include screen.forSize(desktop) {
+    font-size: var(--f-size_18);
+  }
+}
+
+.subTitleTab {
+  display: block;
+  font-weight: var(--f-weight_400);
+}
+
+.icon {
+  display: none;
+  @include screen.forSize(desktop) {
+    display: block;
+    width: 7rem;
+    height: 7rem;
+    *[class='reezogreen-color-2'] {
+      fill: var(--c_primary);
+    }
+    *[class='reezogreen-color-1'] {
+      fill: var(--c_secondary);
+    }
+    *[class='reezogreen_svg__reezogreen-color-2'] {
+      fill: var(--c_primary);
+    }
+    *[class='reezogreen_svg__reezogreen-color-1'] {
+      fill: var(--c_secondary);
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "router",
+  "version": "1.0.0",
+  "description": "This package provide a simple router for your web application",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "path-to-regexp": "^6.2.2",
+    "utils": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/reezogit/front.git"
+  },
+  "private": true
+}

@@ -1,0 +1,50 @@
+@use "design-system/src/utils/screen";
+@use "design-system/src/utils/mixins";
+
+.sliderRange {
+  width: 100%;
+  input[type='range'] {
+    -webkit-appearance: none;
+    height: .4rem;
+    background-color: var(--c_grey-300);
+    border-radius: .4rem;
+    width: 100%;
+    cursor: ew-resize;
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      background-color: var(--c_white);
+      border: 3px solid var(--c_primary);
+      border-radius: 1.6rem;
+      box-shadow: none;
+      height: 3.2rem;
+      width: 3.2rem;
+    }
+    &::-moz-range-thumb {
+      background-color: var(--c_white);
+      border: .3rem solid var(--c_primary);
+      border-radius: 1.6rem;
+      height: 3.2rem;
+      width: 3.2rem;
+    }
+    &::-webkit-slider-runnable-track {
+      border: none;
+      border-radius: 0;
+    }
+  }
+}
+.headContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 30px 0 30px 0;
+  p {
+    font-size: 1.8rem;
+  }
+  .unity {
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
+}
+.range {
+  width: 100%;
+}

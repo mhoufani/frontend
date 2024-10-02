@@ -1,0 +1,40 @@
+@use 'design-system/src/utils/screen';
+
+.outer {
+   display: flex;
+}
+
+.ratingTextNotice {
+   font-size: var(--f-size_14);
+   margin-left: 1rem;
+
+   @include screen.forSize(mobile-375) {
+      font-size: var(--f-size_16);
+      margin-left: 1.5rem;
+   }
+   @include screen.forSize(desktop) {
+      font-size: var(--f-size_20);
+   }
+}
+
+.star,
+.starIcon {
+   height: 1.8rem;
+   width: 1.8rem;
+
+   @include screen.forSize(mobile-375) {
+      height: 2rem;
+      width: 2rem;
+   }
+   @include screen.forSize(desktop) {
+      height: 2.7rem;
+      width: 2.7rem;
+   }
+}
+.star {
+   margin-left: .2rem;
+
+   @include screen.forSize(desktop) {
+      margin-left: .4rem;
+   }
+}

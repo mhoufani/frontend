@@ -1,0 +1,7 @@
+.listContainer {
+  margin: 0 0 var(--space-6);
+  padding-left: calc(3rem + var(--step-icon-size));
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}

@@ -1,0 +1,19 @@
+@use 'design-system/src/utils/mixins';
+
+.carLink {
+  @include mixins.font(var(--c_carlink), 1.2rem, var(--f-weight_400));
+  @include mixins.shape(
+    var(--c_white),
+    var(--c_carlink),
+    var(--b-radius_button-default)
+  );
+  text-align: center;
+  display: inline-block;
+  margin: 0.9rem 0 0 auto;
+  padding: 0.6rem 2rem 0.7rem;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  &:hover {
+    text-shadow: 0 0 0.6px var(--c_carlink), 0 0 0.6px var(--c_carlink);
+  }
+}

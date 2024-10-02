@@ -1,0 +1,79 @@
+.containerBox {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  font-weight: 400;
+  user-select: none;
+  padding-left: 3.5rem;
+  margin-bottom: 1.2rem;
+  margin-top: 2rem;
+  font-size: 1.6rem;
+  span:nth-child(2) {
+    margin-left: 1rem;
+    color: var(--c_grey-450);
+    font-size: 1.4rem;
+  }
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+}
+
+.containerBoxChecked {
+  font-weight: 700;
+  color: var(--c_secondary);
+}
+
+.checkboxMark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2rem;
+  width: 2rem;
+  transition: all 0.3s ease-in-out;
+  background-color: var(--c_white);
+  border-radius: .4rem;
+  border: 1px solid var(--c_grey-900);
+  &:after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 1px;
+    width: .5rem;
+    height: 1rem;
+    border: solid white;
+    border-width: 0 .3rem .3rem 0;
+    transform: rotate(45deg);
+  }
+}
+
+.checkboxMarkActive {
+  background-color: var(--c_secondary);
+  border: 1px solid var(--c_secondary);
+  &:after {
+    display: block;
+  }
+}
+
+.moreButton {
+  margin-top: 1rem;
+  font-size: 1.6rem;
+  font-weight: 400;
+  text-decoration: underline;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  color: var(--c_secondary);
+}
+
+.inactive {
+  opacity: 0.3;
+}
+
+.containerBoxInactive {
+  cursor: auto;
+}

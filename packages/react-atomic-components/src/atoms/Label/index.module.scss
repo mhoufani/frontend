@@ -1,0 +1,7 @@
+@use "design-system/src/utils/screen";
+@use "design-system/src/utils/mixins";
+
+.label {
+    @include mixins.fontStyle(var(--f-size_Label), var(--f-weight_600));
+    @include mixins.colors(var(--c_black))
+}

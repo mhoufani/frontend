@@ -1,0 +1,9 @@
+.list {
+  flex: 1 1;
+  display: flex;
+  justify-content: space-between;
+}
+
+.text {
+  font-weight: var(--f-weight_600);
+}

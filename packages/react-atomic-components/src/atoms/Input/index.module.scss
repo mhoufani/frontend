@@ -1,0 +1,74 @@
+@use 'design-system/src/utils/screen';
+
+.input {
+  background-color: transparent;
+  border: none;
+  outline: 0;
+  flex: 1;
+  font-size: 1.4rem;
+  height: calc(100% + 1px);
+  color: var(--c_secondary);
+  margin: 0;
+  min-width: 3rem;
+  padding: 0;
+}
+
+.container {
+  background-color: var(--c_white);
+  border-right: none;
+  border-top: none;
+  border-left: none;
+  box-shadow: none;
+  color: var(--c_grey-650);
+  display: flex;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  height: 4.6rem;
+  @include screen.forSize(tablet) {
+    height: 3.3rem;
+  }
+  width: 100%;
+  &:before {
+    background-color: var(--c_grey-370);
+    content: '';
+    height: 1px;
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    z-index: 0;
+  }
+  &:after {
+    background-color: var(--c_secondary);
+    content: '';
+    height: 0.2rem;
+    left: 50%;
+    bottom: -1px;
+    position: absolute;
+    transition: all 200ms ease-in-out;
+    transform: translateX(-50%);
+    width: 0%;
+    z-index: 1;
+  }
+
+  &.withLabel {
+    flex-direction: column;
+  }
+}
+
+.focus {
+  &:after {
+    width: 100%;
+  }
+}
+
+.invalid {
+  &:before {
+    background-color: var(--c_error);
+  }
+  &:after {
+    background-color: var(--c_error);
+  }
+}

@@ -1,0 +1,77 @@
+@use 'design-system/src/utils/screen';
+@use 'design-system/src/utils/mixins';
+
+.emailAlertPopup {
+  @include mixins.flex(
+    $align: center,
+    $justify: center,
+    $direction: column
+  );
+}
+
+.title {
+  margin-bottom: var(--space-4);
+  font-size: var(--f-size_30);
+  font-weight: var(--f-weight_700);
+  line-height: var(--f-size_30);
+  color: var(--c_primary);
+  @include screen.forSize(tablet) {
+    margin-bottom: var(--space-10);
+    font-size: var(--f-size_36);
+    line-height: var(--f-size_36);
+  }
+  @include screen.forSize(desktop) {
+    margin-bottom: var(--space-8);
+  }
+}
+
+.content {
+  @include mixins.flex(
+    $align: center,
+    $justify: center,
+    $direction: column
+  );
+}
+
+.filtersTitle {
+  font-size: var(--f-size_20);
+  font-weight: var(--f-weight_600);
+}
+
+.form {
+  @include mixins.flex($direction: column, $align: center);
+  margin-top: var(--space-12);
+  width: 100%;
+  @include screen.forSize(tablet) {
+    max-width: 40rem;
+    margin-top: 6.5rem;
+  }
+}
+
+.field {
+  margin-bottom: var(--space-7);
+  @include screen.forSize(tablet) {
+    margin-bottom: var(--space-8);
+  }
+}
+.input {
+  border-bottom: 1px solid var(--c_grey-450);
+  width: 100%;
+  font-size: var(--f-size_16);
+  color: var(--c_grey-900);
+  &::placeholder {
+    color: var(--c_grey-450);
+  }
+}
+
+.buttonSubmit {
+  width: 100%;
+  max-width: inherit;
+  @include screen.forSize(tablet) {
+    max-width: 36.5rem;
+  }
+}
+
+.errorMessage {
+  text-align: left;
+}

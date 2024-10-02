@@ -1,0 +1,18 @@
+@use 'design-system/src/utils/screen';
+@use 'design-system/src/utils/mixins';
+
+.container {
+  margin-top: 2rem;
+}
+
+.tabs {
+  @include mixins.flex($justify: center, $align: initial);
+  gap: 2rem;
+  @include screen.forSize(desktop) {
+    justify-content: flex-start;
+  }
+}
+
+.tabsContent {
+  padding-top: 2rem;
+}

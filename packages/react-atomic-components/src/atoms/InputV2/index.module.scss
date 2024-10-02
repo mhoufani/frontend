@@ -1,0 +1,21 @@
+.input {
+  border: 1px solid var(--c_grey-550);
+  border-radius: var(--b-radius_normal);
+  font-size: var(--f-size_16);
+  height: 5rem;
+  padding-left: var(--space-3);
+  width: 100%;
+
+  &:disabled {
+    color: var(--c_grey-600);
+  }
+
+  &::placeholder {
+    color: var(--c_grey-500);
+    font-style: italic;
+  }
+}
+
+.isErrored {
+  border-color: var(--c_error);
+}

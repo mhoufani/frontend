@@ -1,0 +1,52 @@
+@use 'design-system/src/utils/mixins';
+
+.carTypeBtn {
+  @include mixins.font(
+    var(--c_black),
+    var(--f-size_M),
+    var(--f-weight_400)
+  );
+  @include mixins.shape(
+    var(--c_white),
+    var(--c_grey-300),
+    var(--b-radius_select),
+    2px
+  );
+  position: relative;
+  padding: 1rem;
+  aspect-ratio: 1;
+  position: relative;
+  min-width: 10rem;
+  transition: all 0.3s ease-in-out;
+  svg {
+    fill: var(--c_text);
+    width: 100%;
+    height: 3rem;
+  }
+  .carLabel {
+    width: 100%;
+    font-size: 1.4rem;
+    display: block;
+  }
+  .available {
+    width: 100%;
+    color: var(--c_grey-450);
+    margin: 0;
+  }
+
+  &:disabled {
+    @include mixins.disabled;
+  }
+}
+
+.active {
+  border: 2px solid var(--c_carlink);
+  svg {
+    fill: var(--c_icon-primary);
+  }
+  .carLabel,
+  .available {
+    font-weight: var(--f-weight_700);
+    color: var(--c_title-primary);
+  }
+}

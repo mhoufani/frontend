@@ -1,0 +1,25 @@
+.socialLink {
+  align-items: center;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  height: 5rem;
+  width: 5rem;
+  cursor: pointer;
+}
+
+.icon {
+  height: 100%;
+  width: 100%;
+}
+
+.facebook {
+  background-color: #4267b2;
+}
+.twitter {
+  background-color: #01aef2;
+}
+.instagram {
+  background-color: #f00075;
+}

@@ -1,0 +1,82 @@
+@use 'design-system/src/utils/screen';
+@use 'design-system/src/utils/mixins';
+
+.listItemTitle {
+  color: var(--c_black);
+  font-weight: var(--f-weight_normal);
+}
+
+.title {
+  font-size: var(--f-size_20);
+  color: var(--c_primary);
+}
+
+.buttonBack {
+  @include screen.forSize(mobile-480) {
+    display: none;
+  }
+}
+
+.dataContainer {
+  padding: var(--space-2) 0;
+  @include mixins.flex($justify: left);
+
+  > p {
+    padding-right: var(--space-10);
+
+    &.true {
+      font-weight: var(--f-weight_bold);
+      fill: var(--c_green);
+    }
+
+    &.false {
+      color: var(--c_grey-500);
+      fill: var(--c_grey-500);
+    }
+
+    > svg {
+      margin-right: var(--space-2);
+    }
+  }
+}
+
+.text {
+  color: var(--c_secondary);
+  font-weight: var(--f-weight_bold);
+  font-size: 1.5rem;
+  width: 90%;
+  text-align: center;
+}
+
+.icon {
+  max-width: 7rem;
+  max-height: var(--space-12);
+  width: 100%;
+  height: 100%;
+  @include mixins.flex($direction: row);
+}
+
+.accompaniementIcon {
+  max-width: 6rem;
+}
+
+.handsCheckingIcon {
+  max-width: 6.4rem;
+}
+
+.guaranteeIcon {
+  max-width: 4rem;
+}
+
+.repairIcon {
+  max-width: 7rem;
+}
+
+.carCheckIcon {
+  max-width: 7rem;
+}
+
+.buttonContainer {
+  padding: var(--space-4) 0;
+  @include mixins.flex($justify: space-between);
+}

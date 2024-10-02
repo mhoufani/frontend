@@ -1,0 +1,42 @@
+@use 'design-system/src/utils/screen';
+@use 'design-system/src/utils/mixins';
+
+
+
+.cardContainer {
+  white-space: break-spaces;
+  @include screen.forSize(desktop-sm) {
+    max-width: 39rem;
+  }
+}
+
+.img {
+  margin: auto;
+  width: 7rem;
+  height: 7rem;
+}
+
+.imgContainer {
+  width: auto;
+  height: auto;
+}
+
+.cardContent {
+  margin-top: 2rem;
+  @include screen.forSize(desktop-md){
+    margin-top: 2.5rem;
+  }
+}
+
+.dots {
+  height: 4rem;
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+.itemContainer {
+  padding: 1rem 0 2rem;
+  &:last-child {
+    position: absolute;
+  }
+}

@@ -1,0 +1,46 @@
+@use 'design-system/src/utils/screen';
+@use 'design-system/src/utils/mixins';
+
+.radio {
+  @include mixins.flex(flex-start, center);
+  @include mixins.font(var(--c_radio), 1.6rem, var(--f-weight_400));
+  @include mixins.enabled;
+  position: relative;
+  gap: var(--space-2);
+  & > input {
+    @include mixins.absolute;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+  }
+}
+
+.mark {
+  @include mixins.shape(var(--c_white), var(--c_radio), 50%);
+  position: relative;
+  height: var(--s-radio);
+  width: var(--s-radio);
+  transition: all 0.3s linear;
+  &:after {
+    @include mixins.absolute(2px, 2px, 2px, 2px);
+    @include mixins.shape(var(--c_checked), inherit, inherit);
+    content: '';
+    opacity: 0;
+    transition: all 0.3s linear;
+  }
+}
+
+.checked {
+  font-weight: var(--f-weight_600);
+  color: var(--c_checked);
+  .mark {
+    border-color: var(--c_checked);
+    &:after {
+      opacity: 1;
+    }
+  }
+}
+
+.disabled {
+  @include mixins.disabled;
+}

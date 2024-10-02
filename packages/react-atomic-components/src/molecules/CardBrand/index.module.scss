@@ -1,0 +1,48 @@
+@use 'design-system/src/utils/screen';
+
+.card {
+  align-items: center;
+  border: .1rem solid var(--c_grey-300);
+  border-radius: .6rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 15.5rem;
+  min-height: 12.4rem;
+  padding: 1rem;
+}
+
+.isActive,
+.withShadow:hover {
+  box-shadow: rgba(0, 0, 0, 0.15) .4rem .4rem .8rem;
+
+  @include screen.forSize(tablet) {
+    box-shadow: rgba(0, 0, 0, 0.15) .4rem .4rem 1.5rem;
+  }
+}
+
+.isActive {
+  border: .1rem solid var(--c_secondary);
+}
+
+.image {
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  width: 80%;
+}
+
+.title {
+  flex-shrink: 0;
+  font-size: 1.6rem;
+  font-weight: var(--f-weight_600);
+  min-height: 3.5rem;
+  line-height: 1.8rem;
+  text-align: center;
+
+  @include screen.forSize(tablet) {
+    font-size: 1.8rem;
+    line-height: 2.2rem;
+  }
+}

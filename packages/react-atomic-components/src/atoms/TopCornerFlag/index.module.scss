@@ -1,0 +1,28 @@
+@use 'design-system/src/utils/mixins';
+@use 'design-system/src/utils/screen';
+
+.topCornerFlag {
+  padding: var(--space-2);
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: var(--c_topCornerBannerBcg);
+  border-bottom-left-radius: var(--b-radius_normal);
+  z-index: 1;
+  @include screen.forSize(tablet) {
+    max-width: 39.5rem;
+    width: 100%;
+  }
+}
+
+.flagContent {
+  @include mixins.flex($align: center, $justify: center);
+  gap: var(--space-1);
+  font-size: var(--f-size_10);
+  font-weight: var(--f-weight_600);
+  line-height: var(--f-size_12);
+  color: var(--c_white);
+  @include screen.forSize(tablet) {
+    font-size: var(--f-size_14);
+  }
+}

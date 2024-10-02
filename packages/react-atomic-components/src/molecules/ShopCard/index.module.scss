@@ -1,0 +1,103 @@
+@use 'design-system/src/utils/screen';
+
+.contentAgency {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  @include screen.forSize(desktop-s) {
+    flex-direction: row;
+    align-items: center;
+  }
+  margin-top: 3rem;
+  padding: 0;
+  @include screen.forSize(mobile-480) {
+    padding: 0 5rem 0 5rem;
+  }
+
+  @include screen.forSize(desktop-s) {
+    padding: 0;
+  }
+}
+
+.imgContainerOuter {
+  width: 100%;
+  height: 30rem;
+  @include screen.forSize(desktop-s) {
+    max-width: 48.5rem;
+    max-height: 30rem;
+    margin-left: auto;
+  }
+}
+
+.imgAgency {
+  composes: image from 'ui-core/atoms/Picture/index.module.scss';
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  border-radius: 1rem;
+  @include screen.forSize(mobile-480) {
+    height: 30rem;
+  }
+}
+
+.addressContainer {
+  width: 100%;
+  margin-top: 1.5rem;
+  @include screen.forSize(desktop-s) {
+    width: 50%;
+    margin-top: 0;
+    margin-left: 5.9rem;
+    min-width: 32.8rem;
+  }
+
+  &:nth-child(n) > h3 {
+    color: var(--c_error);
+    font-style: normal;
+    font-weight: bold;
+    font-size: 2.2rem;
+    @include screen.forSize(mobile-480) {
+      font-size: 2.7rem;
+    }
+  }
+}
+
+.address {
+  color: var(--c_error);
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin: .5rem 0 2rem 0;
+  white-space: pre-line;
+  @include screen.forSize(mobile-480) {
+    margin: 1.1rem 0 2rem 0;
+    font-size: 2.2rem;
+  }
+}
+
+.openHours {
+  margin: 0;
+  font-weight: 600;
+  display: none;
+  color: var(--c_secondary);
+  @include screen.forSize(tablet) {
+    display: block;
+  }
+}
+
+.hours {
+  display: none;
+  vertical-align: top;
+  padding: 0;
+  list-style: none;
+  @include screen.forSize(mobile-480) {
+    display: inline-block;
+    margin: 0 6rem 0 0;
+  }
+  &:nth-child(n) > li {
+    padding-top: 1.5rem;
+    font-size: 1.6rem;
+    font-weight: 400;
+  }
+  &:last-child {
+    margin: 0;
+  }
+}

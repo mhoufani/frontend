@@ -1,0 +1,48 @@
+@use 'design-system/src/utils/screen';
+@use 'design-system/src/utils/mixins';
+
+.listItemTitle {
+  color: var(--c_black);
+  font-weight: var(--f-weight_normal);
+}
+
+.icon {
+  border-radius: 100%;
+  width: 10rem;
+  height: 10rem;
+  padding: var(--space-2);
+
+  path {
+    fill: var(--c_white);
+  }
+}
+
+.true {
+  background-color: var(--c_green);
+  border: 1.5rem solid var(--c_green-50);
+}
+
+.false {
+  background-color: var(--c_red-100);
+  border: 1.5rem solid var(--c_red-200);
+}
+
+.messageContainer {
+  @include mixins.flex($direction: column, $align: center);
+
+  gap: var(--space-3);
+  text-align: center;
+}
+
+.buttonsContainer {
+  padding: 3rem 0;
+  @include mixins.flex($direction: column);
+
+  button {
+    padding: 0 var(--space-4);
+  }
+
+  @include screen.forSize(tablet) {
+    @include mixins.flex($justify: space-between);
+  }
+}

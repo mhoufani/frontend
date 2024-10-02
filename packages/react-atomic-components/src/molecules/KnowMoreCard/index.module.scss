@@ -1,0 +1,54 @@
+@use 'design-system/src/utils/screen';
+
+.pushKnowMore {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  border: 1px solid var(--c_secondary);
+  border-radius: 0.4rem;
+  height: 100%;
+  width: 100%;
+  @include screen.forSize(desktop) {
+    height: auto;
+    margin: 0 2rem;
+    width: calc(100% - 4rem);
+  }
+}
+
+.container {
+  padding: 3.5rem 2.5rem 1.2rem 2.5rem;
+}
+
+.title {
+  font-size: var(--f-size_24);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+
+  /* do no import in SB */
+  overflow: inherit;
+  height: inherit;
+  @include screen.forSize(desktop) {
+    font-size: var(--f-size_22);
+  }
+}
+
+.text {
+  font-size: 1.4rem;
+  margin-bottom: 1.6rem;
+}
+
+.buttonLink {
+  display: inline-block;
+  padding: 1.2rem 4rem;
+  font-size: 1.4rem;
+  @include screen.forSize(desktop) {
+    padding: 1.2rem 5rem;
+  }
+
+  /* do no import in SB */
+  height: inherit;
+}
+
+.image {
+  margin-bottom: 2.2rem;
+}

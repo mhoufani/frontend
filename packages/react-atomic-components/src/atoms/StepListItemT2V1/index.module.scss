@@ -1,0 +1,103 @@
+@use 'design-system/src/utils/screen';
+
+.listItem {
+  list-style-type: none;
+  position: relative;
+  color: var(--c_grey-950);
+  width: 100%;
+  @include screen.forSize(desktop) {
+    width: unset;
+    padding-left: calc(var(--step-icon-size) + var(--space-2));
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    border-radius: 50%;
+    background-color: var(--c_stepListDots);
+    opacity: 0.3;
+    display: block;
+    transition: opacity 0.2s ease;
+    z-index: 2;
+    width: var(--step-icon-size);
+    height: var(--step-icon-size);
+    @include screen.forSize(desktop) {
+      top: 0.4rem;
+      left: 0;
+    }
+  }
+
+  &::after {
+    content: '';
+    background-color: var(--c_stepListDots);
+    position: absolute;
+    left: calc(var(--step-icon-size) / 2);
+    height: var(--step-icon-size);
+    display: flex;
+    z-index: 1;
+    width: 100%;
+    opacity: 0.07;
+    transition: opacity 0.2s ease;
+    @include screen.forSize(desktop) {
+      left: 0;
+      top: calc(var(--step-icon-size) / 2 + 0.4rem);
+      width: var(--step-icon-size);
+      height: calc(100% + var(--list-gap));
+    }
+  }
+
+  &.isActive {
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  &.isAfterActive {
+    &::after {
+      opacity: 0.25;
+    }
+  }
+
+  &:last-child {
+    padding-bottom: 0;
+    @include screen.max(820) {
+      padding-left: calc(var(--step-icon-size));
+    }
+    width: unset;
+    .listContent {
+      border-bottom: none;
+    }
+    &::after {
+      content: none;
+    }
+  }
+}
+
+.listItemTitle {
+  display: none;
+  @include screen.forSize(desktop) {
+    display: block;
+    color: var(--c_grey-950);
+    font-size: var(--f-size_L);
+    font-weight: var(--f-weight_700);
+    margin-bottom: var(--space-2);
+  }
+}
+
+.listContent {
+  display: none;
+  @include screen.forSize(desktop) {
+    display: block;
+    margin-top: var(--space-2);
+  }
+}
+
+.listItemTitle,
+.listContent {
+  transition: opacity 0.2s ease;
+  opacity: 0.3;
+  &.isActive {
+    opacity: 1;
+  }
+}

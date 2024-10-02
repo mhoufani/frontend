@@ -1,0 +1,23 @@
+@use 'design-system/src/utils/screen';
+@use 'design-system/src/utils/mixins';
+
+.tabButton {
+  font-size: 1.8rem;
+  cursor: pointer;
+  @include mixins.flex(center, center, row);
+  @include screen.forSize(tablet) {
+    white-space: normal;
+    max-width: 25rem;
+  }
+  @include screen.forSize(desktop) {
+    max-width: none;
+  }
+}
+
+.tabListItem {
+  list-style-type: none;
+}
+
+.titleWrapper {
+  @include mixins.flex(center, center, column);
+}

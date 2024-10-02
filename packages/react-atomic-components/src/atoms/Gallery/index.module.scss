@@ -1,0 +1,16 @@
+@use 'design-system/src/utils/screen';
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.item {
+  width: 100%;
+  min-height: 10rem;
+  min-width: 10rem;
+  @include screen.forSize(desktop) {
+    width: calc(100% / 3);
+  }
+}

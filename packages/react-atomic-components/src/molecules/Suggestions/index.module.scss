@@ -1,0 +1,21 @@
+.suggestions {
+   background-color: var(--c_white);
+   padding-bottom: var(--space-1);
+   padding-top: var(--space-1);
+   position: absolute;
+   width: 100%;
+   z-index: 1000;
+}
+
+.suggestion {
+   cursor: pointer;
+
+   &.isHighlighted {
+      background-color: var(--c_grey-300);
+   }
+}
+
+.suggestionInner {
+   align-items: center;
+   display: flex;
+}

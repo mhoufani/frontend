@@ -1,0 +1,46 @@
+.carousel_carousel,
+.outer {
+   height: 100%;
+}
+
+.carousel_itemContainer {
+   position: relative;
+}
+
+.carousel_navStepper {
+   height: 50%;
+   opacity: .8;
+   margin: 0;
+   position: absolute;
+   top: 50%;
+   transform: translateY(-50%);
+   transition: transform 300ms ease;
+   width: 5rem;
+
+   &:hover {
+      opacity: 1;
+   }
+
+   & > svg {
+      fill: var(--c_white);
+      height: 2.5rem;
+      width: 1.4rem;
+   }
+}
+
+.carousel_navStepperPrev {
+   left: 0;
+   padding-left: var(--space-3);
+
+   &:hover {
+      transform: translate(calc(var(--space-1) * -1), -50%);
+   }
+}
+.carousel_navStepperNext {
+   right: 0;
+   padding-right: var(--space-3);
+
+   &:hover {
+      transform: translate(var(--space-1), -50%);
+   }
+}

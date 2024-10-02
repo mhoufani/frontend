@@ -1,0 +1,14 @@
+@use 'design-system/src/utils/mixins';
+.container {
+  border-bottom: 1px solid var(--c_grey-300);
+  padding: var(--space-4) 0;
+}
+.title {
+  @include mixins.font(
+    var(--c_grey-950),
+    var(--f-size_L),
+    var(--f-weight_600),
+    1.5
+  );
+  margin-bottom: 1rem;
+}

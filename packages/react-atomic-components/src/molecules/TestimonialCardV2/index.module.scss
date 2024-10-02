@@ -1,0 +1,83 @@
+$quoteSize: 6rem;
+$lineHeight: 2.2rem;
+
+.testimonialCard {
+  display: flex;
+  flex-direction: column;
+  margin-top: $quoteSize / 2;
+  background-color: var(--c_white);
+  box-shadow: .4rem .4rem 1rem rgb(0, 0, 0, 0.15);
+  position: relative;
+  padding: var(--space-8) var(--space-4) var(--space-6);
+  border-radius: var(--b-radius_normal);
+  height: 25.9rem;
+  max-width: 33.5rem;
+  gap: var(--space-3);
+}
+
+.iconWrapper {
+  background-color: var(--c_secondary);
+  position: absolute;
+  top: -$quoteSize / 2;
+  left: calc(50% - ($quoteSize / 2));
+  border-radius: 50%;
+  width: $quoteSize;
+  height: $quoteSize;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.quoteIcon {
+  width: 2.1rem;
+  height: 1.9rem;
+}
+
+.message {
+  font-style: italic;
+  color: var(--c_primary);
+  line-height: $lineHeight;
+  font-size: 1.5rem;
+  margin-top: .5rem;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  &::before {
+    content: "“";
+    display: inline-block;
+    position: relative;
+    width: auto;
+    height: auto;
+  }
+  &::after {
+    content: "“";
+    display: inline-block;
+    position: relative;
+    width: auto;
+    height: auto;
+  }
+}
+
+.authorDateContainer {
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+}
+
+.bottomCard {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.name {
+  font-weight: var(--f-weight_700);
+  text-overflow: ellipsis;
+  color: var(--c_primary);
+  font-size: 1.8rem;
+}
+.date {
+  font-weight: var(--f-weight_400);
+  color: var(--c_grey-950);
+  font-size: 1.4rem;
+}
