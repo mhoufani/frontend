@@ -1,0 +1,61 @@
+@mixin flex($justify: initial, $align: stretch, $direction: row) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+}
+
+@mixin shape($bg: unset, $c-border: #fff, $br: 0, $w-border: 1px) {
+  background-color: $bg;
+  border: $w-border solid $c-border;
+  border-radius: $br;
+}
+
+@mixin font($c, $fs, $fw: inherit, $lh: normal) {
+  color: $c;
+  font-size: $fs;
+  font-weight: $fw;
+  line-height: $lh;
+}
+@mixin fontStyle($fs: inherit, $fw: inherit, $lh: normal) {
+  font-size: $fs;
+  font-weight: $fw;
+  line-height: $lh;
+}
+@mixin colors($c) {
+  color: $c;
+}
+@mixin fontWeight($fw: var(--f-weight_400)) {
+  font-weight: $fw;
+}
+@mixin absolute($top: 0, $left: 0, $bottom: 0, $right: 0) {
+  position: absolute;
+  top: $top;
+  left: $left;
+  bottom: $bottom;
+  right: $right;
+}
+
+@mixin disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@mixin enabled {
+  cursor: pointer;
+  user-select: none;
+}
+
+// A mixin to prevent text shifting when changing the font weight on hover
+@mixin textEffect($typeEffect: semiBold, $color: currentColor) {
+  @if $typeEffect == semiBold {
+    text-shadow:
+      0 0 0.7px $color,
+      0 0 0 $color;
+  }
+  @if $typeEffect == bold {
+    text-shadow:
+      0 0 1px $color,
+      0 0 1px $color;
+  }
+}

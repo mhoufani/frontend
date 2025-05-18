@@ -1,0 +1,46 @@
+// variables UA
+
+@use '../../utils/screen';
+
+:root,
+::before,
+::after {
+  // Layout
+  --h_header: 6.5rem;
+
+  // Sizes
+  --w_button: 25rem;
+  --h_button: 5rem;
+
+  // Radius
+  --b-radius_normal: 0.4rem;
+  --b-radius_button-default: 2.4rem;
+  --b-radius_select: 0.4rem;
+  --b-radius_input: 0.4rem;
+  --b-radius_cta-button: 2.4rem;
+
+  // Paddings
+  --p_card-car: 1.8rem 1.2rem;
+  --p_card-info: 3.5rem 1.8rem 4rem 1.8rem;
+}
+
+@include screen.forSize(tablet) {
+  :root {
+    // Paddings
+    --p_card-info: 3.8rem 2rem;
+  }
+}
+
+@include screen.forSize(desktop) {
+  :root {
+    // Layout
+    --h_header: 8rem;
+
+    // Sizes
+    --w_card-car: 32.5rem;
+    --w_card-info: 31.5rem;
+
+    // Paddings
+    --p_card-info: 3.8rem 2rem 4rem 2rem;
+  }
+}

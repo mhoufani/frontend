@@ -1,22 +1,15 @@
-import { describe, it, expect}  from "@jest/globals";
+  import { describe, it, expect}  from "@jest/globals";
 
 import {
   PhoneNumberPrefixLocationFRWithSpace,
+  addLeadingDotToFileExtension,
   fromSlug,
   toBoolean,
   toTitle,
-  trim,
-  trimStart,
-  trimEnd,
-} from '@formatter';
+} from '../';
 
 describe('formatter', () => {
   describe('fromSlug', () => {
-    it('should return falsy', () => {
-      expect(fromSlug(undefined)).toBeFalsy();
-      expect(fromSlug(null)).toBeFalsy();
-      expect(fromSlug(false)).toBeFalsy();
-    });
     it('should return from slug string', () => {
       expect(fromSlug('audi+a3')).toBe('audi a3');
       expect(fromSlug('volkswagen-golf')).toBe('volkswagen golf');
@@ -37,73 +30,9 @@ describe('formatter', () => {
     });
   });
   describe('toTitle', () => {
-    it('should return falsy', () => {
-      expect(toTitle(undefined)).toBeFalsy();
-      expect(toTitle(null)).toBeFalsy();
-      expect(toTitle(false)).toBeFalsy();
-    });
     it('should return toTitle string', () => {
       expect(toTitle('audi+a3')).toBe('Audi A3');
       expect(toTitle('volkswagen-golf')).toBe('Volkswagen Golf');
-    });
-  });
-  describe('trimStart', () => {
-    it('should trimStart spaces at the start', () => {
-      expect(trimStart('  String with two spaces before')).toBe(
-        'String with two spaces before'
-      );
-    });
-    it('should trimStart slash at the start', () => {
-      expect(trimStart('/path/', '/')).toBe('path/');
-    });
-    it('should not trimStart', () => {
-      const path = '/path/';
-      expect(trimStart(path)).toBe(path);
-    });
-    it('should return empty string', () => {
-      expect(trimStart(undefined)).toBe('');
-      expect(trimStart(null)).toBe('');
-    });
-  });
-  describe('trimEnd', () => {
-    it('should trimEnd spaces at the end', () => {
-      expect(trimEnd('String with two spaces after  ')).toBe(
-        'String with two spaces after'
-      );
-    });
-    it('should trimEnd slash at the end', () => {
-      expect(trimEnd('/path/', '/')).toBe('/path');
-    });
-    it('should not trimEnd', () => {
-      const path = '/path/';
-      expect(trimEnd(path)).toBe(path);
-    });
-    it('should return empty string', () => {
-      expect(trimEnd(undefined)).toBe('');
-      expect(trimEnd(null)).toBe('');
-    });
-  });
-  describe('trim', () => {
-    it('should trim spaces at the end', () => {
-      expect(trim('  String with two spaces over  ')).toBe(
-        'String with two spaces over'
-      );
-    });
-    it('should trim slash at the end', () => {
-      expect(trim('/path/', '/')).toBe('path');
-    });
-    it('should not trim', () => {
-      const path = '/path/';
-      expect(trim(path)).toBe(path);
-    });
-    it('should return empty string', () => {
-      expect(trim(undefined)).toBe('');
-      expect(trim(null)).toBe('');
-      expect(trim([])).toBe('');
-    });
-    it('should return object stringify', () => {
-      expect(trim({})).toBe('[object Object]');
-      expect(trim({}, ']')).toBe('[object Object');
     });
   });
   describe('PhoneNumberPrefixLocationFRWithSpace', () => {
@@ -130,6 +59,14 @@ describe('formatter', () => {
       expect(PhoneNumberPrefixLocationFRWithSpace(test)).toEqual(
         'N.C'
       );
+    });
+  });
+  describe('addLeadingDotToFileExtension', () => {
+    it('should return file extension with leading dot', () => {
+      expect(addLeadingDotToFileExtension('')).toEqual('.');
+      expect(addLeadingDotToFileExtension('.')).toEqual('.');
+      expect(addLeadingDotToFileExtension('jpg')).toEqual('.jpg');
+      expect(addLeadingDotToFileExtension('.jpg')).toEqual('.jpg');
     });
   });
 });

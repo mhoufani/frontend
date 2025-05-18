@@ -1,0 +1,89 @@
+@mixin forSize($size) {
+  @if $size == mobile-280 {
+    @media (min-width: 280px) {
+      @content;
+    }
+  }
+
+  @if $size == mobile-375 {
+    @media (min-width: 375px) {
+      @content;
+    }
+  }
+  @if $size == mobile-480 {
+    @media (min-width: 480px) {
+      @content;
+    }
+  }
+
+  @if $size == tablet {
+    @media (min-width: 768px) {
+      @content;
+    }
+  }
+
+  @if $size == desktop-s {
+    @media (min-width: 950px) {
+      @content;
+    }
+  }
+
+  @if $size == desktop {
+    @media (min-width: 1025px) {
+      @content;
+    }
+  }
+
+  @if $size == desktop-sm {
+    @media (min-width: 1280px) {
+      @content;
+    }
+  }
+
+  @if $size == desktop-md {
+    @media (min-width: 1440px) {
+      @content;
+    }
+  }
+
+  @if $size == desktop-lg {
+    @media (min-width: 1600px) {
+      @content;
+    }
+  }
+
+  @if $size == desktop-xl {
+    @media (min-width: 1920px) {
+      @content;
+    }
+  }
+}
+
+@mixin breakpoints($min, $max) {
+  @media (min-width: $min + px) and (max-width: $max + px) {
+    @content;
+  }
+}
+
+@mixin min($min) {
+  @media (min-width: $min + px) {
+    @content;
+  }
+}
+
+@mixin max($max) {
+  @media (max-width: $max + px) {
+    @content;
+  }
+}
+// mobile 280 = 280
+// mobile 375 = 375
+// mobile 480 = 480
+// tablet = 768
+// desktop-s = 950
+// desktop = 1024
+// desktop-sm = 1280
+// desktop-md = 1440
+// desktop-lg = 1600
+// desktop-xl = 1920
+// 280 / 375 / 480 / 768 / 950 / 1024 / 1280 / 1440 / 1600 / 1920

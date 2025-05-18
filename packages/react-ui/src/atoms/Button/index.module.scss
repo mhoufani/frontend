@@ -1,0 +1,64 @@
+@use 'design-system/utils/screen';
+@use 'design-system/utils/mixins';
+
+.button {
+  @include mixins.font(var(--c_black), 1.6rem, var(--f-weight_600));
+  height: var(--h_button);
+  width: 100%;
+  background: #000;
+  max-width: var(--w_button, 50px);
+  transition: background-color 300ms;
+  @include screen.forSize(desktop) {
+    font-size: var(--f-size_M);
+  }
+
+  &:disabled {
+    @include mixins.disabled;
+  }
+}
+
+.primary {
+  @include mixins.shape(
+    var(--c_primary),
+    var(--c_primary),
+    var(--b-radius_button-default)
+  );
+  color: var(--c_white);
+  &:hover:enabled {
+    background-color: var(--c_primary-100);
+  }
+}
+
+.secondary {
+  @include mixins.shape(
+    var(--c_secondary_button),
+    var(--c_secondary_button-text),
+    var(--b-radius_button-default)
+  );
+  color: var(--c_secondary_button-text);
+  &:hover:enabled {
+    background-color: var(--c_secondary-100);
+  }
+}
+
+.tertiary {
+  @include mixins.shape(
+    var(--c_tertiary),
+    var(--c_tertiary),
+    var(--b-radius_button-default)
+  );
+  color: var(--c_white);
+  &:hover:enabled {
+    font-weight: var(--f-weight_600);
+  }
+}
+
+.unstyled {
+  @include mixins.shape(
+    transparent,
+    transparent,
+    var(--b-radius_button-default)
+  );
+  color: transparent;
+  height: initial;
+}

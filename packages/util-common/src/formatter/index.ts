@@ -28,7 +28,7 @@ export const toSlug = (
   return lower ? r.toLowerCase() : r;
 };
 
-export const fromSlug = (str?:string, options = { replacement: "+" }) => {
+export const fromSlug = (str:string, options = { replacement: "+" }): string => {
   try {
     return (
       str &&
@@ -51,11 +51,11 @@ export const fromSlug = (str?:string, options = { replacement: "+" }) => {
   }
 };
 
-export const sha1Encrypt = string => string && sha1(string);
+export const sha1Encrypt = (str: string): string => str && sha1(str);
 
-export const ucfirst = (string, onlyFirstWord = false) =>
-  string &&
-  string
+export const ucfirst = (str: string, onlyFirstWord = false): string =>
+  str &&
+  str
     .split(' ')
     .map((word, i) =>
       !onlyFirstWord || i === 0
@@ -64,14 +64,14 @@ export const ucfirst = (string, onlyFirstWord = false) =>
     )
     .join(' ');
 
-export const toTitle = string => string && ucfirst(fromSlug(string));
+export const toTitle = (str: string): string => str && ucfirst(fromSlug(str));
 
 // Accepts a number and returns a string with spaces every 3 digits.
-export const nbSpacingFormatter = string => {
-  if (!isNumber(string)) return string;
+export const nbSpacingFormatter = (str: string) => {
+  if (!isNumber(str)) return str;
   // Casting the string to a number to use the native toLocaleString() method.
   return (
-    Number(string)
+    Number(str)
       .toLocaleString('fr', {
         minimumFractionDigits: 0,
         maximumFractionDigits: 2,
@@ -81,10 +81,7 @@ export const nbSpacingFormatter = string => {
   );
 };
 
-export const formatIndex = index =>
-  index < 10 ? `0${index}` : `${index}`;
-
-export const nl2br = (str, isXhtml) => {
+export const nl2br = (str: string, isXhtml: boolean): string => {
   const breakTag =
     isXhtml || typeof isXhtml === 'undefined' ? '<br />' : '<br>';
   return str.replace(
@@ -93,10 +90,10 @@ export const nl2br = (str, isXhtml) => {
   );
 };
 
-export const removeAccents = str =>
+export const removeAccents = (str: string): string =>
   str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
-export const stripHTMLTag = html => {
+export const stripHTMLTag = (html: string) => {
   if (typeof document !== 'undefined') {
     const tmp = document.createElement('div');
     tmp.innerHTML = html;
@@ -105,10 +102,10 @@ export const stripHTMLTag = html => {
   return html;
 };
 
-export const escapeQuotes = str =>
+export const escapeQuotes = (str: string): string =>
   str.replace("'", "\\'").replace('"', '\\"');
 
-export const ellipsis = (string, maxChars) => {
+export const ellipsis = (string: string, maxChars: number): string => {
   if (!string || string.length <= maxChars) {
     return string;
   }
@@ -129,38 +126,22 @@ export const ellipsis = (string, maxChars) => {
   return ret.trim();
 };
 
-export const mapToObj = map =>
+export const mapToObj = (map: [string, unknown][])=>
   map.reduce((obj, [key, value]) => {
-    obj[key] = value;
+    obj[key] = value
     return obj;
-  }, {});
+  }, {} as Record<string, unknown>);
 
-export const trim = (text, target = ' ') =>
-  [trimStart, trimEnd].reduce((txt, fct) => fct(txt, target), text);
 
-export const trimStart = (text, target = ' ') => {
-  const chars = String(text || '').split('');
-
-  return chars[0] === target
-    ? chars.shift() && trimStart(chars.join(''), target)
-    : chars.join('');
-};
-
-export const trimEnd = (str, target = ' ') =>
-  String(str || '').replace(
-    new RegExp(`^(.*?)([${escapeStringRegexp(target)}]*)$`),
-    '$1'
-  );
-
-export const formatNbSpacing = number => {
-  if (!isNumber(number)) return number;
-  const [num, dec] = number.toString().split('.');
+export const formatNbSpacing = (nb: number) => {
+  if (!isNumber(nb)) return nb;
+  const [num, dec] = nb.toString().split('.');
   const numFormatted = num.replace(/(\d{1,2}?)((\d{3})+)$/, '$1 $2');
   return dec ? `${numFormatted}.${dec}` : numFormatted;
 };
 
 // TODO: Make it agnostic
-export const PhoneNumberPrefixLocationFRWithSpace = phone =>
+export const PhoneNumberPrefixLocationFRWithSpace = (phone?: string | null) =>
   phone
     ? `+33 (${phone.slice(0, 1)})${phone.slice(1, 2)} ${phone.slice(
         2,
@@ -185,16 +166,7 @@ export const wordToNumber = (word = '') =>
     TEN: 10,
   })[word];
 
-// todo: fix html tag error on double space
-export const sublimeCharactersHTML = (prefix = '', term) => {
-  let withTag = `${term}`;
-  uniq(prefix.trim().split(' ')).forEach(p => {
-    const matchedWords = term.match(new RegExp(`${p}`, 'gi'));
-    if (matchedWords)
-      withTag = withTag
-        .replace(new RegExp(`${p}`, 'gi'), `<em>${p.trim()}</em>`)
-        .replace('</em> <em>', ' ');
-  });
-
-  return withTag;
-};
+export const addLeadingDotToFileExtension = (fileExtension: string): string =>
+  fileExtension && fileExtension.startsWith('.')
+    ? fileExtension
+    : `.${fileExtension}`;

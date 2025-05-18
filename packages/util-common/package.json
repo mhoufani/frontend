@@ -1,27 +1,49 @@
 {
-  "name": "util-common",
+  "name": "@repo/util-common",
   "version": "0.0.0",
-  "private": true,
   "type": "module",
+  "private": true,
+  "scripts": {
+    "lint": "eslint . --max-warnings 0",
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --silent=false",
+    "test:watch": "node --experimental-vm-modules node_modules/jest/bin/jest.js --silent=false --watch"
+  },
   "exports": {
-    "./dom": "./dom/index.js",
-    "./utm": "./utm/index.js",
-    "./entity": "./entity/index.js",
-    "./storage": "./storage/index.js",
-    "./url": "./url/index.js",
-    "./date": "./date/index.js",
-    "./formatter": "./formatter/index.js",
-    "./formatter/phoneNumbers": "./formatter/phoneNumbers.js",
-    "./checker": "./checker/index.ts",
-    "./tracking": "./tracking/index.js",
-    "./text": "./text/index.js",
-    "./next": "./next/index.js",
-    "./pattern": "./pattern/index.js",
-    "./remark/plugins": "./remark/plugins/index.js",
-    "./logger": "./logger/index.js",
-    "./images": "./images/index.js",
-    "./next-routes": "./next-routes/index.js",
-    "./seo": "./seo/index.js"
+    "./logger": {
+      "types": "./src/logger/index.ts",
+      "default": "./dist/logger/index.js"
+    },
+    "./entity": {
+      "types": "./src/entity/index.ts",
+      "default": "./dist/entity/index.js"
+    },
+    "./checker": {
+      "types": "./src/checker/index.ts",
+      "default": "./dist/checker/index.js"
+    },
+    "./storage": {
+      "types": "./src/storage/index.ts",
+      "default": "./dist/storage/index.js"
+    },
+    "./url": {
+      "types": "./src/url/index.ts",
+      "default": "./dist/url/index.js"
+    },
+    "./dom": "./dist/dom/index.js",
+    "./utm": "./dist/utm/index.js",
+    "./date": "./dist/date/index.js",
+    "./formatter": "./dist/formatter/index.ts",
+    "./formatter/phoneNumbers": "./dist/formatter/phoneNumbers.js",
+    "./tracking": "./dist/tracking/index.js",
+    "./text": "./dist/text/index.js",
+    "./next": "./dist/next/index.js",
+    "./pattern": "./dist/pattern/index.js",
+    "./remark/plugins": "./dist/remark/plugins/index.js",
+    "./images": "./dist/images/index.js",
+    "./next-routes": "./dist/next-routes/index.js",
+    "./seo": "./dist/seo/index.js"
   },
   "dependencies": {
     "chalk": "^5.3.0",
@@ -39,9 +61,10 @@
     "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
-    "@jest/globals": "^29.7.0"
-  },
-  "peerDependencies": {
-    "@jest/globals": "^29.7.0"
+    "@jest/globals": "^29.7.0",
+    "@types/sha1": "^1.1.5",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
+    "typescript": "^5.6.2"
   }
 }

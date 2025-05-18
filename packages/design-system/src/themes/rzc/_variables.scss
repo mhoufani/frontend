@@ -1,0 +1,33 @@
+@use '../../base/variables/variables.scss';
+
+// variables RZC
+
+:root,
+::before,
+::after {
+  // Sizes
+  --h_button: 5.5rem;
+
+  // Radius
+  --b-radius_button-default: 1rem;
+  --b_radius_XS: 0.2rem;
+  --b-radius_S: 0.4rem;
+  --b-radius_M: 1rem;
+  --b-radius_L: 2.4rem;
+  --b-radius_XL: 4rem;
+
+  // Box-shadow
+  --b-shadow_normal: 0 0 2px 2px rgba(0, 0, 0, 0.1);
+  --b-shadow_strong: 4px 4px 15px 0px rgba(0, 0, 0, 0.1);
+  --b-shadow_layout-footer: 0 -0.3rem 1rem rgba(0, 0, 0, 0.1);
+
+  // z-index
+  --z-index_100: 100;
+  --z-index_200: 200;
+  --z-index_201: 201;
+  --z-index_202: 202;
+
+  // Paddings
+  --p_card-car: 1.2rem 1.2rem;
+  --p_card-info: 3.5rem 1.8rem 4rem 1.8rem;
+}

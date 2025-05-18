@@ -1,0 +1,67 @@
+{
+  "name": "@repo/react-ui",
+  "version": "0.0.0",
+  "private": true,
+  "exports": {
+    "./atoms/*": {
+      "types": "./src/atoms/*.ts",
+      "default": "./dist/atoms/*.js"
+    },
+    "./molecules": "./src/molecules/index.js",
+    "./molecules/*": "./src/molecules/*",
+    "./organisms": "./src/organisms/index.js",
+    "./organisms/*": "./src/organisms/*",
+    "./constants": "./src/constants/index.js"
+  },
+  "license": "MIT",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "npm run clean && webpack --mode=development",
+    "lint": "TIMING=1 eslint \"**/*.js*\"",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "dependencies": {
+    "@types/react": "^19.0.1",
+    "@types/react-dom": "^19.0.1",
+    "classnames": "^2.3.2",
+    "design-system": "workspace:@repo/design-system@*",
+    "escape-string-regexp": "^5.0.0",
+    "hooks": "*",
+    "prop-types": "^15.8.1",
+    "proptypes": "*",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-markdown": "^8.0.7",
+    "react-transition-group": "^4.4.5",
+    "rehype-raw": "^6.1.1",
+    "remark-gfm": "^4.0.0",
+    "svgs": "*",
+    "util-common": "workspace:@repo/util-common@*"
+  },
+  "devDependencies": {
+    "@chromatic-com/storybook": "^3.2.3",
+    "@etchteam/storybook-addon-css-variables-theme": "^3.0.0",
+    "@storybook/addon-essentials": "^8.4.7",
+    "@storybook/addon-interactions": "^8.4.7",
+    "@storybook/addon-onboarding": "^8.4.7",
+    "@storybook/addon-webpack5-compiler-swc": "^2.0.0",
+    "@storybook/blocks": "^8.4.7",
+    "@storybook/preset-scss": "^1.0.3",
+    "@storybook/react": "^8.4.7",
+    "@storybook/react-webpack5": "^8.4.7",
+    "@storybook/test": "^8.4.7",
+    "css-loader": "^7.1.2",
+    "mini-css-extract-plugin": "^2.9.2",
+    "sass": "^1.83.1",
+    "sass-loader": "^16.0.4",
+    "storybook": "^8.4.7",
+    "style-loader": "^4.0.0",
+    "ts-loader": "^9.5.1",
+    "tsconfig-paths-webpack-plugin": "^4.2.0",
+    "typescript": "^5.6.2",
+    "typescript-plugin-css-modules": "^5.1.0",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1"
+  }
+}

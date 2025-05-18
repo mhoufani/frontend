@@ -1,0 +1,66 @@
+// Variables Design System (default)
+
+:root,
+::before,
+::after {
+  --c_primary: #5d5d5d;
+  --c_primary-100: var(--c_grey-300);
+  --c_primary-hover: #1d1d1d;
+  --c_secondary: #acacac;
+  --c_secondary-hover: #828282;
+  --c_error: #dd3f3f;
+
+  --c_white: #ffffff;
+  --c_black: #000000;
+
+  --c_grey-150: #eaeaea;
+  --c_grey-200: #ebebeb;
+  --c_grey-250: #989898;
+  --c_grey-300: #dcdcdc;
+  --c_grey-350: #f4f5f6;
+  --c_grey-400: #bfbfbf;
+  --c_grey-450: #c4c4c4;
+  --c_grey-500: #a8a8a8;
+  --c_grey-550: #919191;
+  --c_grey-600: #747374;
+  --c_grey-900: #313131;
+
+  --c_success-400: #22af6b;
+
+  --c-blog-post-tag_orange: #f29400;
+  --c-blog-post-tag_blue: #11589a;
+  --c-blog-post-tag_green: #95c501;
+
+  --c_paging-arrow: var(--c_primary);
+  --c_border_page-header: var(--c_grey-300);
+  --c_border_dropdown: var(--c_grey-550);
+  --c_secondary_button: var(--c_secondary);
+  --c_secondary_button-text: var(--c_white);
+  --c_carlink: var(--c_primary);
+  --c_btn: var(--c_white);
+  --c_bg_tab: var(--c_primary);
+  --c_bg_tab-selected: var(--c_white);
+  --c_text_tab: var(--c_primary);
+  --c_border_tab: var(--c_primary);
+  --c_switch: var(--c_primary);
+  --c_text_switch: var(--c_grey-900);
+  --c_input: var(--c_grey-900);
+  --c_checkbox: var(--c_grey-900);
+  --c_radio: var(--c_grey-900);
+  --c_loader: var(--c_grey-900);
+  --c_dropdown-hover: rgba(241, 241, 250, 0.5);
+  --c_dropdown-item: var(--c_grey-900);
+  // la variable "checked" est commune aux composants switch, radio, input et checkbox
+  --c_checked: var(--c_primary);
+
+  --c_icon-default: var(--c_black);
+  --c_icon-primary: var(--c_black);
+  --c_icon-primary-2: var(--c_black);
+  --c_icon-secondary: var(--c_black);
+  --c_icon-secondary-2: var(--c_black);
+  --c_menuBurger: var(--c_grey-900);
+  --c_stepListDots: var(--c_grey-900);
+  --c_stepListDotsBackground: rgba(0, 0, 0, 0.07);
+  --c_accordion-icon: var(--c_secondary);
+  --c_dot-active: var(--c_primary);
+}

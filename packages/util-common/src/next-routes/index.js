@@ -1,6 +1,6 @@
 // Fichier temporaire
 // todo: Legacy replace this file by the future package router architecture
-import { parse } from '../url/index.js';
+import { parse } from '../url/index.ts';
 import React from 'react';
 import * as pathToRegexp from 'path-to-regexp';
 import NextLink from 'next/link';

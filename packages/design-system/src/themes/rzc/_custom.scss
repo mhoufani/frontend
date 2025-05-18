@@ -1,0 +1,159 @@
+html {
+  scroll-behavior: smooth;
+}
+
+html.behavior-auto {
+  scroll-behavior: auto !important;
+}
+
+html.overflow-hidden body {
+  overflow: hidden;
+}
+
+html.fixed body {
+  bottom: 0px;
+  left: 0px;
+  position: fixed;
+  right: 0px;
+  top: 0px;
+}
+
+.semi-bold {
+  font-weight: 600;
+}
+.bold {
+  font-weight: 700;
+}
+.underline,
+.underline:hover {
+  text-decoration: underline;
+}
+.whitespace-nowrap {
+  white-space: nowrap;
+}
+
+.orange {
+  color: #f29400;
+}
+
+/* CGU / CGV */
+.cgu-cgv h3 {
+  font-size: 22px;
+  margin: 15px 0 10px;
+}
+
+.cgu-cgv h4 {
+  font-size: 18px;
+  margin: 10px 0 5px;
+  line-height: initial;
+  height: auto;
+}
+
+.cgu-cgv h5 {
+  color: #666;
+  font-size: 16px;
+  margin: 8px 0 3px;
+  line-height: initial;
+  height: auto;
+}
+
+.scrollbar-measure {
+  width: 100px;
+  height: 100px;
+  overflow: scroll;
+  position: absolute;
+  top: -9999px;
+}
+
+/* Nprogress */
+
+#nprogress {
+  pointer-events: none;
+}
+
+#nprogress .bar {
+  background: #11589a;
+
+  position: fixed;
+  z-index: 1031;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 4px;
+}
+.carousel__back-button:disabled,
+.carousel__next-button:disabled {
+  visibility: hidden;
+}
+
+#nprogress .peg {
+  display: block;
+  position: absolute;
+  right: 0px;
+  width: 100px;
+  height: 100%;
+  box-shadow:
+    0 0 10px #11589a,
+    0 0 5px #11589a;
+  opacity: 1;
+
+  -webkit-transform: rotate(3deg) translate(0px, -4px);
+  -ms-transform: rotate(3deg) translate(0px, -4px);
+  transform: rotate(3deg) translate(0px, -4px);
+}
+
+.nprogress-custom-parent {
+  overflow: hidden;
+  position: relative;
+}
+
+.nprogress-custom-parent #nprogress .spinner,
+.nprogress-custom-parent #nprogress .bar {
+  position: absolute;
+}
+
+.slick-list {
+  overflow: hidden;
+}
+
+/* Animation */
+
+@keyframes ellipsis {
+  to {
+    width: 1.25em;
+  }
+}
+
+/* Crisp */
+@media (max-width: 1024px) {
+  #crisp-chatbox a.crisp-kquevr {
+    bottom: 83px !important;
+  }
+  #crisp-chatbox .crisp-ewasyx {
+    bottom: 83px !important;
+  }
+}
+
+@media (max-width: 560px) {
+  #crisp-chatbox a.crisp-kquevr {
+    bottom: 0px !important;
+  }
+  #crisp-chatbox .crisp-ewasyx {
+    bottom: 0px !important;
+  }
+}
+
+/*  */
+
+#personalDatas {
+  margin-top: -80px;
+  padding-top: 80px;
+}
+
+@media (min-width: 1025px) {
+  #personalDatas {
+    margin-top: -95px;
+    padding-top: 95px;
+  }
+}

@@ -1,14 +1,23 @@
 {
-  "name": "@mp/next-env-runtime",
+  "name": "@repo/next-env-runtime",
   "private": true,
   "version": "0.0.0",
   "description": "",
-  "main": "index.ts",
+  "exports":  {
+    "." : {
+      "types": "./src/index.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "main": "src/index.ts",
   "scripts": {
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/mhoufani/frontend.git"
+  "dependencies": {
+    "@repo/util-common": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.2"
   }
 }

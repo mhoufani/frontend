@@ -1,0 +1,71 @@
+// Variables Design System (RZC)
+
+:root,
+::before,
+::after {
+  --c_primary: #11589a;
+  --c_primary-100: #0e487d;
+  --c_secondary: #03a9f5;
+  --c_secondary-100: #1897d1;
+  --c_tertiary: #f29400;
+
+  --c_error: #dd3f3f;
+  --c_error-100: var(--c_error);
+
+  --c_blue-100: #0e487d;
+  --c_blue-200: #010035;
+  --c_blue-300: #001f3f;
+
+  --c_green: #29873d;
+
+  --c_red-100: #b60007;
+  --c_red-200: #dd3f3f;
+
+  --c_green-50: #d4efe1;
+  --c_green-100: #22af6b;
+
+  --c_grey-50: #fafafa;
+  --c_grey-70: #f1f1fa;
+  --c_grey-100: #f6f6f6;
+  --c_grey-150: #eaeaea;
+  --c_grey-470: #ebebeb;
+  --c_grey-480: #dddddd;
+  --c_grey-610: #999999;
+  --c_grey-700: #828282;
+  --c_grey-900: #555555;
+  --c_grey-950: #313131;
+  --c_grey-1000: #2a2a2a;
+
+  --c_paging-hover: var(--c_primary-100);
+  --c_paging-arrow-hover: var(--c_secondary);
+  --c_border_dropdown: var(--c_grey-550);
+  --c_secondary_button: var(--c_secondary);
+  --c_secondary_button-text: var(--c_white);
+  --c_carlink: var(--c_primary);
+  --c_btn: var(--c_white);
+  --c_bg_tab: var(--c_primary);
+  --c_bg_tab-selected: var(--c_white);
+  --c_text_tab: var(--c_primary);
+  --c_switch: var(--c_primary);
+  --c_input: var(--c_grey-550);
+  --c_checkbox: var(--c_grey-900);
+  --c_loader: var(--c_primary-100);
+  --c_dropdown-hover: rgba(17, 88, 154, 0.1);
+  // la variable "checked" est commune aux composants switch, radio, input et checkbox
+  --c_checked: var(--c_primary);
+  --c_title-primary: var(--c_primary);
+  --c_title-secondary: var(--c_secondary);
+
+  --c_icon-default: var(--c_text);
+  --c_icon-primary: var(--c_primary);
+  --c_icon-secondary: var(--c_secondary);
+  --c_icon-primary-2: var(--c_primary);
+  --c_icon-secondary-2: var(--c_secondary);
+  --c_dot: var(--c_primary);
+  --c_dot-active: var(--c_primary);
+  --c_stepListDots: var(--c_secondary);
+  --c_stepListDotsBackground: rgba(3, 169, 245, 0.1);
+  --c_inputSearch: var(--c_primary);
+  --c_inputSearch-placeholder: var(--c_grey-500);
+  --c_topCornerBannerBcg: rgba(49, 49, 49, 0.9);
+}

@@ -1,4 +1,4 @@
-import { Router } from '../Router';
+import { Router } from '../src/index.js';
 
 describe('Router', () => {
   it('should return pathIgnore valid', () => {

@@ -7,6 +7,12 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true
-  }
+  },
+  "references": [
+    { "path":  "./packages/react-ui" },
+    { "path":  "./packages/util-common" },
+    { "path":  "./packages/next-env-runtime" },
+    { "path": "./packages/router" }
+  ]
 }
 

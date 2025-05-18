@@ -1,0 +1,131 @@
+@use '../../utils/screen';
+
+// Variables :root desktop
+:root {
+  //font-family
+  --f-family: 'Source Sans Pro', sans-serif;
+
+  //font-size
+  --f-size_L: 1.6rem;
+  --f-size_M: 1.4rem;
+  --f-size_S: 1.2rem;
+  --f-size_SM: 1.2rem;
+  --f-size_I: 1.5rem;
+  --f-size_Label: 1.6rem;
+
+  --f-size_8: 0.8rem;
+  --f-size_10: 1rem;
+  --f-size_12: 1.2rem;
+  --f-size_14: 1.4rem;
+  --f-size_16: 1.6rem;
+  --f-size_18: 1.8rem;
+  --f-size_20: 2rem;
+  --f-size_22: 2.2rem;
+  --f-size_24: 2.4rem;
+  --f-size_26: 2.6rem;
+  --f-size_27: 2.7rem;
+  --f-size_28: 2.8rem;
+  --f-size_30: 3rem;
+  --f-size_32: 3.2rem;
+  --f-size_34: 3.4rem;
+  --f-size_35: 3.5rem;
+  --f-size_36: 3.6rem;
+  --f-size_38: 3.8rem;
+  --f-size_48: 4.8rem;
+  --f-size_50: 5rem;
+
+  // Variables Design-System Typography
+  //title
+  --f-size_h1: var(--f-size_28);
+  --f-size_h2: var(--f-size_26);
+  --f-size_h3: var(--f-size_24);
+  --f-size_h4: var(--f-size_22);
+  --f-size_h5: var(--f-size_20);
+  --f-size_h6: var(--f-size_18);
+  --f-size_h6-m: var(--f-size_h6);
+  --f-size_h6-s: var(--f-size_h6);
+
+  //paragraph
+  --f-size_p-xl: var(--f-size_18);
+  --f-size_p-l: var(--f-size_16);
+  --f-size_p-m: var(--f-size_14);
+  --f-size_p-s: var(--f-size_12);
+  --f-size_p-xs: var(--f-size_10);
+  --f-size_p-xxs: var(--f-size_8);
+
+  //font-weight
+  --f-weight_900: 900;
+  --f-weight_800: 800;
+  --f-weight_700: 700;
+  --f-weight_600: 600;
+  --f-weight_400: 400;
+  --f-weight_300: 300;
+  --f-weight_200: 200;
+
+  // variables font-weight
+  --f-weight_extraLight: var(--f-weight_200);
+  --f-weight_light: var(--f-weight_300);
+  --f-weight_normal: var(--f-weight_400);
+  --f-weight_semiBold: var(--f-weight_600);
+  --f-weight_bold: var(--f-weight_700);
+  --f-weight_extraBold: var(--f-weight_800);
+  --f-weight_black: var(--f-weight_900);
+}
+
+//Variables :root tablette
+@include screen.forSize(tablet) {
+  :root {
+    --f-size_H1: 3.6rem;
+    --f-size_H2: 3.4rem;
+    --f-size_H3: 2.8rem;
+    --f-size_H4: 2.4rem;
+    --f-size_L: 1.8rem;
+    --f-size_M: 1.6rem;
+    --f-size_S: 1.4rem;
+
+    // Variables Design-System Typography
+    //title
+    --f-size_h1: var(--f-size_34);
+    --f-size_h2: var(--f-size_32);
+    --f-size_h3: var(--f-size_30);
+    --f-size_h4: var(--f-size_28);
+    --f-size_h5: var(--f-size_26);
+    --f-size_h6: var(--f-size_24);
+    --f-size_h6-m: var(--f-size_22);
+    --f-size_h6-s: var(--f-size_20);
+
+    //paragraph
+    --f-size_p-xl: var(--f-size_18);
+    --f-size_p-l: var(--f-size_16);
+    --f-size_p-m: var(--f-size_14);
+    --f-size_p-s: var(--f-size_12);
+    --f-size_p-xs: var(--f-size_10);
+    --f-size_p-xxs: var(--f-size_8);
+  }
+}
+
+//Variables :root mobile
+@include screen.forSize(desktop) {
+  :root {
+    --f-size_S: 1.6rem;
+
+    // Variables Design-System Typography
+    //title
+    --f-size_h1: var(--f-size_36);
+    --f-size_h2: var(--f-size_34);
+    --f-size_h3: var(--f-size_32);
+    --f-size_h4: var(--f-size_30);
+    --f-size_h5: var(--f-size_28);
+    --f-size_h6: var(--f-size_26);
+    --f-size_h6-m: var(--f-size_24);
+    --f-size_h6-s: var(--f-size_22);
+
+    //paragraph
+    --f-size_p-xl: var(--f-size_20);
+    --f-size_p-l: var(--f-size_18);
+    --f-size_p-m: var(--f-size_16);
+    --f-size_p-s: var(--f-size_14);
+    --f-size_p-xs: var(--f-size_12);
+    --f-size_p-xxs: var(--f-size_10);
+  }
+}

@@ -7,8 +7,8 @@ export default {
     // '^.+\\.m?js$': 'babel-jest' // default on future
   },
   collectCoverage: true,
-  setupFiles: ['<rootDir>/setupTests.js'],
-  moduleFileExtensions: ['ts', 'js', 'jsx', 'json', 'node', 'mts', 'mjs'],
+  // setupFiles: ['<rootDir>/setupTests.js'],
+  moduleFileExtensions: ['ts', 'jsx', 'json', 'node', 'mts', 'mjs'],
   testPathIgnorePatterns: [
     '<rootDir>/.next/',
     '<rootDir>/node_modules/',
@@ -19,7 +19,6 @@ export default {
     {
       displayName: utilsPkg.name,
       testMatch: ['<rootDir>/packages/util-common/**/*.test.[mj|t]s?(x)'],
-      testEnvironment: 'jsdom',
     },
   ],
 }

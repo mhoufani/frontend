@@ -1,0 +1,90 @@
+// variables default
+
+@use '../../utils/screen';
+
+$spaceBase: 0.5rem;
+$spaces: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16;
+
+:root,
+::before,
+::after {
+  // Spaces
+  @each $space in $spaces {
+    --space-#{$space}: #{$space * $spaceBase};
+  }
+
+  // Sizes
+  --w_button: 25rem;
+  --w_card: 31.5rem;
+  --w_card-car: 30.5rem;
+  --w_card-info: 31.5rem;
+  --w_switch: 6.2rem;
+
+  --h_button: 5rem;
+  --h_card: 30.5rem;
+  --h_card-car: 35.5rem;
+  --h_card-info: 100%;
+  --h-cta-button: 5.5rem;
+  --h_input: 5rem;
+  --h_switch: 2.8rem;
+  --h_stickyMenu: 6.5rem;
+
+  --s_checkbox: 2.2rem;
+  --s_radio: 2.2rem;
+  --h-cta-button: 5.5rem;
+  --h-nav-cta-button: 4.5rem;
+  --step-icon-size: 1.4rem;
+  --list-gap: 2rem;
+
+  // Layout
+  --h_header: 6.4rem;
+  --h_header-search: 4.6rem;
+  --h_header-full: var(
+    --h_header
+  ); // Overload relative to layout classes
+  --h_header-full-dynamic: var(
+    --h_header
+  ); // Overload relative to layout classes (with headerHidden)
+  --m-top_header-dynamic: 0rem;
+
+  // Widths
+  --w_container: 144rem;
+
+  // Radius
+  --b-radius_normal: 1rem;
+  --b-radius_button-default: 0;
+  --b-radius_select: 0;
+  --b-radius_input: 1rem;
+  --b-radius_cta-button: 1rem;
+
+  // Margins
+  --m-bottom_section: var(--space-8);
+
+  // Paddings
+  --p_card-car: var(--space-2);
+  --p_card-info: 3.5rem 1.8rem 4rem 1.8rem;
+  --p_step-item: 0 0 0 4.2rem;
+  --p_section-container: var(--space-4);
+  --p-horizontal_container: var(--space-4);
+
+  // Shadows
+  --b-sdw_default: 0 0 2rem 0.2rem rgba(0, 0, 0, 0.1);
+  --b-sdw_card: 0.4rem 0.4rem 1.5rem rgba(0, 0, 0, 0.1);
+
+  @include screen.forSize(tablet) {
+    // Margins
+    --m-bottom_section: var(--space-12);
+
+    // Paddings
+    --p-horizontal_container: var(--space-8);
+  }
+
+  @include screen.forSize(desktop) {
+    // Layout
+    --h_header: 8rem;
+
+    // Paddings
+    --p_section-container: var(--space-6);
+    --p-horizontal_container: var(--space-10);
+  }
+}

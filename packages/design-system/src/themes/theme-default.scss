@@ -1,0 +1,34 @@
+@use '../utils/reset';
+@use '../design-system';
+@use '../utils/mixins';
+@use "../base/variables/colors";
+@use "../base/variables/fonts";
+@use "../base/variables/variables";
+
+@import '@fontsource/source-sans-pro/200.css';
+@import '@fontsource/source-sans-pro/300.css';
+@import '@fontsource/source-sans-pro/400.css';
+@import '@fontsource/source-sans-pro/600.css';
+@import '@fontsource/source-sans-pro/700.css';
+@import '@fontsource/source-sans-pro/900.css';
+
+@import '@fontsource/source-sans-pro/200-italic.css';
+@import '@fontsource/source-sans-pro/300-italic.css';
+@import '@fontsource/source-sans-pro/400-italic.css';
+@import '@fontsource/source-sans-pro/600-italic.css';
+@import '@fontsource/source-sans-pro/700-italic.css';
+
+
+body {
+  // @include mixins.font(var(--c_text), var(--f-size_M), var(--f-weight_400));
+  font-family: var(--f-family);
+}
+
+button,
+input {
+  font-family: var(--f-family);
+}
+
+span {
+  color: var(--c_text);
+}

@@ -7,7 +7,7 @@ import {
   UTM_ENUM,
 } from './config.js';
 
-import { Domain } from '../url/index.js';
+import { Domain } from '../url/index.ts';
 
 export const utmMapping = {
   [UTM_ENUM.MARKETING_MEDIUM]: utm =>

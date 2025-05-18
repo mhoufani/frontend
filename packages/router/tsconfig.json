@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "outDir": "./dist",
+    "target": "ESNext",
+    "allowJs": true,
+    "moduleResolution": "bundler",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "lib": ["dom", "ESNext"],
+    "paths": {
+      "@checker": ["checker/index"],
+      "@entity": ["entity/index"],
+      "@storage": ["storage/index"],
+      "@formatter": ["formatter/index"],
+      "@logger": ["logger/index"]
+    }
+  },
+  "include": ["**/*.js", "**/*.ts"],
+  "exclude": ["node_modules", "dist", "**/*.test.ts"]
+}

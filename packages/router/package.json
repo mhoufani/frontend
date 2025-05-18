@@ -1,19 +1,28 @@
 {
-  "name": "router",
-  "version": "1.0.0",
+  "name": "@mp/router",
+  "version": "0.0.0",
   "description": "This package provide a simple router for your web application",
-  "main": "index.js",
+  "private": true,
   "type": "module",
+  "exports": {
+    ".": {
+      "types": "./src/index.js",
+      "default": "./dist/index.ts"
+    }
+  },
   "scripts": {
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "path-to-regexp": "^6.2.2",
-    "utils": "*"
+    "@repo/util-common": "workspace:*",
+    "path-to-regexp": "^6.2.2"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/reezogit/front.git"
   },
-  "private": true
+  "devDependencies": {
+    "@jest/globals": "^29.7.0"
+  }
 }
