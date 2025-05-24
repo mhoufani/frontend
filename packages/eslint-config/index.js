@@ -1,13 +1,51 @@
-export default {
-  extends: [
-    'turbo',
-    'eslint:recommended',
-    'plugin:react/recommended',
-    // 'plugin:jest-dom/recommended',
-    // 'plugin:jest/recommended',
-    'plugin:security-node/recommended'
-  ],
-  plugins: ['unused-imports', 'security-node'],
+import eslint from '@eslint/js';
+import tseslint from 'typescript-eslint';
+import unusedImports from "eslint-plugin-unused-imports";
+import reactPlugin from 'eslint-plugin-react';
+import jestDomPlugin from "eslint-plugin-jest-dom"
+import turboPlugin from "eslint-plugin-turbo";
+
+export default tseslint.config(
+  eslint.configs.recommended,
+  tseslint.configs.recommended,
+  reactPlugin.configs.flat.recommended, // This is not a plugin object, but a shareable config object
+  reactPlugin.configs.flat['jsx-runtime'],
+  jestDomPlugin.configs['flat/recommended'],
+  turboPlugin.configs['flat/recommended'],
+  {
+    plugins: {
+      'unused-imports': unusedImports,
+    },
+    rules: {
+      'no-unused-vars': 'off', // or "@typescript-eslint/no-unused-vars": "off",
+      'unused-imports/no-unused-imports': 'error',
+      'unused-imports/no-unused-vars': [
+        'warn',
+        {
+          vars: 'all',
+          varsIgnorePattern: '^_',
+          args: 'after-used',
+          argsIgnorePattern: '^_',
+        },
+      ],
+    },
+  },
+);
+
+// export default defineConfig([
+//   {
+//     extends: [
+//       js.configs.recommended,
+//       'turbo',
+//       'plugin:react/recommended',
+//       // 'plugin:jest-dom/recommended',
+//       // 'plugin:jest/recommended',
+//       'plugin:security-node/recommended',
+//     ],
+//     plugins: ['unused-imports', 'security-node'],
+//
+//   },
+// ]);
   // env: {
   //   browser: true,
   //   node: true,
@@ -146,4 +184,4 @@ export default {
   //     },
   //   ],
   // },
-};
+// };

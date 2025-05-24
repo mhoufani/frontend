@@ -1,5 +1,5 @@
 import { toQuerystring } from '@repo/util-common/url';
-import { Maybe } from '@repo/util-common/entity';
+import { Maybe } from '@repo/util-common/entities';
 import PathResolver from '../PathResolver/index.js';
 
 export interface IPageResolver {

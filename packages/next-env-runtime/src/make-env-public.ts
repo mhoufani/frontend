@@ -1,5 +1,5 @@
 import { isString, isUndefined } from '@repo/util-common/checker';
-import { If } from '@repo/util-common/entity';
+import { If } from '@repo/util-common/entities';
 import log from './log';
 
 function prefixKey(key: string, prefix = '') {

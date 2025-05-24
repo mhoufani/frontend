@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { Try } from '@repo/util-common/entity';
+import { isString } from '@repo/util-common/checker';
+import { Try } from '@repo/util-common/entities';
 import log from './log';
 
 /**

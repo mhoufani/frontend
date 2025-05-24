@@ -1,5 +1,5 @@
 import { describe, expect, it, jest, beforeEach } from '@jest/globals';
-import { LocalStorage, SessionStorage } from '@storage';
+import { LocalStorage, SessionStorage } from '..';
 
 jest.fn(() => null)
 

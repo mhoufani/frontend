@@ -1,5 +1,5 @@
-import { Try } from '@entity';
-import { isBrowser } from '@checker';
+import { Try } from '../entities';
+import { isBrowser } from '../checker';
 
 export interface ILocalStorage {
   isAvailable: () => boolean,

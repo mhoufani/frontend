@@ -1,14 +1,52 @@
 {
-  "name": "react-tw",
+  "name": "@mp/react-tw",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "atoms design",
+  "type": "module",
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "scripts": {
+    "dev": "storybook dev -p 6006",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/mhoufani/frontend.git"
   },
-  "private": true
+  "private": true,
+  "dependencies": {
+    "@heroicons/react": "^2.2.0",
+    "clsx": "^2.1.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@mdx-js/loader": "^3.1.0",
+    "@mp/eslint-config": "workspace:*",
+    "@storybook/addon-docs": "^8.6.14",
+    "@storybook/addon-essentials": "^8.6.14",
+    "@storybook/addon-links": "^8.6.14",
+    "@storybook/addon-styling-webpack": "^1.0.1",
+    "@storybook/addon-webpack5-compiler-swc": "^2.1.0",
+    "@storybook/react": "^8.6.14",
+    "@storybook/react-webpack5": "^8.6.14",
+    "@tailwindcss/postcss": "^4.1.7",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^20.11.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@types/webpack": "^5.28.5",
+    "css-loader": "^7.1.2",
+    "jest": "^29.7.0",
+    "postcss": "^8.5.3",
+    "postcss-loader": "^8.1.1",
+    "storybook": "^8.6.14",
+    "style-loader": "^4.0.0",
+    "tailwindcss": "^4.1.7",
+    "typescript": "^5.8.3"
+  }
 }

@@ -15,9 +15,9 @@
       "types": "./src/logger/index.ts",
       "default": "./dist/logger/index.js"
     },
-    "./entity": {
-      "types": "./src/entity/index.ts",
-      "default": "./dist/entity/index.js"
+    "./entities": {
+      "types": "./src/entities/index.ts",
+      "default": "./dist/entities/index.js"
     },
     "./checker": {
       "types": "./src/checker/index.ts",
@@ -55,6 +55,7 @@
     "next": "13.4.6",
     "path-to-regexp": "^6.2.1",
     "react": "^18.3.1",
+    "react-dom": "18",
     "rehype-sanitize": "^6.0.0",
     "remark-directive": "^3.0.0",
     "sha1": "^1.1.1",

@@ -1,7 +1,7 @@
 import { parse } from 'node:url';
 import { isArray } from '@repo/util-common/checker';
-import { Maybe, Try } from '@repo/util-common/entity';
-import { PageResolver } from './PageResolver';
+import { PathResolver, PageResolver } from './index';
+import { Maybe, Try } from '@repo/util-common/entities';
 import { RequestHandler } from './RequestHandler';
 import { I18nResolver } from './I18nResolver';
 
