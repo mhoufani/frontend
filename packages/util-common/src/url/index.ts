@@ -3,80 +3,24 @@
 // import omit from 'lodash/omit.js';
 // import omitBy from 'lodash/omitBy.js';
 // import pick from 'lodash/pick.js';
-import { If, Maybe, Obj } from '@entity'
+import { If, Maybe, Obj } from '../entities'
 
-const _Domain = (x: string) => ({
-  map: (f: (a: string) => string) => _Domain(f(x)),
-  removeTld: () => _Domain(x.replace(`.${_Domain(x).getTld()}`, '')),
-  removeSLD: () => _Domain(x.replace('www.', '')),
-  getSld: () => (x.match(/www/g) || [])[0] || '',
-  getTld: () => (x.split('.').length > 1 ? x.split('.').pop() : ''),
-  parse: () => ({
-    sld: _Domain(x).getSld(),
-    tld: _Domain(x).getTld(),
-    name: _Domain(x).removeTld().removeSLD().emit(),
-    nameWithTld: _Domain(x).removeSLD().emit(),
-    hostname: x,
-  }),
-  chain: (f: (a: string) => unknown) => f(x),
-  emit: () => x,
-})
+export * from './domain';
+export * from './url';
+export * from './utils';
 
-export const Domain = (url: string) => {
-  return _Domain(
-    url.match('^(http|https)://') ? new URL(url).hostname : url,
-  )
-}
-
+/**
+ * Adds a trailing slash to a path if it doesn't have one
+ */
 export const addTrailingSlashToPath = (path: string): string =>
   path && path.endsWith('/') ? path : `${path}/`
 
+/**
+ * Removes a trailing slash from a path if it has one
+ */
 export const removeTrailingSlashFromPath = (path: string): string =>
   path && path.endsWith('/') ? path.slice(0, -1) : path
 
-export const Url = (x: string) => ({
-  map: (f: (a: string) => string) => Url(f(x)),
-  filterQuery: () => Url(x.split('?')[0]),
-  filterQueryParameters: (filteredParameters: string | string[]) =>
-    Url(
-      If(Url(x).toQueryParameters())
-        .map((queryParameters) =>
-          Obj(queryParameters as Record<string, string | string[]>)
-            .removeProperty(filteredParameters)
-            .toArray(([k, v]) => `${k}=${v}`)
-            .join('&'),
-        )
-        .fork(
-          () => x,
-          (queryParameters) =>
-            `${Url(x).getPath()}${
-              queryParameters ? `?${queryParameters}` : ''
-            }`,
-        ) as string,
-    ),
-  hasQuery: () => x.includes('?'),
-  toQueryParameters: () =>
-    Maybe(Url(x).getQuery())
-      .map(
-        (x) =>
-          (x as string)
-            .split('&')
-            .reduce((o: Record<string, unknown>, c) => {
-              const [k, v] = c.split('=')
-              o[k] = v
-              return o
-            }, {}) as Record<string, string | string[]>,
-      )
-      .fork(
-        () => null,
-        (x) => x as Record<string, string | string[]>,
-      ),
-  isAbsolute: () => x.startsWith('http'),
-  getPath: () => x.split('?')[0],
-  getQuery: () => x.split('?')[1],
-  chain: (f: <T>(a: string) => T) => f(x),
-  emit: () => x,
-})
 
 // todo: refacto circular dependencies with next-routes
 // export const makeUrl =
