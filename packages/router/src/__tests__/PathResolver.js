@@ -1,32 +1,35 @@
 import { describe, it, expect } from "@jest/globals";
-import PathResolver from '../PathResolver';
+import { PathResolver } from '../PathResolver';
 
 describe('PathResolve', () => {
+
   it('should return a path rule', () => {
-    const pathResolve = PathResolver.of({
-      pattern: ['/:test/voiture'],
+    const pathResolve = PathResolver({
+      pattern: ['/:test/slug'],
       suffix: ['.html'],
     });
 
-    expect(pathResolve.toParams('/occasion/voiture.html')).toEqual({
-      test: 'occasion',
+    expect(pathResolve.toParams('/mytest/slug.html')).toEqual({
+      test: 'mytest',
     });
   });
+
   it('should return path from params', () => {
-    const pathResolve = PathResolver.of({
-      pattern: ['/:test/voiture'],
+    const pathResolve = PathResolver({
+      pattern: ['/:test/slug'],
       suffix: ['.html'],
     });
 
-    expect(pathResolve.toPath({ test: 'occasion' })).toEqual(
-      '/occasion/voiture.html'
+    expect(pathResolve.toPath({ test: 'myparam' })).toEqual(
+      '/myparam/slug.html'
     );
   });
+
   it('should not match', () => {
-    const pathResolve = PathResolver.of({
-      pattern: ['/:carState/voiture'],
+    const pathResolve = PathResolver({
+      pattern: ['/:myparam/slug'],
       suffix: ['.html'],
     });
-    expect(pathResolve.toPath({ car: 'occasion' })).toBeNull();
+    expect(pathResolve.toPath({ car: 'test' })).toBeNull();
   });
 });

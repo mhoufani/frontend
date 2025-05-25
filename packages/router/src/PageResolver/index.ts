@@ -1,18 +1,20 @@
 import { toQuerystring } from '@repo/util-common/url';
 import { Maybe } from '@repo/util-common/entities';
-import PathResolver from '../PathResolver/index.js';
+import { PathResolver } from '../PathResolver';
 
 export interface IPageResolver {
   _localMatchIi18n: string[];
-  _localRules: string[];
-  _resolvers:  object;
+  _localRules: Record<string, any[]>;
+  _resolvers: Record<string, any>;
   set: (a: string, b: string ) => this;
 }
 
 export class PageResolver implements IPageResolver {
   _name: string;
   _page: string;
-  _resolvers: object;
+  _resolvers: Record<string, any>;
+  _localMatchIi18n: string[];
+  _localRules: Record<string, any[]>;
 
   constructor(
     { name, page, match: rules }: { name: string; page: string ; match: unknown},
@@ -30,7 +32,7 @@ export class PageResolver implements IPageResolver {
     this._localMatchIi18n = authorizedPathOnDefaultLocale;
     this._localRules = Object.entries(rules).reduce(
       (rules, [locale, { pathRules, resolvers }]) => {
-        rules[locale] = pathRules.map(PathResolver.of);
+        rules[locale] = pathRules.map(PathResolver);
         resolvers && this.addLocalResolver(locale, resolvers);
         return rules;
       },

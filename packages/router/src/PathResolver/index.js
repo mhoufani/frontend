@@ -2,7 +2,18 @@ import { compile, pathToRegexp } from 'path-to-regexp';
 import { Maybe, Try } from 'utils/entity';
 import { arrayDiff } from 'utils/checkers';
 
-// Entity Monad
+/**
+ * Creates a path resolver object with URL pattern matching and parameter handling capabilities
+ * @param {Object} x - Configuration object
+ * @param {boolean} [x.trailingSlash=false] - Whether to match trailing slashes in URLs
+ * @returns {Object} Path resolver object with methods for URL matching and parameter handling
+ * @property {Array} _keys - Array of path parameter key objects
+ * @property {Array} _keyNames - Array of path parameter names
+ * @property {RegExp} _regex - Regular expression for matching URLs
+ * @property {Function} _compile - Function to compile parameters into a URL
+ * @property {boolean} _trailingSlash - Whether trailing slashes are matched
+ */
+
 const _PathResolver = x => ({
   _keys: [],
   _keyNames: [],
@@ -60,8 +71,7 @@ const _PathResolver = x => ({
   },
 });
 
-export default {
-  of: x =>
+export const PathResolver = x =>
     _PathResolver(x)
       .set('regex', pathRule =>
         pathToRegexp(x.pattern + x.suffix, pathRule._keys)
@@ -71,5 +81,4 @@ export default {
           encode: encodeURIComponent,
         })
       )
-      .set('keyNames', pathRule => pathRule._keys.map(x => x.name)),
-};
+      .set('keyNames', pathRule => pathRule._keys.map(x => x.name))

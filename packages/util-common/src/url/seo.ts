@@ -1,9 +1,73 @@
-import trimEnd from 'lodash/trimEnd.js';
-import trimStart from 'lodash/trimStart.js';
-import { makeUrl } from 'util-common/url';
-import { Maybe } from 'util-common/entity';
+import { Maybe } from '../entities';
+import { makeUrl } from './makeUrl';
 
-// todo: refactor
+interface CanonicalOptions {
+  hostname?: string;
+  query?: Record<string, unknown>;
+  route: string;
+  languages: string[];
+  pathSuffix?: string;
+  routing: Record<string, unknown>;
+  withQS?: boolean;
+}
+
+interface HrefLangOptions {
+  languages: string[];
+  pathSuffix?: string;
+  routing: Record<string, unknown>;
+}
+
+interface HrefLangParams {
+  currentTld: string;
+  defaultLang: string;
+  hostname: string;
+  lang: string;
+  protocol?: string;
+  query: Record<string, unknown>;
+  route: string;
+  tld: string;
+  withQS?: boolean;
+}
+
+interface DomainLangConfig {
+  defaultLang: string;
+  hrefLangTld?: string;
+  hrefLangTldExcl?: string[];
+  langs: string[];
+}
+
+interface HrefLangObject {
+  rel: 'alternate';
+  hrefLang: string;
+  href: string;
+}
+
+interface HrefLangObjectsOptions {
+  hostname: string;
+  protocol?: string;
+  query: Record<string, unknown>;
+  route: string;
+  domainLang: Record<string, DomainLangConfig>;
+  pathSuffix?: string;
+  routing: Record<string, unknown>;
+  tld: string;
+  languages: string[];
+  withQS?: boolean;
+}
+
+interface UrlInfo {
+  protocol: string;
+  hostname: string;
+  tld: string;
+}
+
+interface HrefLangFromCanonicalOptions {
+  relativeUrlCanonical: string;
+  url: UrlInfo;
+  domainLang?: Record<string, DomainLangConfig>;
+}
+
+
 export const makeCanonical = ({
   hostname,
   query = {},
@@ -12,9 +76,9 @@ export const makeCanonical = ({
   pathSuffix,
   routing,
   withQS = false,
-}) => {
-  const routeName = trimStart(route, '/');
-  const path = makeUrl({ pathSuffix, routing, languages })(
+}: CanonicalOptions): string => {
+  const routeName = route.replace(/^\/+/, '');
+  const path = makeUrl({ pathSuffix: pathSuffix || '', routing, languages })(
     routeName,
     query,
     { withQS }
@@ -23,7 +87,7 @@ export const makeCanonical = ({
 };
 
 export const makeHrefLang =
-  ({ languages, pathSuffix, routing }) =>
+  ({ languages, pathSuffix, routing }: HrefLangOptions) =>
   ({
     currentTld,
     defaultLang,
@@ -34,12 +98,12 @@ export const makeHrefLang =
     route,
     tld,
     withQS = true,
-  }) => {
+  }: HrefLangParams): string => {
     const host = tld
-      ? `${trimEnd(hostname, `.${currentTld}`)}.${tld}`
+      ? `${hostname.replace(new RegExp(`\\.${currentTld}$`), '')}.${tld}`
       : hostname;
     const hrefLang = lang === defaultLang ? null : lang;
-    const path = makeUrl({ languages, pathSuffix, routing })(
+    const path = makeUrl({ languages, pathSuffix: pathSuffix || '', routing })(
       route,
       { ...query, lang: hrefLang },
       { withQS }
@@ -50,11 +114,9 @@ export const makeHrefLang =
 
 /**
  * This function is used to make hreflang tags for a given canonical url.
- * @param relativeUrlCanonical from seo service
- * @param url from hoc withUrl
- * @returns {*}
+ * @param options Configuration options for generating hreflang objects
+ * @returns Array of hreflang objects with rel, hrefLang, and href properties
  */
-
 export const makeHrefLangObjects = ({
   hostname,
   protocol,
@@ -66,7 +128,7 @@ export const makeHrefLangObjects = ({
   tld: currentTld,
   languages,
   withQS = true,
-}) => {
+}: HrefLangObjectsOptions): HrefLangObject[] => {
   return Object.keys(domainLang)
     .filter(tld => tld === 'com')
     .map(tld => {
@@ -104,31 +166,30 @@ export const makeHrefLangObjects = ({
           withQS,
         });
 
-        return { rel: 'alternate', hrefLang, href };
+        return { rel: 'alternate' as const, hrefLang, href };
       });
     })
-    .reduce((a, b) => [...a, ...b]);
+    .reduce<HrefLangObject[]>((a, b) => [...a, ...b], []);
 };
 
-// todo: move on util-common package
 export const makeHrefLangFromCanonicalRel = ({
   relativeUrlCanonical,
   url,
   domainLang = {},
-}) => {
+}: HrefLangFromCanonicalOptions): HrefLangObject[] => {
   return Maybe(domainLang[url?.tld])
-    .map(({ defaultLang, langs }) =>
-      langs.map(lang => {
+    .map(({ defaultLang, langs }: DomainLangConfig) =>
+      langs.map((lang: string) => {
         const hrefLang = defaultLang === lang ? 'x-default' : lang;
         const href = `${url.protocol}://${url.hostname}${
           lang === defaultLang ? '' : `/${lang}`
         }${relativeUrlCanonical}`;
-        return { rel: 'alternate', hrefLang, href };
+        return { rel: 'alternate' as const, hrefLang, href };
       })
     )
     .fork(
       () => [],
-      domaineHrefLangs => {
+      (domaineHrefLangs: HrefLangObject[]) => {
         const xDefault = domaineHrefLangs.find(
           ({ hrefLang }) => hrefLang === 'x-default'
         );
@@ -138,4 +199,4 @@ export const makeHrefLangFromCanonicalRel = ({
         return domaineHrefLangs;
       }
     );
-};
+}; 

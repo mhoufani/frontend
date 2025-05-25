@@ -1,9 +1,16 @@
 import { parse } from 'node:url';
 import { isArray } from '@repo/util-common/checker';
-import { PathResolver, PageResolver } from './index';
+// import { PathResolver } from './PathResolver';
+import { PageResolver } from './PageResolver';
 import { Maybe, Try } from '@repo/util-common/entities';
 import { RequestHandler } from './RequestHandler';
 import { I18nResolver } from './I18nResolver';
+
+export interface MatchParams {
+  locale: string;
+  pathnameWithoutLocal: string;
+  query: Record<string, unknown>;
+}
 
 export interface IRouter{
   _i18n: {
@@ -18,15 +25,47 @@ export interface IRouter{
   parseUrl(): Record<string, unknown>;
   handle(match: Function, thru: Function): Function
 }
+/**
+ * Router interface for handling URL routing and internationalization
+ * @interface IRouter
+ * @property {Object} _i18n - Internationalization configuration
+ * @property {string} _i18n.defaultLocale - Default locale for the router
+ * @property {string[]} _i18n.authorizedOnDefaultLocale - List of paths authorized to use default locale
+ * @property {PageResolver[]} _pages - Array of page resolver instances
+ * @property {function} pathThru - Checks if a path should be passed through without processing
+ * @property {function} use - Adds a middleware handler function
+ * @property {function} getUrlFromParams - Generates URL from name, params, locale and translations
+ * @property {function} match - Matches URL against defined routes
+ * @property {function} parseUrl - Parses current URL into components
+ * @property {function} handle - Creates request/response handler function
+ */
 
 export class Router implements IRouter {
-   constructor({
+  private _i18n: {
+    defaultLocale: string;
+    authorizedOnDefaultLocale: string[];
+    locales?: string[];
+  };
+  private _pages: PageResolver[];
+  private _pathIgnore: string[];
+  private _requestHandler: RequestHandler;
+
+  constructor({
     rules = [],
     i18n = {
-      defaultLocale: null,
-      authorizedOnDefaultLocale: null,
+      defaultLocale: '',
+      authorizedOnDefaultLocale: [],
+      locales: []
     },
     pathIgnore = [],
+  }: {
+    rules?: any[];
+    i18n?: {
+      defaultLocale: string;
+      authorizedOnDefaultLocale: string[];
+      locales?: string[];
+    };
+    pathIgnore?: string[];
   } = {}) {
     // refactor
     if (!i18n.defaultLocale) {
@@ -66,6 +105,14 @@ export class Router implements IRouter {
     return this;
   }
 
+/**
+ * Generates a URL from parameters
+ * @param name - The name of the page
+ * @param params - The parameters for the page
+ * @param locale - The locale of the page
+ * @param translate - The translations for the page
+ * @returns The generated URL
+ */
   getUrlFromParams(name: string, params: object, locale: string, translate: object) {
     //todo: translate only on default lang if option is passed
     return Maybe(this._pages.find(x => x.hasName(name)))
@@ -92,7 +139,7 @@ export class Router implements IRouter {
       );
   }
 
-  match({ locale, pathnameWithoutLocal, query }, next = 0) {
+  match({ locale, pathnameWithoutLocal, query }: MatchParams, next = 0) {
     return (
       this._pages[next].resolve(
         locale,
@@ -108,17 +155,22 @@ export class Router implements IRouter {
     );
   }
 
-  parseUrl(request) {
+  /**
+   * Parses the URL of a request
+   * @param request - The request object
+   * @returns The parsed URL components
+   */
+  parseUrl(request: Request) {
     I18nResolver.of(this._i18n).parseUrl(request);
     const { pathname, ...args } = parse(request.url, true);
-    const [, pathLocale] = pathname.split('/');
+    const [, pathLocale] = pathname?.split('/') || [];
     const locale = (this._i18n.locales || []).find(
       l => l === pathLocale
     );
     return {
       locale: locale || this._i18n.defaultLocale,
       pathnameWithoutLocal: locale
-        ? pathname.replace(`/${locale}`, '')
+        ? pathname?.replace(`/${locale}`, '')
         : pathname,
       pathname,
       baseUrl: request.protocol + '://' + request.headers.host + '/',

@@ -1,5 +1,11 @@
 import { IEntity } from "./types";
 
+const pick = (obj: Record<string, any>, keys: string[]) => {
+  return Object.fromEntries(
+    Object.entries(obj).filter(([key]) => keys.includes(key))
+  );
+};
+
 export interface ObjEntity<T extends Record<string, unknown>> extends IEntity<T, ObjEntity<T>> {
   removeNull: () => ObjEntity<T>;
   removeProperty: (keys: string | string[]) => ObjEntity<T>;
@@ -9,6 +15,7 @@ export interface ObjEntity<T extends Record<string, unknown>> extends IEntity<T,
   removePropertyFromValue: (value: unknown) => ObjEntity<T>;
   toArray: <R>(transform: (entry: [string, unknown]) => R) => R[];
   hasValue: <V>(value: V) => boolean;
+  pick: (keys: string[]) => ObjEntity<T>;
 }
 
 export const Obj = <T extends Record<string, unknown>>(obj: T): ObjEntity<T> => ({
@@ -56,4 +63,5 @@ export const Obj = <T extends Record<string, unknown>>(obj: T): ObjEntity<T> => 
   },
   toArray: transform => Object.entries(obj).map(transform),
   hasValue: value => Object.values(obj).includes(value),
+  pick: keys => Obj(pick(obj, keys) as T),
 });

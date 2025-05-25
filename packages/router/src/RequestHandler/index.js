@@ -1,5 +1,11 @@
 import { Maybe, Right } from 'utils/entity';
 import { Handler } from './Handler';
+
+/**
+ * RequestHandler class for handling HTTP requests
+ * @class RequestHandler
+ * @param {Array} handlers - Array of handler functions
+ */
 export class RequestHandler {
   constructor(handlers = []) {
     this._handlers = handlers;
