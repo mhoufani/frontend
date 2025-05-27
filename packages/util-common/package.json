@@ -1,5 +1,5 @@
 {
-  "name": "@repo/util-common",
+  "name": "@mp/util-common",
   "version": "0.0.0",
   "type": "module",
   "private": true,

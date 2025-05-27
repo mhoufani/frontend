@@ -37,7 +37,7 @@
     "rehype-raw": "^6.1.1",
     "remark-gfm": "^4.0.0",
     "svgs": "*",
-    "util-common": "workspace:@repo/util-common@*"
+    "@mp/util-common": "workspace:*"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.3",

@@ -1,3 +1,4 @@
+// TODO: Legacy file - will be replaced by router package
 import pathToRegexp from "path-to-regexp"
 import { Obj } from "../entities/Obj"
 /**

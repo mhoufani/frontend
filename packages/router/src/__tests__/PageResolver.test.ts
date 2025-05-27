@@ -1,61 +1,67 @@
 import { describe, it, expect } from "@jest/globals";
-import PageResolver from '../PageResolver/index.js';
+import { PageResolver } from '../PageResolver';
 
 describe('PageResolver', () => {
   it('should return a page route', () => {
     const pageRoute = new PageResolver({
-      name: 'voiture',
-      page: 'voiture',
+      name: 'product',
+      page: 'product',
       match: {
         fr: {
           pathRules: [
             {
-              pattern: ['/:carState/voiture'],
+              pattern: ['/product/:productId'],
               suffix: ['.html'],
             },
           ],
-          resolvers: {
-            carState: {
-              occasion: 'USED',
-            },
-          },
         },
       },
     });
 
     expect(
-      pageRoute.resolve('/occasion/voiture.html', 'fr', {
-        financingType: ['loa', 'lld'],
+      pageRoute.resolve('fr', '/product/123.html', {
+        productId: '123',
       })
     ).toEqual({
-      name: 'voiture',
-      page: 'voiture',
+      name: 'product',
+      page: 'product',
       params: {
-        carState: 'USED',
+        productId: '123',
       },
       queryParams: {
-        financingType: ['loa', 'lld'],
+        productId: '123',
       },
     });
 
     expect(
-      pageRoute.resolve('/occasion/voiture.html', 'en')
+      pageRoute.resolve('en', '/product/123.html')
     ).toBeNull();
+
+    expect(
+      pageRoute.resolve('fr', '/product/123.html')
+    ).toEqual({
+      name: 'product',
+      page: 'product',
+      params: {
+        productId: '123',
+      },
+      queryParams: {},
+    });
   });
 
   it('should return a page route with same queryParams and path variable', () => {
     const pageRoute = new PageResolver({
-      name: 'voiture',
-      page: 'voiture',
+      name: 'profile',
+      page: 'profile',
       match: {
         fr: {
           pathRules: [
             {
-              pattern: ['/:financingType(leasing)/voiture'],
+              pattern: ['/:profileId/profile'],
               suffix: ['.html'],
               matchByDefault: {
                 pathParams: {
-                  carState: 'occasion',
+                  profileId: '123',
                 },
                 queryParams: {},
               },
@@ -66,18 +72,14 @@ describe('PageResolver', () => {
     });
 
     expect(
-      pageRoute.resolve('/leasing/voiture.html', 'fr', {
-        financingType: 'credit',
-      })
+      pageRoute.resolve('fr', '/123/profile.html')
     ).toEqual({
-      name: 'voiture',
-      page: 'voiture',
+      name: 'profile',
+      page: 'profile',
       params: {
-        financingType: 'leasing',
+        profileId: '123',
       },
-      queryParams: {
-        financingType: 'credit',
-      },
+      queryParams: {},
     });
   });
 });

@@ -1,5 +1,3 @@
-import { isEmpty } from '@checker'
-
 export interface IMonad<T> {
   map: <U>(f: (x: T) => U) => IMonad<U>;
   chain: <U>(f: (x: T) => IMaybe<U>) => IMaybe<U>;

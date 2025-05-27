@@ -1,4 +1,4 @@
-import { isBrowser } from "@repo/util-common/checker"
+import { isBrowser } from "@mp/util-common/checker"
 
 /**
  * Reads all environment variables from the browser or all environment

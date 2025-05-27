@@ -1,4 +1,5 @@
-import { Router } from '../src/index.js';
+import { describe, it, expect } from "@jest/globals";
+import { Router } from '../Router';
 
 describe('Router', () => {
   it('should return pathIgnore valid', () => {
@@ -6,6 +7,7 @@ describe('Router', () => {
       i18n: {
         defaultLocale: 'fr',
         locales: ['fr', 'en'],
+        authorizedOnDefaultLocale: ['en'],
       },
       pathIgnore: ['/_next', '/public', '/favicon'],
       rules: [],
@@ -23,21 +25,23 @@ describe('Router', () => {
       i18n: {
         defaultLocale: 'fr',
         locales: ['fr', 'en'],
+        authorizedOnDefaultLocale: ['en'],
       },
       pathIgnore: [],
       rules: [
         {
-                name: 'home',
-      page: '/home',
-      match: {
-        fr: {
-          pathRules: [
-            {
-              pattern: ['/']
+          name: 'home',
+          page: '/home',
+          match: {
+            fr: {
+              pathRules: [
+                {
+                  pattern: ['/']
+                }
+              ]
             }
-          ]
-        },
-        },
+          }
+        }
       ],
     });
 
